@@ -12,7 +12,7 @@ import {
   getRecentPosts,
 } from "../../lib/blogging";
 import { childrenAnimation } from "../../lib/motion";
-import { Layout } from "../../components/layout";
+import { Layout2 } from "../../components/layout";
 
 const Posts = ({ posts, hasMore, categories, recentPosts }) => {
   const [mounted, setMounted] = useState(false);
@@ -33,7 +33,7 @@ const Posts = ({ posts, hasMore, categories, recentPosts }) => {
   if (!posts) return null;
 
   return (
-    <Layout>
+    <Layout2>
       <Head>
         <title>Blogs - Bieber - React Personal Portfolio Template</title>
       </Head>
@@ -162,7 +162,7 @@ const Posts = ({ posts, hasMore, categories, recentPosts }) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </Layout2>
   );
 };
 
