@@ -1,11 +1,5 @@
 [
     {
-        "id": 1,
-        "title": "Ui/Ux Design",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
-        "icon": "/icons/quill-pen-line.svg"
-    },
-    {
         "id": 2,
         "title": "Web Development",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
@@ -16,5 +10,11 @@
         "title": "Mobile App Development",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
         "icon": "/icons/smartphone-line.svg"
+    },
+    {
+        "id": 1,
+        "title": "Graphics Design",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
+        "icon": "/icons/quill-pen-line.svg"
     }
 ]

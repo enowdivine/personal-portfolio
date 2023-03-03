@@ -1,17 +1,16 @@
 {
-    "firstName": "Joseph",
-    "lastName": "Bieber",
-    "fullName": "Joseph Bieber",
+    "firstName": "Enow",
+    "lastName": "Divine",
+    "fullName": "Enow Divine",
     "thumbImage": "/images/formal-image.png",
     "largeImage": "/images/about-image.jpg",
-    "bio": "I am a frontend web developer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
-    "age": 27,
-    "nationality": "American",
+    "bio": "I am a Full Stack Software Engineer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
+    "age": 24,
+    "nationality": "Cameroonian",
     "languages": [
-        "English",
-        "French"
+        "English"
     ],
-    "address": "121 King Street, Melbourne, United States",
+    "address": "Molyko, Buea, Cameroon",
     "freelance": "Available",
     "socialAddress": {
         "facebook": "https://facebook.com",
@@ -21,11 +20,9 @@
         "dribbble": "https://dribbble.com"
     },
     "phoneNumbers": [
-        "+012-3456-7891",
-        "+012-3456-7892"
+        "+237 672 491 296"
     ],
     "emailAddress": [
-        "demomail@demo.com",
-        "demomail2@demo.com"
+        "enowdivine14@gmail.com"
     ]
 }

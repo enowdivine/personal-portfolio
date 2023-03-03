@@ -19,7 +19,7 @@ const Homepage2 = ({ posts }) => {
   return (
     <Layout blurred>
       <Head>
-        <title>Bieber - React Personal Portfolio Template</title>
+        <title>Enow Divine - Personal Portfolio</title>
       </Head>
 
       {/* Start Hero Section */}
@@ -46,7 +46,11 @@ const Homepage2 = ({ posts }) => {
         className="skills-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="My Skills" watermark="Skills" />
+          <SectionHeading
+            animated={false}
+            title="My Skills"
+            watermark="Skills"
+          />
           <SkillsSection />
         </div>
       </Section>
@@ -58,7 +62,11 @@ const Homepage2 = ({ posts }) => {
         className="services-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="My Services" watermark="Services" />
+          <SectionHeading
+            animated={false}
+            title="My Services"
+            watermark="Services"
+          />
           <ServicesSection />
         </div>
       </Section>
@@ -70,7 +78,11 @@ const Homepage2 = ({ posts }) => {
         className="resume-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="My Resume" watermark="Resume" />
+          <SectionHeading
+            animated={false}
+            title="My Resume"
+            watermark="Resume"
+          />
           <ResumeSection />
         </div>
       </Section>
@@ -94,7 +106,11 @@ const Homepage2 = ({ posts }) => {
         className="reviews-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="Client Reviews" watermark="Reviews" />
+          <SectionHeading
+            animated={false}
+            title="Client Reviews"
+            watermark="Reviews"
+          />
           <ReviewsSection />
         </div>
       </Section>
@@ -106,7 +122,11 @@ const Homepage2 = ({ posts }) => {
         className="news-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="Latest Blogs" watermark="Blogs" />
+          <SectionHeading
+            animated={false}
+            title="Latest Blogs"
+            watermark="Blogs"
+          />
           <BlogSection posts={posts} />
         </div>
       </Section>
@@ -118,7 +138,11 @@ const Homepage2 = ({ posts }) => {
         className="contact-section pt-24 lg:pt-28 xl:pt-32"
       >
         <div className="container mx-auto">
-          <SectionHeading animated={false} title="Contact Us" watermark="Contact" />
+          <SectionHeading
+            animated={false}
+            title="Contact Us"
+            watermark="Contact"
+          />
           <ContactSection />
         </div>
       </Section>

@@ -27,10 +27,10 @@ const index = ({ pages }) => {
             <div className="container mx-auto">
               <div className="herosection-content py-20 text-center">
                 <h1 className="text-primary">
-                  Bieber - React Personal Portfolio Template
+                  Enow Divine - Personal Portfolio
                 </h1>
                 <p className="lead">
-                  Bieber is a creative personal portfolio React template build
+                  This is a creative personal portfolio React template build
                   with NextJS and TailwindCSS.
                 </p>
                 <ScrollLink
@@ -97,7 +97,6 @@ const index = ({ pages }) => {
           </div>
         </Section>
         {/* End demos section */}
-
       </main>
       <footer className="footer bg-grey-darken">
         <div className="contianer mx-auto">

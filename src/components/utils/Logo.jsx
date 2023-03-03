@@ -6,7 +6,7 @@ const Logo = ({ url = "/", text = false }) => {
       <a className="sitelogo py-2">
         {text ? (
           <span className="text-4xl font-bold uppercase leading-none text-primary">
-            Bieber
+            Divine
           </span>
         ) : (
           <>

@@ -1,7 +1,7 @@
 {
-    "name": "bieber",
-    "description": "Bieber - React Personal Portfolio Template",
-    "author": "NuclearThemes",
+    "name": "divine",
+    "description": "Enow Dvine - Portfolio",
+    "author": "EnowDivine",
     "version": "1.0.0",
     "main": "index.js",
     "private": true,
@@ -54,6 +54,5 @@
         "tailwindcss-debug-screens": "^2.2.1",
         "tailwindcss-nested-groups": "^1.2.4"
     },
-    "license": "MIT",
-    "proxy": "http://localhost:3000/api"
+    "license": "MIT"
 }

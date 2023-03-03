@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "UI/UX Design",
-        "percentage": 85
+        "title": "Front-end Development",
+        "percentage": 95
     },
     {
         "id": 2,
@@ -11,12 +11,12 @@
     },
     {
         "id": 3,
-        "title": "Front-end Development",
-        "percentage": 95
+        "title": "Mobile App Development",
+        "percentage": 75
     },
     {
         "id": 4,
-        "title": "Mobile App Development",
-        "percentage": 75
+        "title": "UI/UX Design",
+        "percentage": 80
     }
 ]

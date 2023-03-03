@@ -1,23 +1,23 @@
 [
     {
         "id": 1,
-        "title": "UI/UX Designer",
-        "meta": "Abc Company.",
+        "title": "Full Stack Software Engineer",
+        "meta": "Summit Tech.",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2015 - 2017"
+        "year": "2021 - 2023"
     },
     {
         "id": 2,
         "title": "Front-end Developer",
-        "meta": "Def Company.",
+        "meta": "Bridge Africa Ventures.",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2017 - 2019"
+        "year": "2021"
     },
     {
         "id": 3,
-        "title": "Back-end Developer",
-        "meta": "Ghi Company.",
+        "title": "Front-end Developer",
+        "meta": "Zotech Company Ltd.",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2019 - Present"
+        "year": "2019 - 2020"
     }
 ]
