@@ -3,7 +3,7 @@
     "lastName": "Divine",
     "fullName": "Enow Divine",
     "thumbImage": "/images/formal-image.png",
-    "largeImage": "/images/about-image.jpg",
+    "largeImage": "/images/about-image.png",
     "bio": "I am a Full Stack Software Engineer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
     "age": 24,
     "nationality": "Cameroonian",
@@ -13,11 +13,12 @@
     "address": "Molyko, Buea, Cameroon",
     "freelance": "Available",
     "socialAddress": {
-        "facebook": "https://facebook.com",
-        "twitter": "https://twitter.com",
-        "github": "https://github.com",
-        "linkedin": "https://linkedin.com",
-        "dribbble": "https://dribbble.com"
+        "facebook": "https://web.facebook.com/enowdiv",
+        "twitter": "https://twitter.com/EnowDivine3",
+        "github": "https://github.com/enowdivine",
+        "linkedin": "https://www.linkedin.com/in/enowdivine/",
+        "dribbble": "https://dribbble.com",
+        "instagram": "https://www.instagram.com/enow_divine/"
     },
     "phoneNumbers": [
         "+237 672 491 296"

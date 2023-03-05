@@ -4,7 +4,7 @@
         "name": "Akum Blaise",
         "meta": "CEO - Zotech Company Ltd",
         "givenreview": 5.0,
-        "image": "/images/user-avatar-1.png",
+        "image": "/images/blaise.jpeg",
         "text": "I have the opportunity to work with Enow on a couple of projects and I must say I am marveled by his high level of competence. I would recommend him to anyone looking for a full stack web developer."
     },
     {
@@ -12,31 +12,7 @@
         "name": "Njita Arnaud",
         "meta": "Frontend Developer | Ui/Ux Designer",
         "givenreview": 5.0,
-        "image": "/images/user-avatar-4.png",
+        "image": "/images/arnaud.jpeg",
         "text": "Enow is a great team player, a leader who doesn’t just assigns or commands but leads by example. He’s a good communicator, and always ready to provide assistance or help. I’ll highly recommend working with him."
-    },
-    {
-        "id": 3,
-        "name": "Jonathon Doe",
-        "meta": "Client - Envato.com",
-        "givenreview": 4.2,
-        "image": "/images/user-avatar-3.png",
-        "text": "Working with Bieber is very good experience for me. He’s a good person. If I need developer in future, I’ll definately hire him."
-    },
-    {
-        "id": 4,
-        "name": "William Bieber",
-        "meta": "Client - Envato.com",
-        "givenreview": 4.7,
-        "image": "/images/user-avatar-2.png",
-        "text": "Working with Bieber is very good experience for me. He’s a good person. If I need developer in future, I’ll definately hire him."
-    },
-    {
-        "id": 5,
-        "name": "Bob Harry",
-        "meta": "Client - Envato.com",
-        "givenreview": 5,
-        "image": "/images/user-avatar-2.png",
-        "text": "Working with Bieber is very good experience for me. He’s a good person. If I need developer in future, I’ll definately hire him."
     }
 ]

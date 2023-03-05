@@ -1,23 +1,23 @@
 [
     {
         "id": 1,
-        "title": "Higher School Graduation",
-        "meta": "Abc College.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2008 - 2010"
+        "title": "Bachelor of Sciences",
+        "meta": "University of Buea",
+        "text": "Pursued a degree in computer engineering where I graduated as a Telecommunications Engineer with a cumulative GPA of 3.03",
+        "year": "2018 - 2022"
     },
     {
         "id": 2,
-        "title": "Bachelor of Sciences",
-        "meta": "Def University.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2010 - 2014"
+        "title": "Certified Team Leader",
+        "meta": "Heroas Nation Consulting",
+        "text": "Completed Heroes Nation's Executive and management training for Chief Executive Officers, Managers, and Team Leaders.",
+        "year": "2021"
     },
     {
         "id": 3,
-        "title": "Masters of Sciences",
-        "meta": "Def University.",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur donec gravida ullamcorper cum id. Sit viverra donec in ornare euismod.",
-        "year": "2014 - 2016"
+        "title": "Higher School Graduation",
+        "meta": "GBHS Buea",
+        "text": "Studied sciences in Higher School and graduated with an advanced level certification with a total point of 11/20",
+        "year": "2018"
     }
 ]

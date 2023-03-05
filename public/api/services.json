@@ -2,19 +2,19 @@
     {
         "id": 2,
         "title": "Web Development",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
+        "text": "I can deliver fully responsive, pixel-perfect, custom web applications ranging from personal portfolios and blogs to complex e-commerce web applications. ",
         "icon": "/icons/code-s-slash-line.svg"
     },
     {
         "id": 3,
         "title": "Mobile App Development",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
+        "text": "Pixel-perfect mobile application design and development with React Native (Javascript Cross-Platform framework), Typescript, and Expo services.",
         "icon": "/icons/smartphone-line.svg"
     },
     {
         "id": 1,
-        "title": "Graphics Design",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam etiam venenatis mi tristique amet cras diam etiam.",
-        "icon": "/icons/quill-pen-line.svg"
+        "title": "Desktop Application Development",
+        "text": "Custom Desktop applications with responsive user interfaces to increase speed and boost productivity in the workplace.",
+        "icon": "/icons/deskstop.svg"
     }
 ]
