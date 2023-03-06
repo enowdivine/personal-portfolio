@@ -1,22 +1,27 @@
 [
     {
         "id": 1,
-        "title": "UI/UX Design",
-        "value": "uiux"
+        "title": "Vue",
+        "value": "vue"
     },
     {
         "id": 2,
-        "title": "Html & Css",
-        "value": "html"
-    },
-    {
-        "id": 3,
-        "title": "React Js",
+        "title": "React",
         "value": "react"
     },
     {
+        "id": 3,
+        "title": "React Native",
+        "value": "react native"
+    },
+    {
         "id": 4,
-        "title": "Node Js",
-        "value": "node"
+        "title": "Next JS",
+        "value": "next"
+    },
+    {
+        "id": 5,
+        "title": "HTML & CSS",
+        "value": "html"
     }
 ]

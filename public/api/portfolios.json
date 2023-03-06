@@ -1,42 +1,50 @@
 [
     {
         "id": 1,
-        "title": "Candle",
-        "subtitle": "Creative Candle Light",
-        "coverimage": "/images/portfolios/portfolio-image-19.jpg",
+        "title": "Bridge Africa Ventures",
+        "subtitle": "Bridge Africa Ventures Ecommerce Network",
+        "coverimage": "/images/portfolios/bridgeafricacover.png",
         "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-19.jpg",
-            "/images/portfolios/portfolio-image-lg-18.jpg",
-            "/images/portfolios/portfolio-image-lg-17.jpg"
+            "/images/portfolios/bridgeafricacover.png",
+            "/images/portfolios/bridgeafrica1.png",
+            "/images/portfolios/bridgeafrica2.png"
         ],
         "videogallery": false,
-        "url": "https://dribbble.com",
+        "url": "https://www.bridgeafrica.com/",
         "filters": [
-            "react"
+            "vue",
+            "vuex"
         ]
     },
     {
         "id": 2,
-        "title": "Paint",
-        "subtitle": "Creative wall painting",
-        "coverimage": "/images/portfolios/portfolio-image-2.jpg",
-        "imagegallery": false,
+        "title": "Goodwill Group",
+        "subtitle": "Goodwill Group of Companies",
+        "coverimage": "/images/portfolios/goodwillcover.png",
+        "imagegallery": [
+            "/images/portfolios/goodwillcover.png",
+            "/images/portfolios/goodwill1.png",
+            "/images/portfolios/goodwill2.png"
+        ],
         "videogallery": false,
-        "url": "https://dribbble.com",
+        "url": "https://goodwillgroupofcompanies.com/",
         "filters": [
-            "uiux"
+            "html",
+            "react"
         ]
     },
     {
         "id": 3,
-        "title": "UI/UX Sample",
-        "subtitle": "UI/UX Sample design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-3.jpg",
-        "imagegallery": false,
-        "videogallery": [
-            "https://www.youtube.com/watch?v=HHBsvKnCkwI"
+        "title": "Dan Sunglasses",
+        "subtitle": "Ecommerce Platform for Locally Made Sunglasses",
+        "coverimage": "/images/portfolios/dancover.png",
+        "imagegallery": [
+            "/images/portfolios/dancover.png",
+            "/images/portfolios/dan1.png",
+            "/images/portfolios/dan2.png"
         ],
-        "url": "https://dribbble.com",
+        "videogallery": false,
+        "url": "https://shopdansunglasses.com/",
         "filters": [
             "html",
             "react"
@@ -44,34 +52,37 @@
     },
     {
         "id": 4,
-        "title": "Packet",
-        "subtitle": "Packet design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-4.jpg",
+        "title": "St Bernard Institute",
+        "subtitle": "St Bernard Higher Institute",
+        "coverimage": "/images/portfolios/bernardcover.png",
         "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-4.jpg"
+            "/images/portfolios/bernardcover.png",
+            "/images/portfolios/bernard1.png",
+            "/images/portfolios/bernard2.png"
         ],
         "videogallery": false,
-        "url": "https://dribbble.com",
+        "url": "https://stbernardinstitute.com/",
         "filters": [
-            "uiux",
-            "node"
+            "react",
+            "html"
         ]
     },
     {
         "id": 5,
-        "title": "Packet",
-        "subtitle": "Another packet design mockup",
-        "coverimage": "/images/portfolios/portfolio-image-5.jpg",
+        "title": "Easy Kings Pay",
+        "subtitle": "Mobile app that facilitates the transfer of money",
+        "coverimage": "/images/portfolios/easykingspay.png",
         "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-5.jpg"
+            "/images/portfolios/easykingspay1.png",
+            "/images/portfolios/easykingspay2.png",
+            "/images/portfolios/easykingspay3.png",
+            "/images/portfolios/easykingspay4.png"
         ],
-        "videogallery": [
-            "https://www.youtube.com/watch?v=HHBsvKnCkwI"
-        ],
-        "url": "https://dribbble.com",
+        "videogallery": false,
+        "url": "https://play.google.com/store/apps/details?id=com.summittech.easypay",
         "filters": [
-            "uiux",
-            "html"
+            "react native",
+            "react"
         ]
     },
     {
