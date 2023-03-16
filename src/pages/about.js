@@ -3,6 +3,7 @@ import {
   AboutSection,
   ReviewsSection,
   ServicesSection,
+  AboutDescription,
 } from "../components/containers";
 import { Layout2 } from "../components/layout";
 import { SectionHeading } from "../components/utils";
@@ -22,6 +23,14 @@ const about = () => {
         </div>
       </section>
       {/* End About Section */}
+
+      {/* Start of Description */}
+      <section className="about-section pt-24 lg:pt-28 xl:pt-32">
+        <div className="container mx-auto">
+          <AboutDescription />
+        </div>
+      </section>
+      {/* End of description */}
 
       {/* Start Service Section */}
       <section

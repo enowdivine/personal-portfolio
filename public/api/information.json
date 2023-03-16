@@ -5,6 +5,7 @@
     "thumbImage": "/images/formal-image.png",
     "largeImage": "/images/about-image.png",
     "bio": "I am a Full Stack Software Engineer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
+    "desc": "",
     "age": 24,
     "nationality": "Cameroonian",
     "languages": [

@@ -1,4 +1,5 @@
 import AboutSection from "./AboutSection";
+import AboutDescription from "./AboutDescription";
 import BlogSection from "./BlogSection";
 import ContactSection from "./ContactSection";
 import HeroSection from "./HeroSection";
@@ -9,13 +10,14 @@ import ServicesSection from "./ServicesSection";
 import SkillsSection from "./SkillsSection";
 
 export {
-    HeroSection,
-    AboutSection,
-    SkillsSection,
-    ServicesSection,
-    ResumeSection,
-    PortfoliosSection,
-    ReviewsSection,
-    BlogSection,
-    ContactSection,
+  HeroSection,
+  AboutSection,
+  AboutDescription,
+  SkillsSection,
+  ServicesSection,
+  ResumeSection,
+  PortfoliosSection,
+  ReviewsSection,
+  BlogSection,
+  ContactSection,
 };
