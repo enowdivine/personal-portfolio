@@ -87,28 +87,38 @@
     },
     {
         "id": 6,
-        "title": "Cream",
-        "subtitle": "Creative cream box design",
-        "coverimage": "/images/portfolios/portfolio-image-6.jpg",
-        "imagegallery": false,
+        "title": "Gearbest",
+        "subtitle": "An ecommerce platform that provides quality, affordable and fun products for all its users at low prices",
+        "coverimage": "/images/portfolios/gearbest1.png",
+        "imagegallery": [
+            "/images/portfolios/gearbest1.png",
+            "/images/portfolios/gearbest2.png",
+            "/images/portfolios/gearbest3.png",
+            "/images/portfolios/gearbest4.png"
+        ],
         "videogallery": false,
-        "url": "https://dribbble.com",
+        "url": "https://www.gearbest.net/",
         "filters": [
             "html",
-            "node"
+            "css",
+            "javascript",
+            "jquery"
         ]
     },
-    {
+     {
         "id": 7,
-        "title": "NFT",
-        "subtitle": "Creative NFT Design",
-        "coverimage": "/images/portfolios/portfolio-image-7.jpg",
-        "imagegallery": false,
+        "title": "Summit Tech",
+        "subtitle": "A digital transformation consultancy and software development company that provides cutting edge engineering solutions, helping Fortune 500 companies and enterprise clients untangle complex issues that always emerge during their digital evolution journey.",
+        "coverimage": "/images/portfolios/summittech1.png",
+        "imagegallery": [
+            "/images/portfolios/summittech1.png",
+            "/images/portfolios/summittech2.png",
+            "/images/portfolios/summittech3.png"
+        ],
         "videogallery": false,
-        "url": "https://dribbble.com",
+        "url": "https://summittech-eng.org/",
         "filters": [
-            "react",
-            "uiux"
+            "wordpress"
         ]
     },
     {

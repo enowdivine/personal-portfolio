@@ -8,13 +8,20 @@
     },
     {
         "id": 2,
+        "title": "Software Development Mentor",
+        "meta": "Nervtek",
+        "text": "Empowering a team of aspiring software developers, help them to resolve current issues and develop coping strategies for the future. Provide a model for a healthy, trusting relationship through clear communication and setting appropriate boundaries. Acknowledging their strengths, talents and gifts and encouraging mentess to find ways to use them and also act as an active listener and offer support and encouragement when appropriate.",
+        "year": "2021"
+    },
+    {
+        "id": 3,
         "title": "Front-end Developer",
         "meta": "Bridge Africa Ventures.",
         "text": "Reviewed and made refinements in existing programs to improve techniques, Designed tools and scripts to provide support to projects as per requirements, Reviewed information and elements regularly on websites and pages for accuracy and functionality, Reviewed project specifications and devised solutions for use across multiple websites, Validated code for proper structuring, security and compatibility with different browsers, devices or operating systems.",
         "year": "2021"
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "Front-end Developer",
         "meta": "Zotech Company Ltd.",
         "text": "Created successful websites that met requirements for objectives such as load speed and design, Researched and tracked new web technologies to enhance applications, Completed design projects to meet budget, equipment, performance and legal requirements, Supported continuous improvement by investigating alternatives and technologies for review.",

@@ -23,5 +23,15 @@
         "id": 5,
         "title": "HTML & CSS",
         "value": "html"
+    },
+    {
+        "id": 6,
+        "title": "JavaScript",
+        "value": "javascript"
+    },
+    {
+        "id": 7,
+        "title": "Wordpress",
+        "value": "wordpress"
     }
 ]
