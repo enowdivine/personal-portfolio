@@ -1,256 +1,136 @@
 [
-    {
-        "id": 1,
-        "title": "Bridge Africa Ventures",
-        "subtitle": "Bridge Africa Ventures Ecommerce Network",
-        "coverimage": "/images/portfolios/bridgeafricacover.png",
-        "imagegallery": [
-            "/images/portfolios/bridgeafricacover.png",
-            "/images/portfolios/bridgeafrica1.png",
-            "/images/portfolios/bridgeafrica2.png"
-        ],
-        "videogallery": false,
-        "url": "https://www.bridgeafrica.com/",
-        "filters": [
-            "vue",
-            "vuex"
-        ]
-    },
-    {
-        "id": 2,
-        "title": "Goodwill Group",
-        "subtitle": "Goodwill Group of Companies",
-        "coverimage": "/images/portfolios/goodwillcover.png",
-        "imagegallery": [
-            "/images/portfolios/goodwillcover.png",
-            "/images/portfolios/goodwill1.png",
-            "/images/portfolios/goodwill2.png"
-        ],
-        "videogallery": false,
-        "url": "https://goodwillgroupofcompanies.com/",
-        "filters": [
-            "html",
-            "react"
-        ]
-    },
-    {
-        "id": 3,
-        "title": "Dan Sunglasses",
-        "subtitle": "Ecommerce Platform for Locally Made Sunglasses",
-        "coverimage": "/images/portfolios/dancover.png",
-        "imagegallery": [
-            "/images/portfolios/dancover.png",
-            "/images/portfolios/dan1.png",
-            "/images/portfolios/dan2.png"
-        ],
-        "videogallery": false,
-        "url": "https://shopdansunglasses.com/",
-        "filters": [
-            "html",
-            "react"
-        ]
-    },
-    {
-        "id": 4,
-        "title": "St Bernard Institute",
-        "subtitle": "St Bernard Higher Institute",
-        "coverimage": "/images/portfolios/bernardcover.png",
-        "imagegallery": [
-            "/images/portfolios/bernardcover.png",
-            "/images/portfolios/bernard1.png",
-            "/images/portfolios/bernard2.png"
-        ],
-        "videogallery": false,
-        "url": "https://stbernardinstitute.com/",
-        "filters": [
-            "react",
-            "html"
-        ]
-    },
-    {
-        "id": 5,
-        "title": "Easy Kings Pay",
-        "subtitle": "Mobile app that facilitates the transfer of money",
-        "coverimage": "/images/portfolios/easykingspay.png",
-        "imagegallery": [
-            "/images/portfolios/easykingspay1.png",
-            "/images/portfolios/easykingspay2.png",
-            "/images/portfolios/easykingspay3.png",
-            "/images/portfolios/easykingspay4.png"
-        ],
-        "videogallery": false,
-        "url": "https://play.google.com/store/apps/details?id=com.summittech.easypay",
-        "filters": [
-            "react native",
-            "react"
-        ]
-    },
-    {
-        "id": 6,
-        "title": "Gearbest",
-        "subtitle": "An ecommerce platform that provides quality, affordable and fun products for all its users at low prices",
-        "coverimage": "/images/portfolios/gearbest1.png",
-        "imagegallery": [
-            "/images/portfolios/gearbest1.png",
-            "/images/portfolios/gearbest2.png",
-            "/images/portfolios/gearbest3.png",
-            "/images/portfolios/gearbest4.png"
-        ],
-        "videogallery": false,
-        "url": "https://www.gearbest.net/",
-        "filters": [
-            "html",
-            "css",
-            "javascript",
-            "jquery"
-        ]
-    },
-     {
-        "id": 7,
-        "title": "Summit Tech",
-        "subtitle": "A digital transformation consultancy and software development company that provides cutting edge engineering solutions, helping Fortune 500 companies and enterprise clients untangle complex issues that always emerge during their digital evolution journey.",
-        "coverimage": "/images/portfolios/summittech1.png",
-        "imagegallery": [
-            "/images/portfolios/summittech1.png",
-            "/images/portfolios/summittech2.png",
-            "/images/portfolios/summittech3.png"
-        ],
-        "videogallery": false,
-        "url": "https://summittech-eng.org/",
-        "filters": [
-            "wordpress"
-        ]
-    },
-    {
-        "id": 8,
-        "title": "Atar",
-        "subtitle": "Atar box design",
-        "coverimage": "/images/portfolios/portfolio-image-8.jpg",
-        "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-8.jpg"
-        ],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "uiux"
-        ]
-    },
-    {
-        "id": 9,
-        "title": "Cream",
-        "subtitle": "Another cream box design",
-        "coverimage": "/images/portfolios/portfolio-image-9.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "html",
-            "react"
-        ]
-    },
-    {
-        "id": 10,
-        "title": "Hair Gel",
-        "subtitle": "Hair gel box design",
-        "coverimage": "/images/portfolios/portfolio-image-10.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "uiux",
-            "node"
-        ]
-    },
-    {
-        "id": 11,
-        "title": "Hair Gel",
-        "subtitle": "Hair gel tube design",
-        "coverimage": "/images/portfolios/portfolio-image-11.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "uiux",
-            "html"
-        ]
-    },
-    {
-        "id": 12,
-        "title": "NFT",
-        "subtitle": "Creative NFT Text",
-        "coverimage": "/images/portfolios/portfolio-image-12.jpg",
-        "imagegallery": [
-            "/images/portfolios/portfolio-image-lg-12.jpg",
-            "/images/portfolios/portfolio-image-lg-11.jpg"
-        ],
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "html",
-            "node"
-        ]
-    },
-    {
-        "id": 13,
-        "title": "Wallpaper",
-        "subtitle": "Creative wallpaper design",
-        "coverimage": "/images/portfolios/portfolio-image-13.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "react",
-            "uiux"
-        ]
-    },
-    {
-        "id": 14,
-        "title": "Wallpaper",
-        "subtitle": "Creative desktop wallpaper",
-        "coverimage": "/images/portfolios/portfolio-image-14.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "uiux"
-        ]
-    },
-    {
-        "id": 15,
-        "title": "NFT",
-        "subtitle": "Creative NFT Design",
-        "coverimage": "/images/portfolios/portfolio-image-15.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": "https://dribbble.com",
-        "filters": [
-            "html",
-            "react"
-        ]
-    },
-    {
-        "id": 16,
-        "title": "Art",
-        "subtitle": "Creative wall art",
-        "coverimage": "/images/portfolios/portfolio-image-16.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": false,
-        "filters": [
-            "uiux",
-            "node"
-        ]
-    },
-    {
-        "id": 17,
-        "title": "Wallpaper2",
-        "subtitle": "Creative wallpaper art",
-        "coverimage": "/images/portfolios/portfolio-image-1.jpg",
-        "imagegallery": false,
-        "videogallery": false,
-        "url": false,
-        "filters": [
-            "uiux"
-        ]
-    }
+  {
+    "id": 1,
+    "title": "Personal Portfolio Website",
+    "subtitle": "Personal Portfolio Website",
+    "coverimage": "/images/portfolios/tasha-one.png",
+    "imagegallery": [
+      "/images/portfolios/tasha-one.png",
+      "/images/portfolios/tasha-two.png",
+      "/images/portfolios/tasha-three.png"
+    ],
+    "videogallery": false,
+    "url": "https://tashaelvis.netlify.app/",
+    "filters": ["react", "next"]
+  },
+  {
+    "id": 2,
+    "title": "Bridge Africa Ventures",
+    "subtitle": "Bridge Africa Ventures Ecommerce Network",
+    "coverimage": "/images/portfolios/bridgeafricacover.png",
+    "imagegallery": [
+      "/images/portfolios/bridgeafricacover.png",
+      "/images/portfolios/bridgeafrica1.png",
+      "/images/portfolios/bridgeafrica2.png"
+    ],
+    "videogallery": false,
+    "url": "https://www.bridgeafrica.com/",
+    "filters": ["vue", "vuex"]
+  },
+  {
+    "id": 3,
+    "title": "Goodwill Group",
+    "subtitle": "Goodwill Group of Companies",
+    "coverimage": "/images/portfolios/goodwillcover.png",
+    "imagegallery": [
+      "/images/portfolios/goodwillcover.png",
+      "/images/portfolios/goodwill1.png",
+      "/images/portfolios/goodwill2.png"
+    ],
+    "videogallery": false,
+    "url": "https://goodwillgroupofcompanies.com/",
+    "filters": ["html", "react"]
+  },
+  {
+    "id": 4,
+    "title": "Dan Sunglasses",
+    "subtitle": "Ecommerce Platform for Locally Made Sunglasses",
+    "coverimage": "/images/portfolios/dancover.png",
+    "imagegallery": [
+      "/images/portfolios/dancover.png",
+      "/images/portfolios/dan1.png",
+      "/images/portfolios/dan2.png"
+    ],
+    "videogallery": false,
+    "url": "https://shopdansunglasses.com/",
+    "filters": ["html", "react"]
+  },
+  {
+    "id": 5,
+    "title": "St Bernard Institute",
+    "subtitle": "St Bernard Higher Institute",
+    "coverimage": "/images/portfolios/bernardcover.png",
+    "imagegallery": [
+      "/images/portfolios/bernardcover.png",
+      "/images/portfolios/bernard1.png",
+      "/images/portfolios/bernard2.png"
+    ],
+    "videogallery": false,
+    "url": "https://stbernardinstitute.com/",
+    "filters": ["react", "html"]
+  },
+  {
+    "id": 6,
+    "title": "Easy Kings Pay",
+    "subtitle": "Mobile app that facilitates the transfer of money",
+    "coverimage": "/images/portfolios/easykingspay.png",
+    "imagegallery": [
+      "/images/portfolios/easykingspay1.png",
+      "/images/portfolios/easykingspay2.png",
+      "/images/portfolios/easykingspay3.png",
+      "/images/portfolios/easykingspay4.png"
+    ],
+    "videogallery": false,
+    "url": "https://play.google.com/store/apps/details?id=com.summittech.easypay",
+    "filters": ["react native", "react"]
+  },
+  {
+    "id": 7,
+    "title": "Gearbest",
+    "subtitle": "An ecommerce platform that provides quality, affordable and fun products for all its users at low prices",
+    "coverimage": "/images/portfolios/gearbest1.png",
+    "imagegallery": [
+      "/images/portfolios/gearbest1.png",
+      "/images/portfolios/gearbest2.png",
+      "/images/portfolios/gearbest3.png",
+      "/images/portfolios/gearbest4.png"
+    ],
+    "videogallery": false,
+    "url": "https://www.gearbest.net/",
+    "filters": ["html", "css", "javascript", "jquery"]
+  },
+  {
+    "id": 8,
+    "title": "Summit Tech",
+    "subtitle": "A digital transformation consultancy and software development company that provides cutting edge engineering solutions, helping Fortune 500 companies and enterprise clients untangle complex issues that always emerge during their digital evolution journey.",
+    "coverimage": "/images/portfolios/summittech1.png",
+    "imagegallery": [
+      "/images/portfolios/summittech1.png",
+      "/images/portfolios/summittech2.png",
+      "/images/portfolios/summittech3.png"
+    ],
+    "videogallery": false,
+    "url": "https://summittech-eng.org/",
+    "filters": ["wordpress"]
+  },
+  {
+    "id": 9,
+    "title": "Atar",
+    "subtitle": "Atar box design",
+    "coverimage": "/images/portfolios/portfolio-image-8.jpg",
+    "imagegallery": ["/images/portfolios/portfolio-image-lg-8.jpg"],
+    "videogallery": false,
+    "url": "https://dribbble.com",
+    "filters": ["uiux"]
+  },
+  {
+    "id": 10,
+    "title": "Cream",
+    "subtitle": "Another cream box design",
+    "coverimage": "/images/portfolios/portfolio-image-9.jpg",
+    "imagegallery": false,
+    "videogallery": false,
+    "url": "https://dribbble.com",
+    "filters": ["html", "react"]
+  }
 ]
