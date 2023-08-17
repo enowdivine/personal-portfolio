@@ -3,11 +3,11 @@
     "id": 1,
     "title": "Personal Portfolio Website",
     "subtitle": "Personal Portfolio Website",
-    "coverimage": "/images/portfolios/tasha-one.png",
+    "coverimage": "/images/portfolios/tasha/tasha-one.png",
     "imagegallery": [
-      "/images/portfolios/tasha-one.png",
-      "/images/portfolios/tasha-two.png",
-      "/images/portfolios/tasha-three.png"
+      "/images/portfolios/tasha/tasha-one.png",
+      "/images/portfolios/tasha/tasha-two.png",
+      "/images/portfolios/tasha/tasha-three.png"
     ],
     "videogallery": false,
     "url": "https://tashaelvis.netlify.app/",
@@ -17,11 +17,11 @@
     "id": 2,
     "title": "Bridge Africa Ventures",
     "subtitle": "Bridge Africa Ventures Ecommerce Network",
-    "coverimage": "/images/portfolios/bridgeafricacover.png",
+    "coverimage": "/images/portfolios/bridgeafrica/bridgeafricacover.png",
     "imagegallery": [
-      "/images/portfolios/bridgeafricacover.png",
-      "/images/portfolios/bridgeafrica1.png",
-      "/images/portfolios/bridgeafrica2.png"
+      "/images/portfolios/bridgeafrica/bridgeafricacover.png",
+      "/images/portfolios/bridgeafrica/bridgeafrica1.png",
+      "/images/portfolios/bridgeafrica/bridgeafrica2.png"
     ],
     "videogallery": false,
     "url": "https://www.bridgeafrica.com/",
@@ -31,11 +31,11 @@
     "id": 3,
     "title": "Goodwill Group",
     "subtitle": "Goodwill Group of Companies",
-    "coverimage": "/images/portfolios/goodwillcover.png",
+    "coverimage": "/images/portfolios/goodwill/goodwillcover.png",
     "imagegallery": [
-      "/images/portfolios/goodwillcover.png",
-      "/images/portfolios/goodwill1.png",
-      "/images/portfolios/goodwill2.png"
+      "/images/portfolios/goodwill/goodwillcover.png",
+      "/images/portfolios/goodwill/goodwill1.png",
+      "/images/portfolios/goodwill/goodwill2.png"
     ],
     "videogallery": false,
     "url": "https://goodwillgroupofcompanies.com/",
@@ -45,11 +45,11 @@
     "id": 4,
     "title": "Dan Sunglasses",
     "subtitle": "Ecommerce Platform for Locally Made Sunglasses",
-    "coverimage": "/images/portfolios/dancover.png",
+    "coverimage": "/images/portfolios/dansunglasses/dancover.png",
     "imagegallery": [
-      "/images/portfolios/dancover.png",
-      "/images/portfolios/dan1.png",
-      "/images/portfolios/dan2.png"
+      "/images/portfolios/dansunglasses/dancover.png",
+      "/images/portfolios/dansunglasses/dan1.png",
+      "/images/portfolios/dansunglasses/dan2.png"
     ],
     "videogallery": false,
     "url": "https://shopdansunglasses.com/",
@@ -59,11 +59,11 @@
     "id": 5,
     "title": "St Bernard Institute",
     "subtitle": "St Bernard Higher Institute",
-    "coverimage": "/images/portfolios/bernardcover.png",
+    "coverimage": "/images/portfolios/stbernard/bernardcover.png",
     "imagegallery": [
-      "/images/portfolios/bernardcover.png",
-      "/images/portfolios/bernard1.png",
-      "/images/portfolios/bernard2.png"
+      "/images/portfolios/stbernard/bernardcover.png",
+      "/images/portfolios/stbernard/bernard1.png",
+      "/images/portfolios/stbernard/bernard2.png"
     ],
     "videogallery": false,
     "url": "https://stbernardinstitute.com/",
@@ -73,12 +73,12 @@
     "id": 6,
     "title": "Easy Kings Pay",
     "subtitle": "Mobile app that facilitates the transfer of money",
-    "coverimage": "/images/portfolios/easykingspay.png",
+    "coverimage": "/images/portfolios/easykingspay/easykingspay.png",
     "imagegallery": [
-      "/images/portfolios/easykingspay1.png",
-      "/images/portfolios/easykingspay2.png",
-      "/images/portfolios/easykingspay3.png",
-      "/images/portfolios/easykingspay4.png"
+      "/images/portfolios/easykingspay/easykingspay1.png",
+      "/images/portfolios/easykingspay/easykingspay2.png",
+      "/images/portfolios/easykingspay/easykingspay3.png",
+      "/images/portfolios/easykingspay/easykingspay4.png"
     ],
     "videogallery": false,
     "url": "https://play.google.com/store/apps/details?id=com.summittech.easypay",
@@ -88,12 +88,12 @@
     "id": 7,
     "title": "Gearbest",
     "subtitle": "An ecommerce platform that provides quality, affordable and fun products for all its users at low prices",
-    "coverimage": "/images/portfolios/gearbest1.png",
+    "coverimage": "/images/portfolios/gearbest/gearbest1.png",
     "imagegallery": [
-      "/images/portfolios/gearbest1.png",
-      "/images/portfolios/gearbest2.png",
-      "/images/portfolios/gearbest3.png",
-      "/images/portfolios/gearbest4.png"
+      "/images/portfolios/gearbest/gearbest1.png",
+      "/images/portfolios/gearbest/gearbest2.png",
+      "/images/portfolios/gearbest/gearbest3.png",
+      "/images/portfolios/gearbest/gearbest4.png"
     ],
     "videogallery": false,
     "url": "https://www.gearbest.net/",
@@ -103,11 +103,11 @@
     "id": 8,
     "title": "Summit Tech",
     "subtitle": "A digital transformation consultancy and software development company that provides cutting edge engineering solutions, helping Fortune 500 companies and enterprise clients untangle complex issues that always emerge during their digital evolution journey.",
-    "coverimage": "/images/portfolios/summittech1.png",
+    "coverimage": "/images/portfolios/summittech/summittech1.png",
     "imagegallery": [
-      "/images/portfolios/summittech1.png",
-      "/images/portfolios/summittech2.png",
-      "/images/portfolios/summittech3.png"
+      "/images/portfolios/summittech/summittech1.png",
+      "/images/portfolios/summittech/summittech2.png",
+      "/images/portfolios/summittech/summittech3.png"
     ],
     "videogallery": false,
     "url": "https://summittech-eng.org/",
@@ -115,22 +115,37 @@
   },
   {
     "id": 9,
+    "title": "Virtual Keyboard",
+    "subtitle": "Javascript Virtual Keyboard",
+    "coverimage": "/images/portfolios/virtualKeyboard/virtual-keyboard.png",
+    "imagegallery": ["/images/portfolios/virtualKeyboard/virtual-keyboard.png"],
+    "videogallery": false,
+    "url": "https://virtual-keyboard-js.netlify.app/",
+    "filters": ["html", "css", "javascript"]
+  },
+  {
+    "id": 10,
+    "title": "Javascript MCQ Quiz",
+    "subtitle": "Javascript MCQ Quiz",
+    "coverimage": "/images/portfolios/quiz/quiz1.png",
+    "imagegallery": [
+      "/images/portfolios/quiz/quiz1.png",
+      "/images/portfolios/quiz/quiz2.png",
+      "/images/portfolios/quiz/quiz3.png",
+      "/images/portfolios/quiz/quiz4.png"
+    ],
+    "videogallery": false,
+    "url": "https://javascript-quizzz.netlify.app/",
+    "filters": ["html", "css", "javascript"]
+  },
+  {
+    "id": 99,
     "title": "Atar",
     "subtitle": "Atar box design",
     "coverimage": "/images/portfolios/portfolio-image-8.jpg",
     "imagegallery": ["/images/portfolios/portfolio-image-lg-8.jpg"],
     "videogallery": false,
-    "url": "https://dribbble.com",
+    "url": "https://enowdivine.netlify.app/",
     "filters": ["uiux"]
-  },
-  {
-    "id": 10,
-    "title": "Cream",
-    "subtitle": "Another cream box design",
-    "coverimage": "/images/portfolios/portfolio-image-9.jpg",
-    "imagegallery": false,
-    "videogallery": false,
-    "url": "https://dribbble.com",
-    "filters": ["html", "react"]
   }
 ]
