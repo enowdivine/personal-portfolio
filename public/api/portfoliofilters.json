@@ -1,37 +1,52 @@
 [
-    {
-        "id": 1,
-        "title": "Vue",
-        "value": "vue"
-    },
-    {
-        "id": 2,
-        "title": "React",
-        "value": "react"
-    },
-    {
-        "id": 3,
-        "title": "React Native",
-        "value": "react native"
-    },
-    {
-        "id": 4,
-        "title": "Next JS",
-        "value": "next"
-    },
-    {
-        "id": 5,
-        "title": "HTML & CSS",
-        "value": "html"
-    },
-    {
-        "id": 6,
-        "title": "JavaScript",
-        "value": "javascript"
-    },
-    {
-        "id": 7,
-        "title": "Wordpress",
-        "value": "wordpress"
-    }
+  {
+    "id": 1,
+    "title": "Vue",
+    "value": "vue"
+  },
+  {
+    "id": 2,
+    "title": "React",
+    "value": "react"
+  },
+  {
+    "id": 3,
+    "title": "React Native",
+    "value": "react native"
+  },
+  {
+    "id": 4,
+    "title": "Next JS",
+    "value": "next"
+  },
+  {
+    "id": 5,
+    "title": "HTML & CSS",
+    "value": "html"
+  },
+  {
+    "id": 6,
+    "title": "JavaScript",
+    "value": "javascript"
+  },
+  {
+    "id": 7,
+    "title": "Django",
+    "value": "django"
+  },
+  {
+    "id": 8,
+    "title": "AWS",
+    "value": "aws"
+  },
+  {
+    "id": 9,
+    "title": "Firebase",
+    "value": "firebase"
+  },
+  {
+    "id": 10,
+    "title": "Wordpress",
+    "value": "wordpress"
+  }
 ]
