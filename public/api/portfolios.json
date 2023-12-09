@@ -1,5 +1,18 @@
 [
   {
+    "id": 13,
+    "title": "Twitter DAPP",
+    "subtitle": "Basic twitter application built on solidity and ethers.js",
+    "coverimage": "/images/portfolios/twitterDapp/dapp1.png",
+    "imagegallery": [
+      "/images/portfolios/twitterDapp/dapp1.png",
+      "/images/portfolios/twitterDapp/dapp2.png"
+    ],
+    "videogallery": false,
+    "url": "https://twitterdapp101.netlify.app/",
+    "filters": ["dapp", "html"]
+  },
+  {
     "id": 12,
     "title": "Digital Coffee",
     "subtitle": "Mobile App For Listening to Sounds and Meditating",
