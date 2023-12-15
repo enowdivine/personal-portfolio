@@ -1,5 +1,33 @@
 [
   {
+    "id": 15,
+    "title": "Deonicode",
+    "subtitle": "A learning platform that provides professional IT courses to individuals interested in pursuing careers in IT.",
+    "coverimage": "/images/portfolios/deonicode/deonicode1.png",
+    "imagegallery": [
+      "/images/portfolios/deonicode/deonicode1.png",
+      "/images/portfolios/deonicode/deonicode2.png",
+      "/images/portfolios/deonicode/deonicode3.png"
+    ],
+    "videogallery": false,
+    "url": "https://deonicode.com/",
+    "filters": ["dapp", "html", "react"]
+  },
+  {
+    "id": 14,
+    "title": "Crypto Transfer DAPP",
+    "subtitle": "Basic crypto transfer application built on solidity and ethers.js. With this DAPP your able to transfer crypto from one account to another.",
+    "coverimage": "/images/portfolios/krypt/cryptotransfer1.png",
+    "imagegallery": [
+      "/images/portfolios/krypt/cryptotransfer1.png",
+      "/images/portfolios/krypt/cryptotransfer2.png",
+      "/images/portfolios/krypt/cryptotransfer3.png"
+    ],
+    "videogallery": false,
+    "url": "https://cryptotransferdapp.netlify.app/",
+    "filters": ["dapp", "html", "react"]
+  },
+  {
     "id": 13,
     "title": "Twitter DAPP",
     "subtitle": "Basic twitter application built on solidity and ethers.js",
@@ -20,7 +48,7 @@
     "imagegallery": ["/images/portfolios/digitalcoffee/dc1.png"],
     "videogallery": false,
     "url": "https://play.google.com/store/apps/details?id=com.summittech.digitalcoffee&pli=1",
-    "filters": ["react", "react native", "aws"]
+    "filters": ["react", "react native"]
   },
   {
     "id": 11,
