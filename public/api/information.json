@@ -1,30 +1,24 @@
 {
-    "firstName": "Enow",
-    "lastName": "Divine",
-    "fullName": "Enow Divine",
-    "thumbImage": "/images/formal-image.png",
-    "largeImage": "/images/about-image.png",
-    "bio": "I am a Full Stack Software Engineer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
-    "desc": "",
-    "age": 24,
-    "nationality": "Cameroonian",
-    "languages": [
-        "English"
-    ],
-    "address": "Molyko, Buea, Cameroon",
-    "freelance": "Available",
-    "socialAddress": {
-        "facebook": "https://web.facebook.com/enowdiv",
-        "twitter": "https://twitter.com/EnowDivine3",
-        "github": "https://github.com/enowdivine",
-        "linkedin": "https://www.linkedin.com/in/enowdivine/",
-        "dribbble": "https://dribbble.com",
-        "instagram": "https://www.instagram.com/enow_divine/"
-    },
-    "phoneNumbers": [
-        "+237 672 491 296"
-    ],
-    "emailAddress": [
-        "enowdivine14@gmail.com"
-    ]
+  "firstName": "Enow",
+  "lastName": "Divine",
+  "fullName": "Enow Divine",
+  "thumbImage": "/images/formal-image.png",
+  "largeImage": "/images/about-image.png",
+  "bio": "I am a Full Stack Software Engineer. I can provide clean code and pixel perfect design. I also make website more & more interactive with web animations.",
+  "desc": "",
+  "age": 24,
+  "nationality": "Cameroonian",
+  "languages": ["English"],
+  "address": "Molyko, Buea, Cameroon",
+  "freelance": "Available",
+  "socialAddress": {
+    "facebook": "https://web.facebook.com/enowdiv",
+    "twitter": "https://twitter.com/EnowDivine3",
+    "github": "https://github.com/enowdivine",
+    "linkedin": "https://www.linkedin.com/in/enowdivine/",
+    "dribbble": "https://dribbble.com",
+    "instagram": "https://www.instagram.com/enow_divine/"
+  },
+  "phoneNumbers": ["+237 672 491 296"],
+  "emailAddress": ["enowdivine14@gmail.com"]
 }
