@@ -267,6 +267,30 @@ export const SKILLS = [
   },
 ];
 
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  image?: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "I've had the opportunity to work with Enow on a couple of projects and I must say I'm marveled by his high level of competence. I would recommend him to anyone looking for a full-stack web developer.",
+    name: "Akum Blaise",
+    role: "CEO, Zotech",
+    image: "/people/blaise.jpeg",
+  },
+  {
+    quote:
+      "Enow is a great team player — a leader who doesn't just assign or command but leads by example. He's a strong communicator and always ready to provide assistance. I highly recommend working with him.",
+    name: "Njita Arnaud",
+    role: "Frontend Engineer & UI/UX Designer",
+    image: "/people/arnaud.jpeg",
+  },
+];
+
 export const EDUCATION = {
   degree: "B.Sc. Computer Engineering",
   institution: "University of Buea, Cameroon",

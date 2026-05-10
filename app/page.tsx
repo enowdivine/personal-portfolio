@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Mail, Download } from "lucide-react";
-import { PROFILE, PROJECTS } from "@/lib/data";
+import { PROFILE, PROJECTS, TESTIMONIALS } from "@/lib/data";
 
 export default function Home() {
   const featured = PROJECTS.slice(0, 4);
@@ -119,6 +120,47 @@ export default function Home() {
             >
               All work →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-b border-border">
+        <div className="container py-24">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12">
+            What people say
+          </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {TESTIMONIALS.map((t) => (
+              <figure
+                key={t.name}
+                className="border border-border p-8 flex flex-col"
+              >
+                <span className="font-mono text-3xl text-primary leading-none mb-4">
+                  &ldquo;
+                </span>
+                <blockquote className="text-base text-foreground leading-relaxed mb-6 flex-1">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="border-t border-border pt-4 flex items-center gap-3">
+                  {t.image && (
+                    <Image
+                      src={t.image}
+                      alt={t.name}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover border border-border shrink-0 grayscale"
+                    />
+                  )}
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mt-0.5">
+                      {t.role}
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
