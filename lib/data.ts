@@ -88,7 +88,7 @@ export const PROJECTS: Project[] = [
     role: "Founder & engineer",
     year: "2026",
     stack: ["Next.js 16", "TypeScript", "Express", "PostgreSQL", "Prisma"],
-    url: "https://invoice.saassimplified.net",
+    url: "https://ssinvoice.saassimplified.net",
     category: "SaaS",
     results: [
       "7+ currencies, PDF export via Puppeteer",
