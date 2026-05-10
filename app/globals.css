@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 1280px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
+  --color-background: hsl(0 0% 6%);
+  --color-foreground: hsl(0 0% 96%);
+  --color-card: hsl(0 0% 9%);
+  --color-card-foreground: hsl(0 0% 96%);
+  --color-muted: hsl(0 0% 12%);
+  --color-muted-foreground: hsl(0 0% 60%);
+  --color-accent: hsl(0 0% 14%);
+  --color-accent-foreground: hsl(0 0% 96%);
+  --color-primary: hsl(178 70% 52%);
+  --color-primary-foreground: hsl(180 60% 8%);
+  --color-border: hsl(0 0% 16%);
+  --color-input: hsl(0 0% 14%);
+  --color-ring: hsl(178 70% 52%);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-border);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss03";
+    overscroll-behavior-y: none;
+  }
+
+  ::selection {
+    background-color: hsl(178 70% 52% / 0.25);
+    color: hsl(178 70% 75%);
+  }
 }

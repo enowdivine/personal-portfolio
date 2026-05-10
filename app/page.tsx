@@ -1,65 +1,186 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Mail, Download } from "lucide-react";
+import { PROFILE, PROJECTS } from "@/lib/data";
 
 export default function Home() {
+  const featured = PROJECTS.slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Hero */}
+      <section className="border-b border-border relative overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(var(--color-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-foreground) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div className="container py-24 md:py-32 relative">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+            Portfolio · {PROFILE.specialty}
+          </span>
+
+          <h1 className="text-[clamp(2.75rem,7vw,5.75rem)] font-black leading-[0.92] tracking-tight text-foreground mb-8 max-w-4xl">
+            Senior engineer building production SaaS and payments infrastructure.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+            7+ years shipping production systems across fintech, ticketing, dating, and
+            e-learning verticals. Founded SaaS Simplified in 2018. Available for senior
+            remote roles and select consulting.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              <Mail className="h-4 w-4" />
+              Get in touch
+            </Link>
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href={PROFILE.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-border px-7 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
+              <Download className="h-4 w-4" />
+              Resume
+            </a>
+          </div>
+
+          <div className="mt-10 flex items-center gap-3">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              Currently open to senior remote roles
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Now */}
+      <section className="border-b border-border">
+        <div className="container py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              Now / 2026
+            </span>
+            <div className="space-y-3 text-base text-foreground leading-relaxed max-w-2xl">
+              <p>
+                Building <span className="text-primary">EasyKingsPay v2</span> —
+                cross-border remittance with mobile money payouts, live across 5
+                corridors.
+              </p>
+              <p>
+                Architecting microservices at <span className="text-primary">Impact Factors</span>{" "}
+                and shipping NexTransfer at <span className="text-primary">Primus Learning</span>.
+              </p>
+              <p>
+                Running <span className="text-primary">SaaS Simplified</span> — a small senior
+                agency for production SaaS work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Work */}
+      <section className="border-b border-border">
+        <div className="container py-24">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-3">
+                Selected work
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
+                Recent projects.
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="hidden md:inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+            >
+              All work →
+            </Link>
+          </div>
+
+          <div className="border-t border-border">
+            {featured.map((p, i) => (
+              <ProjectRow key={p.slug} project={p} index={i + 1} />
+            ))}
+          </div>
+
+          <div className="mt-12 md:hidden">
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+            >
+              All work →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section>
+        <div className="container py-24">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-end">
+            <h2 className="text-[clamp(2rem,5vw,3.75rem)] font-black tracking-tight text-foreground leading-[0.95]">
+              Have a problem worth solving?
+            </h2>
+            <div className="flex flex-col items-start md:items-end gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+              >
+                Start a conversation →
+              </Link>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                Or email {PROFILE.email}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ProjectRow({ project, index }: { project: (typeof PROJECTS)[number]; index: number }) {
+  const Wrapper = project.url ? "a" : "div";
+  const wrapperProps = project.url
+    ? { href: project.url, target: "_blank" as const, rel: "noopener noreferrer" }
+    : {};
+
+  const num = String(index).padStart(3, "0");
+
+  return (
+    <Wrapper
+      {...wrapperProps}
+      className="group block border-b border-border py-8 hover:bg-muted/30 transition-colors"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-[60px_1fr_120px_60px] gap-4 md:gap-6 items-center">
+        <span className="font-mono text-xs text-primary">{num}</span>
+        <div>
+          <h3 className="text-xl md:text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+            {project.tagline}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+          {project.category}
+        </span>
+        <span className="font-mono text-xs text-muted-foreground flex items-center justify-between md:justify-end gap-2">
+          {project.year}
+          {project.url && (
+            <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+          )}
+        </span>
+      </div>
+    </Wrapper>
   );
 }
