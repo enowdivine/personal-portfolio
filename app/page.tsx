@@ -127,6 +127,10 @@ export default function Home() {
                 and shipping NexTransfer at <span className="text-primary">Primus Learning</span>.
               </p>
               <p>
+                Relaunching <span className="text-primary">UniAssist Africa</span> — pan-African
+                university admissions, expanding from Cameroon to 54 countries.
+              </p>
+              <p>
                 Running <span className="text-primary">SaaS Simplified</span> — a small senior
                 agency for production SaaS work.
               </p>
