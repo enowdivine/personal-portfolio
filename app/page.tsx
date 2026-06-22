@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Mail, Download } from "lucide-react";
-import { PROFILE, PROJECTS, TESTIMONIALS } from "@/lib/data";
+import { PROFILE, TESTIMONIALS } from "@/lib/data";
+
+const AGENCY_URL = "https://saassimplified.net";
+const AGENCY_PROJECTS_URL = `${AGENCY_URL}/projects`;
 
 export default function Home() {
-  const featured = PROJECTS.slice(0, 4);
 
   return (
     <>
@@ -139,39 +141,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Work */}
+      {/* Work — lives on the agency site now, this page just points there. */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <div className="flex items-end justify-between mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end">
             <div>
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-3">
                 Selected work
               </span>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
-                Recent projects.
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground mb-4">
+                Projects live on the agency site.
               </h2>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+                Same person, same engineering work — but the products and client builds are showcased
+                under SaaS Simplified, since that's where the work is delivered from. Cleaner story for
+                everyone landing here.
+              </p>
             </div>
-            <Link
-              href="/work"
-              className="hidden md:inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+            <a
+              href={AGENCY_PROJECTS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-border hover:border-primary/40 hover:text-primary px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground transition-colors"
             >
-              All work →
-            </Link>
-          </div>
-
-          <div className="border-t border-border">
-            {featured.map((p, i) => (
-              <ProjectRow key={p.slug} project={p} index={i + 1} />
-            ))}
-          </div>
-
-          <div className="mt-12 md:hidden">
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
-            >
-              All work →
-            </Link>
+              View projects on saassimplified.net
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </section>
@@ -239,42 +234,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  );
-}
-
-function ProjectRow({ project, index }: { project: (typeof PROJECTS)[number]; index: number }) {
-  const Wrapper = project.url ? "a" : "div";
-  const wrapperProps = project.url
-    ? { href: project.url, target: "_blank" as const, rel: "noopener noreferrer" }
-    : {};
-
-  const num = String(index).padStart(3, "0");
-
-  return (
-    <Wrapper
-      {...wrapperProps}
-      className="group block border-b border-border py-8 hover:bg-muted/30 transition-colors"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-[60px_1fr_120px_60px] gap-4 md:gap-6 items-center">
-        <span className="font-mono text-xs text-primary">{num}</span>
-        <div>
-          <h3 className="text-xl md:text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">
-            {project.title}
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-            {project.tagline}
-          </p>
-        </div>
-        <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-          {project.category}
-        </span>
-        <span className="font-mono text-xs text-muted-foreground flex items-center justify-between md:justify-end gap-2">
-          {project.year}
-          {project.url && (
-            <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-          )}
-        </span>
-      </div>
-    </Wrapper>
   );
 }

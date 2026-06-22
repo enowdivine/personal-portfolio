@@ -46,12 +46,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={PROFILE.socials.twitter}
+                  href={PROFILE.socials.medium}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground hover:text-primary transition-colors"
                 >
-                  X / Twitter
+                  Medium
                 </a>
               </li>
             </ul>

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "enowdivine.vercel.app"
+        }
+      ],
+      "destination": "https://enowdivine.saassimplified.net/$1",
+      "permanent": true
+    }
+  ]
+}

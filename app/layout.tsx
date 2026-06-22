@@ -47,7 +47,7 @@ const personJsonLd = {
   sameAs: [
     PROFILE.socials.github,
     PROFILE.socials.linkedin,
-    PROFILE.socials.twitter,
+    PROFILE.socials.medium,
   ],
   knowsAbout: [
     "Software Engineering",
