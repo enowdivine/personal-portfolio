@@ -52,8 +52,7 @@ export default function AboutPage() {
                 and Play Store — and authored{" "}
                 <span className="text-primary">stateledger</span>, an open-source
                 payment state-machine library for Node/TypeScript. Currently splits
-                time between full-time US backend work and running SaaS Simplified on
-                the side.
+                time between full-time US backend work and leading SaaS Simplified.
               </p>
               <p>
                 Open to senior remote roles where the work is technically meaningful, the
