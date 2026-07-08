@@ -6,7 +6,7 @@ import { PROFILE, EXPERIENCE, SKILLS, EDUCATION } from "@/lib/data";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Enow Divine — senior software engineer specializing in SaaS and payments infrastructure. 7+ years of production experience.",
+    "About Enow Divine — senior backend engineer specializing in payment systems, money-movement correctness, and distributed backends. 7+ years of production experience.",
 };
 
 export default function AboutPage() {
@@ -33,25 +33,27 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16">
             <div className="space-y-5 text-base text-foreground leading-relaxed max-w-2xl">
               <p>
-                Enow Divine is a senior software engineer based in{" "}
-                <span className="text-primary">{PROFILE.location}</span>, building
-                production SaaS and payments infrastructure for clients across the US,
-                Europe, and Africa. Started freelancing in 2018, formalized into a small
-                studio (SaaS Simplified) shortly after.
+                Enow Divine is a senior backend engineer based in{" "}
+                <span className="text-primary">{PROFILE.location}</span>, building the
+                payment and correctness layers behind fintech, remittance, and SaaS
+                products used across the US, Europe, and Africa. Started freelancing in
+                2018, formalized into a small studio (SaaS Simplified) shortly after.
               </p>
               <p>
-                Specializes in <span className="text-primary">backend systems</span>:
-                microservices, REST and GraphQL APIs, payment gateway integrations,
-                multi-currency systems. Equally comfortable across the stack — React,
+                Specializes in <span className="text-primary">payment systems and
+                money-movement correctness</span> — idempotent webhooks, decimal-safe
+                money math, race-free inventory, cryptographic receipt verification,
+                escrow flows, audit trails. Equally comfortable across the stack — React,
                 Next.js, React Native — when the work calls for it.
               </p>
               <p>
-                Has shipped 20+ production projects across fintech, ticketing, e-commerce,
-                e-learning, and on-demand services. Currently embedded with three product
-                teams in parallel: <span className="text-primary">Impact Factors</span> (US),{" "}
-                <span className="text-primary">Primus Learning</span> (US), and{" "}
-                <span className="text-primary">Tando Dating</span> (Switzerland) — while
-                running SaaS Simplified on the side.
+                Has shipped 10+ production platforms across fintech, remittance,
+                ticketing, and education — including 5 apps published to the App Store
+                and Play Store — and authored{" "}
+                <span className="text-primary">stateledger</span>, an open-source
+                payment state-machine library for Node/TypeScript. Currently splits
+                time between full-time US backend work and running SaaS Simplified on
+                the side.
               </p>
               <p>
                 Open to senior remote roles where the work is technically meaningful, the
@@ -75,7 +77,7 @@ export default function AboutPage() {
                     <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       Specialty
                     </dt>
-                    <dd className="text-foreground">SaaS · Payments · Microservices</dd>
+                    <dd className="text-foreground">Payments · Money-Movement · Distributed Systems</dd>
                   </div>
                   <div>
                     <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">

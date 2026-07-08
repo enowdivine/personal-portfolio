@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Enow Divine — Senior Software Engineer · SaaS & Payments";
+export const alt = "Enow Divine — Senior Backend Engineer · Payments & Distributed Systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -59,7 +59,7 @@ export default function OGImage() {
               fontWeight: 700,
             }}
           >
-            Portfolio · SaaS & Payments
+            Portfolio · Payments & Distributed Systems
           </div>
         </div>
         <div
@@ -77,7 +77,7 @@ export default function OGImage() {
         >
           <span>Enow Divine.</span>
           <span style={{ color: "#888888", fontSize: 56, fontWeight: 700, marginTop: 16 }}>
-            Senior software engineer.
+            Senior backend engineer.
           </span>
         </div>
 
@@ -100,7 +100,7 @@ export default function OGImage() {
               letterSpacing: "0.15em",
             }}
           >
-            7+ years · Stripe · Mobile Money · Microservices
+            7+ years · Payments · Stripe · Mobile Money · Distributed Systems
           </div>
           <div
             style={{

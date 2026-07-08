@@ -29,12 +29,12 @@ export default function Home() {
               </span>
 
               <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-[0.95] tracking-tight text-foreground mb-8">
-                Senior engineer building production SaaS and payments infrastructure.
+                Senior backend engineer building payment systems and money-safe distributed backends.
               </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
-                7+ years shipping production systems across fintech, ticketing, dating, and
-                e-learning verticals. Founded SaaS Simplified in 2018. Available for senior
-                remote roles and select consulting.
+                7+ years building the payment and correctness layers behind fintech, remittance, and
+                SaaS products used across the US, EU, and Africa. Founded SaaS Simplified in 2018.
+                Available for senior remote roles and select consulting.
               </p>
 
               <div className="flex flex-wrap items-center gap-3">
@@ -121,20 +121,23 @@ export default function Home() {
             <div className="space-y-3 text-base text-foreground leading-relaxed max-w-2xl">
               <p>
                 Building <span className="text-primary">EasyKingsPay v2</span> —
-                cross-border remittance with mobile money payouts, live across 5
-                corridors.
+                cross-border remittance with mobile money payouts, live across 5 corridors
+                into Central Africa.
               </p>
               <p>
-                Architecting microservices at <span className="text-primary">Impact Factors</span>{" "}
-                and shipping NexTransfer at <span className="text-primary">Primus Learning</span>.
+                Primary backend engineer on a multi-tenant faith-community platform
+                (giving, community, messaging) used by churches and ministries — and
+                shipping money-movement infrastructure for a US crowdfunding &amp; custodial
+                trading product.
               </p>
               <p>
-                Relaunching <span className="text-primary">UniAssist Africa</span> — pan-African
-                university admissions, expanding from Cameroon to 54 countries.
+                Building <span className="text-primary">UniAssist Africa</span> —
+                pre-launch admissions platform being built for an established admissions
+                organization, expanding their reach from Cameroon into 10 African countries.
               </p>
               <p>
-                Running <span className="text-primary">SaaS Simplified</span> — a small senior
-                agency for production SaaS work.
+                Running <span className="text-primary">SaaS Simplified</span> — a small
+                senior agency for production SaaS work.
               </p>
             </div>
           </div>

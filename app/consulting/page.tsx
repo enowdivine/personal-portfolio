@@ -6,7 +6,7 @@ import { PROFILE } from "@/lib/data";
 export const metadata: Metadata = {
   title: `Consulting — ${PROFILE.name}`,
   description:
-    "Direct engineering consulting from a senior payments and SaaS specialist. Architecture reviews and advisory retainers.",
+    "Direct engineering consulting from a senior payments and distributed-systems specialist. Architecture reviews and advisory retainers.",
 };
 
 export default function ConsultingPage() {
@@ -23,9 +23,9 @@ export default function ConsultingPage() {
           </h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Direct access to a senior engineer who has shipped production
-            payments and SaaS infrastructure. Used when you need a deep,
-            second pair of eyes on the system you are about to build — or
-            already have in flight.
+            payment systems and money-safe distributed backends. Used when
+            you need a deep, second pair of eyes on the system you are about
+            to build — or already have in flight.
           </p>
         </div>
       </section>
