@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border mt-auto">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
               Contact
@@ -55,6 +55,27 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
+              Open source
+            </p>
+            <a
+              href="https://github.com/enowdivine/stateledger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-baseline gap-2 text-sm text-foreground hover:text-primary transition-colors"
+            >
+              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary translate-y-[-1px]" />
+              stateledger
+              <span className="font-mono text-[10px] text-muted-foreground group-hover:text-primary transition-colors">
+                v0.3.0
+              </span>
+            </a>
+            <p className="text-xs text-muted-foreground mt-1 leading-snug">
+              Database-backed state machine on npm
+            </p>
           </div>
 
           <div>

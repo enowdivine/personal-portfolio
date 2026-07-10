@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { PROFILE } from "@/lib/data";
 
 const NAV = [
@@ -8,7 +12,43 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 
+function IconMenu() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+function IconClose() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
 export function Header() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Close on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll while open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur border-b border-border">
       <div className="container">
@@ -19,19 +59,59 @@ export function Header() {
           >
             <span className="text-primary">·</span> {PROFILE.name}
           </Link>
-          <nav className="flex items-center gap-1">
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className="font-mono text-[11px] uppercase tracking-widest px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                style={isActive(item.href) ? { color: "var(--color-foreground)" } : undefined}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            {open ? <IconClose /> : <IconMenu />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown — overlays page content instead of pushing it */}
+      {open ? (
+        <div
+          id="mobile-nav"
+          className="md:hidden absolute left-0 right-0 top-full border-b border-border bg-background shadow-lg"
+        >
+          <nav className="container py-3 flex flex-col">
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-mono text-sm uppercase tracking-widest py-3 px-1 border-b border-border last:border-b-0 hover:text-primary transition-colors"
+                style={{
+                  color: isActive(item.href)
+                    ? "var(--color-foreground)"
+                    : "var(--color-muted-foreground)",
+                }}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
         </div>
-      </div>
+      ) : null}
     </header>
   );
 }

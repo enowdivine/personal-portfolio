@@ -1,7 +1,7 @@
 export const PROFILE = {
   name: "Enow Divine",
   title: "Senior Backend Engineer",
-  specialty: "Payments & Distributed Systems",
+  specialty: "Payment Systems · Open Source Author",
   email: "enowdivine14@gmail.com",
   phone: "+237 672 491 296",
   location: "Buea, Cameroon",
