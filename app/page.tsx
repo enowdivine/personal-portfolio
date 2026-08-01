@@ -4,7 +4,7 @@ import { ArrowUpRight, Mail, Download } from "lucide-react";
 import { PROFILE, TESTIMONIALS } from "@/lib/data";
 
 const AGENCY_URL = "https://saassimplified.net";
-const AGENCY_PROJECTS_URL = `${AGENCY_URL}/projects`;
+const AGENCY_PROJECTS_URL = `${AGENCY_URL}/case-studies`;
 
 export default function Home() {
 
