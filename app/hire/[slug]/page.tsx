@@ -34,12 +34,12 @@ export async function generateMetadata({
     title: spec.title,
     description: spec.metaDescription,
     alternates: {
-      canonical: `https://enowdivine.com/hire/${spec.slug}`,
+      canonical: `https://enowdivine.net/hire/${spec.slug}`,
     },
     openGraph: {
       title: spec.title,
       description: spec.metaDescription,
-      url: `https://enowdivine.com/hire/${spec.slug}`,
+      url: `https://enowdivine.net/hire/${spec.slug}`,
       type: "profile",
     },
     twitter: {
@@ -66,7 +66,7 @@ export default async function HirePage({ params }: PageProps) {
       name: PROFILE.name,
       jobTitle: spec.role,
       description: spec.metaDescription,
-      url: `https://enowdivine.com/hire/${spec.slug}`,
+      url: `https://enowdivine.net/hire/${spec.slug}`,
       email: `mailto:${PROFILE.email}`,
       sameAs: [
         PROFILE.socials.github,

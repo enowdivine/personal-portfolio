@@ -8,7 +8,7 @@ export default function AppleIcon() {
     (
       <div
         style={{
-          fontSize: 120,
+          fontSize: 88,
           background: "#0f0f0f",
           width: "100%",
           height: "100%",
@@ -17,11 +17,11 @@ export default function AppleIcon() {
           justifyContent: "center",
           color: "#22e0d4",
           fontWeight: 900,
-          letterSpacing: "-0.05em",
+          letterSpacing: "-0.08em",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
-        D
+        ED
       </div>
     ),
     { ...size }

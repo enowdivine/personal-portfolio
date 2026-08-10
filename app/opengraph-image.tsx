@@ -112,7 +112,7 @@ export default function OGImage() {
               fontWeight: 700,
             }}
           >
-            enowdivine.com →
+            enowdivine.net →
           </div>
         </div>
       </div>

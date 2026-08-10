@@ -12,6 +12,26 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="border-b border-border relative overflow-hidden">
+        {/* Background portrait | dark scrim so foreground text stays legible */}
+        <Image
+          src="/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right hidden md:block -z-10"
+        />
+        {/* Legibility scrims | strong on the left (where headline sits), fading right */}
+        <div
+          aria-hidden
+          className="hidden md:block absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/50 pointer-events-none -z-10"
+        />
+        {/* Warm brand tint */}
+        <div
+          aria-hidden
+          className="hidden md:block absolute inset-0 bg-primary/[0.04] pointer-events-none -z-10"
+        />
+        {/* Existing grid pattern (kept for texture) */}
         <div
           aria-hidden
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -22,90 +42,44 @@ export default function Home() {
           }}
         />
         <div className="container py-24 md:py-32 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-16 items-start">
-            <div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
-                Portfolio · {PROFILE.specialty}
-              </span>
+          <div className="max-w-3xl">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+              Portfolio · {PROFILE.specialty}
+            </span>
 
-              <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-[0.95] tracking-tight text-foreground mb-8">
-                Senior backend engineer building payment systems and money-safe distributed backends.
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
-                7+ years building the payment and correctness layers behind fintech, remittance, and
-                SaaS products used across the US, EU, and Africa. Founded SaaS Simplified in 2018.
-                Available for senior remote roles and select consulting.
-              </p>
+            <h1 className="text-[clamp(2rem,4.25vw,3.5rem)] font-black leading-[1.05] tracking-tight text-foreground mb-8 max-w-2xl">
+              Senior software engineer building SaaS, payment integrations, and microservices at scale.
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+              7+ years building the payment and correctness layers behind fintech, remittance, and
+              SaaS products used across the US, EU, and Africa. Founded SaaS Simplified in 2018.
+              Available for senior remote roles and select consulting.
+            </p>
 
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
-                >
-                  <Mail className="h-4 w-4" />
-                  Get in touch
-                </Link>
-                <a
-                  href={PROFILE.resume}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-border px-7 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
-                >
-                  <Download className="h-4 w-4" />
-                  Resume
-                </a>
-              </div>
-
-              <div className="mt-10 flex items-center gap-3">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                  Currently open to senior remote roles
-                </span>
-              </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+              >
+                <Mail className="h-4 w-4" />
+                Get in touch
+              </Link>
+              <a
+                href={PROFILE.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-border px-7 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+              >
+                <Download className="h-4 w-4" />
+                Resume
+              </a>
             </div>
 
-            <div className="relative w-full max-w-[360px] mx-auto lg:mx-0">
-              {/* Offset accent block */}
-              <div
-                aria-hidden
-                className="absolute -bottom-3 -right-3 w-full h-full bg-primary/15 border border-primary/40"
-              />
-
-              {/* Image frame */}
-              <div className="relative aspect-[3/4] border border-border overflow-hidden bg-muted">
-                <Image
-                  src="/avatar.jpg"
-                  alt={PROFILE.name}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 360px, 360px"
-                  className="object-cover"
-                />
-
-                {/* Corner brackets */}
-                <span aria-hidden className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-primary" />
-                <span aria-hidden className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-primary" />
-                <span aria-hidden className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-primary" />
-                <span aria-hidden className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-primary" />
-              </div>
-
-              {/* Metadata strip */}
-              <div className="relative mt-3 border border-border bg-background p-3 flex items-center justify-between">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-primary leading-tight">
-                    {PROFILE.name}
-                  </p>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5 leading-tight">
-                    {PROFILE.title}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
-                    Available
-                  </span>
-                </div>
-              </div>
+            <div className="mt-10 flex items-center gap-3">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+              <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                Currently open to senior remote roles
+              </span>
             </div>
           </div>
         </div>
@@ -290,24 +264,55 @@ export default function Home() {
             </span>
             <div className="space-y-3 text-base text-foreground leading-relaxed max-w-2xl">
               <p>
-                Building <span className="text-primary">EasyKingsPay v2</span> —
-                cross-border remittance with mobile money payouts, live across 5 corridors
-                into Central Africa.
+                Shipped{" "}
+                <a
+                  href="https://tyketz.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline underline-offset-4"
+                >
+                  Tyketz
+                </a>{" "}
+                — event ticketing platform for African organizers, with mobile money
+                checkout, QR ticketing, and organizer dashboards.
               </p>
               <p>
-                Primary backend engineer on a multi-tenant faith-community platform
-                (giving, community, messaging) used by churches and ministries — and
-                shipping money-movement infrastructure for a US crowdfunding &amp; custodial
-                trading product.
+                Just shipped{" "}
+                <a
+                  href="https://es-qs.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline underline-offset-4"
+                >
+                  ES QS
+                </a>{" "}
+                — a UK quantity surveying practice&rsquo;s new marketing site with
+                services, projects, and a lead-capture enquiry flow.
               </p>
               <p>
-                Building <span className="text-primary">UniAssist Africa</span> —
-                pre-launch admissions platform being built for an established admissions
+                Building{" "}
+                <a
+                  href="https://uniassist.africa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline underline-offset-4"
+                >
+                  UniAssist Africa
+                </a>{" "}
+                — pre-launch admissions platform being built for an established admissions
                 organization, expanding their reach from Cameroon into 10 African countries.
               </p>
               <p>
-                Running <span className="text-primary">SaaS Simplified</span> — a small
-                senior agency for production SaaS work.
+                Running{" "}
+                <a
+                  href="https://saassimplified.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline underline-offset-4"
+                >
+                  SaaS Simplified
+                </a>{" "}
+                — a small senior agency for production SaaS work.
               </p>
             </div>
           </div>

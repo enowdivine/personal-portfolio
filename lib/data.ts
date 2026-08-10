@@ -182,6 +182,20 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Frontend Engineer & UI/UX Designer",
     image: "/people/arnaud.jpeg",
   },
+  {
+    quote:
+      "Worked with Divine on some heavy engineering builds, he's the real deal. Solid architecture, great UI polish, and zero fluff. Highly recommend him.",
+    name: "Etang Kencliff Andock Tabi Atem",
+    role: "AI-Integrated Full Stack Engineer",
+    image: "/people/kencliff.jpg",
+  },
+  {
+    quote:
+      "I have worked with Divine on several projects and during my time at Markpedia. He is an excellent and reliable software engineer, very empathetic, intelligent and gets things done. I recommend him for software development projects, contracts and jobs.",
+    name: "Oben Desmond Ashu",
+    role: "Software Engineer & Social Impact Technologist",
+    image: "/people/oben.jpg",
+  },
 ];
 
 export const EDUCATION = {

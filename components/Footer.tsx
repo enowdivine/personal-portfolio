@@ -1,7 +1,12 @@
-import Link from "next/link";
+"use client";
+
 import { PROFILE } from "@/lib/data";
 
 export function Footer() {
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="border-t border-border mt-auto">
       <div className="container py-12">
@@ -97,12 +102,13 @@ export function Footer() {
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
             © {new Date().getFullYear()} {PROFILE.name}
           </p>
-          <Link
-            href="/"
+          <button
+            type="button"
+            onClick={scrollTop}
             className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
           >
             ↑ Top
-          </Link>
+          </button>
         </div>
       </div>
     </footer>

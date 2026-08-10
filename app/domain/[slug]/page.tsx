@@ -32,12 +32,12 @@ export async function generateMetadata({
     title: spec.title,
     description: spec.metaDescription,
     alternates: {
-      canonical: `https://enowdivine.com/domain/${spec.slug}`,
+      canonical: `https://enowdivine.net/domain/${spec.slug}`,
     },
     openGraph: {
       title: spec.title,
       description: spec.metaDescription,
-      url: `https://enowdivine.com/domain/${spec.slug}`,
+      url: `https://enowdivine.net/domain/${spec.slug}`,
     },
     twitter: {
       card: "summary_large_image",

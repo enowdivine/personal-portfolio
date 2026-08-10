@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { HIRE_SPECIALTIES, DOMAIN_TOPICS } from "@/lib/data";
 
-const SITE = "https://enowdivine.com";
+const SITE = "https://enowdivine.net";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

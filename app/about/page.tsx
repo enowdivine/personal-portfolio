@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { PROFILE, EXPERIENCE, SKILLS, EDUCATION } from "@/lib/data";
@@ -15,15 +16,63 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="border-b border-border">
         <div className="container py-24 md:py-28">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
-            About
-          </span>
-          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
-            Senior backend engineer with deep payments expertise.
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            {PROFILE.summary}
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-16 items-start">
+            <div>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
+                About
+              </span>
+              <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
+                Senior backend engineer with deep payments expertise.
+              </h1>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                {PROFILE.summary}
+              </p>
+            </div>
+
+            <div className="relative w-full max-w-[360px] mx-auto lg:mx-0">
+              {/* Offset accent block */}
+              <div
+                aria-hidden
+                className="absolute -bottom-3 -right-3 w-full h-full bg-primary/15 border border-primary/40"
+              />
+
+              {/* Image frame */}
+              <div className="relative aspect-[3/4] border border-border overflow-hidden bg-muted">
+                <Image
+                  src="/avatar.jpg"
+                  alt={PROFILE.name}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 360px, 360px"
+                  className="object-cover"
+                />
+
+                {/* Corner brackets */}
+                <span aria-hidden className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-primary" />
+                <span aria-hidden className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-primary" />
+                <span aria-hidden className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-primary" />
+                <span aria-hidden className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-primary" />
+              </div>
+
+              {/* Metadata strip */}
+              <div className="relative mt-3 border border-border bg-background p-3 flex items-center justify-between">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-primary leading-tight">
+                    {PROFILE.name}
+                  </p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5 leading-tight">
+                    {PROFILE.title}
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+                    Available
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -52,7 +101,8 @@ export default function AboutPage() {
                 and Play Store — and authored{" "}
                 <span className="text-primary">stateledger</span>, an open-source
                 payment state-machine library for Node/TypeScript. Currently splits
-                time between full-time US backend work and leading SaaS Simplified.
+                time between full-time US backend work and running SaaS Simplified,
+                the small engineering studio he founded.
               </p>
               <p>
                 Open to senior remote roles where the work is technically meaningful, the

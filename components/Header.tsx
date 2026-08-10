@@ -5,9 +5,12 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PROFILE } from "@/lib/data";
 
-const NAV = [
+type NavItem = { href: string; label: string; external?: boolean };
+
+const NAV: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: PROFILE.socials.linkedin, label: "Writing", external: true },
   { href: "/consulting", label: "Consulting" },
   { href: "/contact", label: "Contact" },
 ];
@@ -55,23 +58,37 @@ export function Header() {
         <div className="flex h-14 items-center justify-between">
           <Link
             href="/"
-            className="font-mono text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-lg md:text-xl font-black tracking-tight text-foreground hover:text-primary transition-colors"
           >
-            <span className="text-primary">·</span> {PROFILE.name}
+            <span className="text-primary text-2xl leading-none">·</span>
+            {PROFILE.name}
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="font-mono text-[11px] uppercase tracking-widest px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                style={isActive(item.href) ? { color: "var(--color-foreground)" } : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium px-3.5 py-2 text-foreground/70 hover:text-primary transition-colors inline-flex items-center gap-1"
+                >
+                  {item.label}
+                  <span aria-hidden="true" className="text-[10px]">↗</span>
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium px-3.5 py-2 text-foreground/70 hover:text-primary transition-colors"
+                  style={isActive(item.href) ? { color: "var(--color-foreground)", fontWeight: 700 } : undefined}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           {/* Mobile hamburger */}
@@ -95,20 +112,33 @@ export function Header() {
           className="md:hidden absolute left-0 right-0 top-full border-b border-border bg-background shadow-lg"
         >
           <nav className="container py-3 flex flex-col">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="font-mono text-sm uppercase tracking-widest py-3 px-1 border-b border-border last:border-b-0 hover:text-primary transition-colors"
-                style={{
-                  color: isActive(item.href)
-                    ? "var(--color-foreground)"
-                    : "var(--color-muted-foreground)",
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium py-3.5 px-1 border-b border-border last:border-b-0 text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1.5"
+                >
+                  {item.label}
+                  <span aria-hidden="true" className="text-xs">↗</span>
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-base font-medium py-3.5 px-1 border-b border-border last:border-b-0 hover:text-primary transition-colors"
+                  style={{
+                    color: isActive(item.href)
+                      ? "var(--color-foreground)"
+                      : "var(--color-muted-foreground)",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
       ) : null}

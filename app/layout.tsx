@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://enowdivine.com"),
+  metadataBase: new URL("https://enowdivine.net"),
   title: {
     default: `${PROFILE.name} — ${PROFILE.title}`,
     template: `%s · ${PROFILE.name}`,
@@ -45,7 +45,7 @@ const personJsonLd = {
   jobTitle: PROFILE.title,
   description: PROFILE.summary,
   email: `mailto:${PROFILE.email}`,
-  url: "https://enowdivine.com",
+  url: "https://enowdivine.net",
   sameAs: [
     PROFILE.socials.github,
     PROFILE.socials.linkedin,
