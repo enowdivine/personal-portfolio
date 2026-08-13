@@ -4,6 +4,8 @@ export const PROFILE = {
   specialty: "Payment Systems · Open Source Author",
   email: "enowdivine14@gmail.com",
   phone: "+237 672 491 296",
+  phoneE164: "+237672491296",
+  whatsapp: "https://wa.me/237672491296",
   location: "Buea, Cameroon",
   resume: "/resume.pdf",
   socials: {

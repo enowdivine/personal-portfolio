@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Mail } from "lucide-react";
+import { CheckCircle, Mail, Phone } from "lucide-react";
+
+function IconWhatsApp({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.5-.5-.67-.5l-.57-.02c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.11.57-.08 1.75-.71 2-1.4.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Zm-5.44 7.44h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.5-5.24c0-5.46 4.44-9.9 9.88-9.9 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.98c0 5.46-4.45 9.87-9.9 9.87ZM20.52 3.45A11.83 11.83 0 0 0 12.05 0C5.5 0 .1 5.4.1 12a11.9 11.9 0 0 0 1.6 5.94L0 24l6.24-1.63a11.86 11.86 0 0 0 5.7 1.45h.01c6.55 0 11.94-5.4 11.94-11.98 0-3.19-1.24-6.19-3.5-8.44Z" />
+    </svg>
+  );
+}
 import { PROFILE } from "@/lib/data";
 
 const REASONS = [
@@ -188,20 +196,36 @@ export function ContactForm() {
             <aside className="space-y-6">
               <div className="border border-border p-6">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">
-                  Direct
+                  Reach me directly
                 </p>
                 <a
                   href={`mailto:${PROFILE.email}`}
-                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-4"
+                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-3"
                 >
                   <Mail className="h-4 w-4 shrink-0" />
-                  <span>{PROFILE.email}</span>
+                  <span className="break-all">{PROFILE.email}</span>
+                </a>
+                <a
+                  href={`tel:${PROFILE.phoneE164}`}
+                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-3"
+                >
+                  <Phone className="h-4 w-4 shrink-0" />
+                  <span>{PROFILE.phone}</span>
+                </a>
+                <a
+                  href={PROFILE.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-4"
+                >
+                  <IconWhatsApp className="h-4 w-4 shrink-0" />
+                  <span>WhatsApp</span>
                 </a>
                 <a
                   href={PROFILE.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors pt-3 border-t border-border"
                 >
                   <span>LinkedIn</span>
                   <span aria-hidden>→</span>

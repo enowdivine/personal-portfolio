@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Mail, FileText, Repeat, Eye, Workflow } from "lucide-react";
+import { ArrowUpRight, Mail, Workflow } from "lucide-react";
 import { PROFILE } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -30,164 +31,149 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* What's on offer */}
+      {/* What we build */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12">
-            How to engage
-          </span>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Tier 1: Architecture Review */}
-            <article className="border border-border p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <FileText className="h-4 w-4 text-primary" />
-                <span className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                  Engagement 01
-                </span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-foreground mb-4">
-                Architecture review
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                A fixed-scope deep read of an existing system or a planned
-                build. Code, schema, payment flows, data model, the
-                concurrency story, the failure modes. Closes with a written
-                assessment and a concrete roadmap.
-              </p>
-              <ul className="space-y-3 text-sm text-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Two-week engagement, mostly async with two scheduled deep-dives
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Written assessment, ranked findings, and a recommended sequencing
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Closes with a 90-minute walkthrough with your team
-                </li>
-              </ul>
-            </article>
-
-            {/* Tier 2: Advisory Retainer */}
-            <article className="border border-border p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <Repeat className="h-4 w-4 text-primary" />
-                <span className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                  Engagement 02
-                </span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-foreground mb-4">
-                Advisory retainer
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                A monthly block of senior engineering time used the way you
-                need it — design reviews, code reviews, an extra brain on a
-                hard call, hiring help, an outside read on a vendor pitch.
-                Async by default, with scheduled calls when they help.
-              </p>
-              <ul className="space-y-3 text-sm text-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Monthly hours block — used flexibly through the month
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Shared channel (Slack or similar) for between-call questions
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1 shrink-0">→</span>
-                  Month-to-month, paused or stopped on a month's notice
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* What I tend to look at */}
-      <section className="border-b border-border">
-        <div className="container py-24">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-16">
             <div>
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-4">
-                <Eye className="inline-block h-3 w-3 mr-1.5" />
-                Scope
+                What I take on
               </span>
               <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
-                What I tend to look at.
+                Six kinds of engineering work.
               </h2>
             </div>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed self-end">
-              Most engagements end up touching some subset of these areas.
-              Yours might be one of them, half of them, or something
-              adjacent — we'll figure that out on the intake call.
+              Every engagement follows a familiar shape — discovery, scope,
+              build, handover — but the deliverables change with the work.
+              Here&rsquo;s what you actually walk away with, per project type.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 border-t border-border pt-8">
-            {[
-              {
-                title: "API design",
-                body: "Versioning, contract stability, idempotency at the boundary. How the API holds up as your callers grow in number and stop reading the changelog.",
-              },
-              {
-                title: "Data modeling",
-                body: "Schemas, state machines, audit trails. Modeling business workflows as explicit transitions so on-call and compliance can both answer their questions from one table.",
-              },
-              {
-                title: "Concurrency safety",
-                body: "Locking, transactions, race conditions. Where two writers can step on each other, where they can't, and where the database actually guarantees what you think it does.",
-              },
-              {
-                title: "Background work",
-                body: "Job queues, retry semantics, failure-mode design. What gets retried, what gets dead-lettered, what wakes someone up.",
-              },
-              {
-                title: "Observability",
-                body: "Logs, metrics, traces in production paths. Where the system can go silent and what to instrument so it can't.",
-              },
-              {
-                title: "Database transaction boundaries",
-                body: "Where to commit, where to roll back, what to snapshot at decision points so reports stay correct months later.",
-              },
-              {
-                title: "Webhook handling",
-                body: "Delivery vs idempotent processing as separate concerns. Why the provider's API is the source of truth and the webhook is just a hint to go ask.",
-              },
-              {
-                title: "Migration safety",
-                body: "Running schema changes on live data without downtime. The patterns that break under load and the ones that don't.",
-              },
-            ].map((item) => (
-              <div key={item.title}>
-                <h3 className="text-sm font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
-              </div>
+          <div className="space-y-8">
+            {PROJECT_TYPES.map((p) => (
+              <article
+                key={p.num}
+                className="border border-border overflow-hidden group"
+              >
+                {/* Image banner */}
+                <div className="relative w-full aspect-[21/9] overflow-hidden bg-muted border-b border-border">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    className="object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                  />
+                  <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-widest text-white bg-black/60 backdrop-blur-sm px-2.5 py-1">
+                    {p.num} · {p.title}
+                  </span>
+                </div>
+
+                <div className="p-8 md:p-10">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                    {p.num}
+                  </span>
+                  <span className="h-px flex-1 bg-border" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-foreground mb-3">
+                  {p.title}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+                  {p.description}
+                </p>
+
+                {/* How I engage */}
+                <div className="border-t border-border pt-8 mb-8">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
+                    How I engage
+                  </p>
+                  <p className="text-sm text-foreground leading-relaxed max-w-3xl">
+                    {p.howIEngage}
+                  </p>
+                </div>
+
+                {/* Process + Deliverables */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 border-t border-border pt-8">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">
+                      Process
+                    </p>
+                    <ol className="space-y-3">
+                      {p.process.map((step, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-foreground leading-relaxed"
+                        >
+                          <span className="font-mono text-[10px] text-primary mt-1 shrink-0 w-4">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">
+                      Results &amp; documents delivered
+                    </p>
+                    <ul className="space-y-3">
+                      {p.deliverables.map((item, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-foreground leading-relaxed"
+                        >
+                          <span className="text-primary mt-1 shrink-0">→</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="border-t border-border mt-8 pt-8 flex flex-wrap items-center gap-3">
+                  <Link
+                    href={`/contact?type=${encodeURIComponent(p.title)}`}
+                    className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                  >
+                    Start a {p.title.toLowerCase()} project
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                  <a
+                    href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(`${p.title} enquiry`)}`}
+                    className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Email me
+                  </a>
+                </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What working together looks like */}
+
+      {/* How we work */}
       <section className="border-b border-border">
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-12">
             <div>
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-4">
                 <Workflow className="inline-block h-3 w-3 mr-1.5" />
-                Rhythm
+                How we work
               </span>
               <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
-                What working together looks like.
+                How we&rsquo;ll work together.
               </h2>
             </div>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed self-end">
-              The default is async — calls are scheduled when they help, not
-              imposed as a daily standup. The aim is to be available
-              without becoming a meeting tax.
+              Most of the work happens by chat and shared docs. We only jump
+              on a call when it actually helps.
             </p>
           </div>
 
@@ -195,37 +181,35 @@ export default function ConsultingPage() {
             <li className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
-                <strong className="text-foreground block mb-1">Async by default.</strong>
-                Most of the work happens on your repo, in a shared channel, and on
-                review docs. Live time is reserved for the moments where it actually
-                accelerates the call.
+                <strong className="text-foreground block mb-1">Messages first, calls when needed.</strong>
+                Most of the work happens in your repo, in a shared channel, and in
+                review docs. We jump on a call only when it actually saves time.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
-                <strong className="text-foreground block mb-1">Shared channel for between-call questions.</strong>
-                Slack, Discord, or whatever your team uses. Same-business-day
-                response on weekdays — never &quot;always on,&quot; but never absent
-                either.
+                <strong className="text-foreground block mb-1">A shared chat for questions.</strong>
+                Slack, Discord, or whatever your team uses. I reply the same
+                working day — not 24/7, but never silent for days either.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
-                <strong className="text-foreground block mb-1">Output lives in a shared doc.</strong>
-                Architecture review deliverable, retainer log of work done — both
-                end up in a written document you and your team can revisit. Nothing
-                lives only in someone&apos;s head.
+                <strong className="text-foreground block mb-1">Everything gets written down.</strong>
+                Every review, decision, or piece of work ends up in a document
+                your team can read later. Nothing important lives only in
+                someone&apos;s head.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
-                <strong className="text-foreground block mb-1">Cadence you can plan around.</strong>
-                One weekly check-in by default; deep-dives scheduled as the work
-                demands. Calendar is your call — I work across timezones from West
-                Africa, comfortable with most overlap windows.
+                <strong className="text-foreground block mb-1">A rhythm you can plan around.</strong>
+                One weekly check-in by default. Deep-dive calls when the work
+                needs them. I work from West Africa and can overlap with most
+                timezones.
               </span>
             </li>
           </ul>
@@ -269,8 +253,12 @@ export default function ConsultingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-border pt-8">
             {[
               {
+                q: "Do you handle both building and advising?",
+                a: "Yes. Most engagements are build work — payment systems, SaaS, mobile, marketing sites, AI features. But I also take on advisory-only work when a team just needs a second opinion or an ongoing brain to bounce things off.",
+              },
+              {
                 q: "Does this convert into a full build if we want one?",
-                a: "Yes. If the review or the retainer surfaces work you want my agency, SaaS Simplified, to take on, we scope a build engagement separately. The advisory work and the build are billed separately — never an upsell pressure inside the consulting hours.",
+                a: "Yes. If an advisory engagement surfaces work you want done, we scope a build separately and my agency, SaaS Simplified, takes it on. Advisory and build are always billed separately — never an upsell pressure inside the advisory hours.",
               },
               {
                 q: "Do you sign NDAs?",
@@ -278,19 +266,15 @@ export default function ConsultingPage() {
               },
               {
                 q: "How fast can we start?",
-                a: "Architecture reviews kick off within about a week of signature. Retainers can start the same week if the scope is straightforward.",
+                a: "Most engagements kick off within a week of signature. Build work with a bigger scope may take longer to schedule — I'll say so up front on the intake call.",
               },
               {
                 q: "How many engagements at once?",
-                a: "A small number, deliberately. Usually one architecture review concurrent with one or two retainers — never more. If I'm at capacity I'll say so up front and offer a start date.",
+                a: "A small number, deliberately. I keep a firm cap so every client gets real senior attention, not shared time. If I'm at capacity I'll say so on the intake call and offer a start date.",
               },
               {
                 q: "Async-only, or some calls?",
-                a: "Both, depending on the engagement. Architecture reviews include two scheduled deep-dives plus the written work. Retainers run mostly async with calls scheduled when the work needs them.",
-              },
-              {
-                q: "What if our scope is too small for a review?",
-                a: "Then the retainer is likely the better fit — same access, less commitment. We figure that out on the intake call. There's no minimum scope you have to manufacture to engage.",
+                a: "Both, depending on the work. Most of the day-to-day happens by chat and in shared docs. Calls get scheduled when they actually save time.",
               },
             ].map((item) => (
               <div key={item.q}>
@@ -339,6 +323,169 @@ export default function ConsultingPage() {
     </>
   );
 }
+
+type ProjectType = {
+  num: string;
+  title: string;
+  description: string;
+  howIEngage: string;
+  process: string[];
+  deliverables: string[];
+  image: string;
+};
+
+const PROJECT_TYPES: ProjectType[] = [
+  {
+    num: "01",
+    title: "Payment systems",
+    description:
+      "For fintech products, marketplaces, and any platform moving money between two sides. Cards, mobile money, escrow, subscriptions — the stuff that has to be right the first time.",
+    howIEngage:
+      "Starts with a discovery call to map your money flow — sources, custody points, exits — and identify the risky joints: duplicate processing, race conditions, reconciliation gaps. Scoped as a fixed proposal within a few days.",
+    process: [
+      "Map the money flow: sources, custody points, exits",
+      "Choose the provider stack (Stripe, Paystack, MTN/Orange Mobile Money, Fapshi)",
+      "Design idempotent processing + escrow rules",
+      "Build the audit trail before shipping anything else",
+      "Wire compliance hooks: transaction limits, KYC, threshold reporting",
+      "Load-test the concurrency story before go-live",
+    ],
+    deliverables: [
+      "Payment processing service in your codebase, integrated with your provider(s)",
+      "State machine for every money-movement flow, with tests covering duplicates and races",
+      "Reconciliation dashboard or CLI for finance/ops",
+      "Runbook for common failure modes: webhook duplicate, provider outage, partial refund",
+      "Written architecture doc for future engineers",
+      "30 days of post-launch bug-fix support",
+    ],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80&auto=format&fit=crop",
+  },
+  {
+    num: "02",
+    title: "Business & marketing sites",
+    description:
+      "For consultancies, agencies, and SMBs who need a professional site that actually converts — not another template drop.",
+    howIEngage:
+      "Discovery call on your positioning, target audience, and primary conversion action. Scoped page-by-page proposal within three business days.",
+    process: [
+      "Define positioning, target audience, and the primary conversion action",
+      "Sitemap + wireframe review before design",
+      "Build page-by-page with weekly demos",
+      "SEO + performance instrumentation baked in",
+      "Contact form wired to your inbox, analytics live",
+      "Deploy + handover to your team",
+    ],
+    deliverables: [
+      "Live site on your domain (Vercel or your infra)",
+      "Fully editable Next.js + Tailwind codebase in your repo",
+      "Contact form emailing to your inbox",
+      "Bilingual (EN/FR) if in scope",
+      "Sitemap, robots.txt, structured data, analytics, Open Graph metadata",
+      "Handover doc + 30-day bug-fix window",
+    ],
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&q=80&auto=format&fit=crop",
+  },
+  {
+    num: "03",
+    title: "SaaS products",
+    description:
+      "For founders shipping a subscription product from scratch, or teams rebuilding an aging one that's holding them back.",
+    howIEngage:
+      "Discovery on the core user workflow — the loop from signup to primary action to billing. Scoped MVP proposal, weekly demos, no black-box builds.",
+    process: [
+      "Define the core loop: signup → primary action → billing",
+      "Auth + multi-tenant foundation (workspaces, RBAC, org-level isolation)",
+      "Core feature build with weekly demos",
+      "Stripe subscriptions with plan changes + usage metering",
+      "Admin console + analytics dashboards",
+      "Deploy + observability wired, beta users onboarded",
+    ],
+    deliverables: [
+      "Live SaaS on your domain, ready for real users",
+      "Multi-tenant codebase with workspace/org isolation",
+      "Stripe subscriptions with plan changes + usage metering",
+      "Admin console for user + billing management",
+      "API for third-party integrations",
+      "Deployment + monitoring runbook",
+    ],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80&auto=format&fit=crop",
+  },
+  {
+    num: "04",
+    title: "Mobile apps",
+    description:
+      "For products that need to live in users' pockets — payments, community, on-the-go tools. iOS + Android from a single codebase.",
+    howIEngage:
+      "Discovery on the core mobile workflow, backend requirements, and where you are in the app-store publishing journey (fresh account vs. existing listings).",
+    process: [
+      "Define the mobile-first user flow",
+      "Design system + core screens",
+      "Native features: push, camera, biometrics, deep links",
+      "Backend API tuned for mobile constraints (batching, offline)",
+      "App Store + Play Store submission (cert setup to first accept)",
+      "OTA update pipeline (Expo EAS) so future updates skip resubmission",
+    ],
+    deliverables: [
+      "iOS + Android app from one Expo/React Native codebase",
+      "App Store + Play Store listings live",
+      "Backend API in your repo",
+      "OTA update workflow (Expo EAS) — ship fixes without new submissions",
+      "Push notification setup (APNs + FCM)",
+      "Handover doc covering build, release, and update cycles",
+    ],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1400&q=80&auto=format&fit=crop",
+  },
+  {
+    num: "05",
+    title: "AI integrations",
+    description:
+      "For teams adding real LLM features to their product — not chatbot demos, but production workflows with cost caps and fallbacks.",
+    howIEngage:
+      "Discovery on the use case, latency + cost constraints, and — most importantly — where AI actually helps vs. where a plain form field would do the job better.",
+    process: [
+      "Define the use case and measure what \"correct output\" means",
+      "Model selection (OpenAI, Anthropic, Groq) with real cost analysis",
+      "Prompt design + a small evaluation harness so iteration is confident",
+      "Streaming UX + fallback logic for model outages",
+      "RAG pipeline if needed (pgvector or dedicated embeddings DB)",
+      "Cost + rate-limit guardrails before shipping to real users",
+    ],
+    deliverables: [
+      "AI feature integrated in your codebase with streaming UX",
+      "Prompt library + evaluation set so you can iterate confidently",
+      "Cost monitoring + hard-cap guards",
+      "Fallback logic for model outages or rate limits",
+      "Deployment + observability for AI-specific paths",
+      "Doc explaining prompt design decisions and how to iterate them",
+    ],
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80&auto=format&fit=crop",
+  },
+  {
+    num: "06",
+    title: "Advisory engagements",
+    description:
+      "For teams who want a senior engineer's brain on a decision without commissioning a full build. Architecture audits, second opinions, ongoing engineering advice.",
+    howIEngage:
+      "Starts with a discovery call to figure out whether you need a fixed-scope review (audit an existing system) or an ongoing retainer (bounce ideas as they come). Scoped proposal within a few days.",
+    process: [
+      "Discovery call to scope the ask (review vs. ongoing retainer)",
+      "Written scope with fixed price (review) or monthly hours (retainer)",
+      "Async work in your repo, shared channel, and review docs",
+      "Two scheduled deep-dive calls for reviews; weekly check-ins for retainers",
+      "Written deliverable at the end (review) or a running decision log (retainer)",
+      "Two weeks of follow-up email support after reviews wrap",
+    ],
+    deliverables: [
+      "Written architecture assessment (10–20 pages) with ranked findings by risk and effort",
+      "Prioritized roadmap: what to fix now, what to defer, what to leave alone",
+      "Inline code and schema annotations in your repo where useful",
+      "Running decision log for retainer engagements",
+      "Same-business-day answers to async questions",
+      "90-min team walkthrough + Q&A for reviews",
+    ],
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=80&auto=format&fit=crop",
+  },
+];
 
 function Step({ num, title, body }: { num: string; title: string; body: string }) {
   return (
