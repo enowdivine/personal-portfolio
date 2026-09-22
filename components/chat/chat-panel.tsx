@@ -1,7 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Send, Trash2, X } from "lucide-react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+} from "react";
+import { Maximize2, Minimize2, Send, Trash2, X } from "lucide-react";
 import { PROFILE } from "@/lib/data";
 import { CHAT_STARTERS, type ChatTopic } from "./chat-context";
 import {
@@ -88,17 +94,33 @@ function errorTextFor(code: unknown): string {
   }
 }
 
+/**
+ * Everything the Tab trap is allowed to land on. Disabled controls are excluded
+ * because they are not tabbable, and the composer is disabled while a request
+ * is in flight.
+ */
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 interface ChatPanelProps {
   isOpen: boolean;
   onClose: () => void;
+  isFullscreen: boolean;
+  onToggleFullscreen: () => void;
 }
 
-export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
+export function ChatPanel({
+  isOpen,
+  onClose,
+  isFullscreen,
+  onToggleFullscreen,
+}: ChatPanelProps) {
   const [entries, setEntries] = useState<ChatEntry[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Read persisted state after mount rather than during render: localStorage
   // does not exist on the server, and the first client render has to match.
@@ -127,6 +149,35 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isOpen, onClose]);
+
+  // Only the fullscreen panel is modal, so only the fullscreen panel locks the
+  // page behind it. The lock lives in one effect whose cleanup is the single
+  // release path, which means every way out releases it: closing, minimising,
+  // Escape (which closes), and unmounting all change or drop this effect.
+  //
+  // The scrollbar it hides is replaced with equivalent padding, so nothing on
+  // the page behind moves. Nothing here repositions the body — a `position:
+  // fixed` lock would scroll the page to the top and shift its layout.
+  useEffect(() => {
+    if (!isOpen || !isFullscreen) return;
+    const { body, documentElement } = document;
+    const previousBodyOverflow = body.style.overflow;
+    const previousRootOverflow = documentElement.style.overflow;
+    const previousBodyPadding = body.style.paddingRight;
+    const scrollbar = window.innerWidth - documentElement.clientWidth;
+
+    body.style.overflow = "hidden";
+    documentElement.style.overflow = "hidden";
+    if (scrollbar > 0) {
+      body.style.paddingRight = `${scrollbar}px`;
+    }
+
+    return () => {
+      body.style.overflow = previousBodyOverflow;
+      documentElement.style.overflow = previousRootOverflow;
+      body.style.paddingRight = previousBodyPadding;
+    };
+  }, [isOpen, isFullscreen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -236,32 +287,92 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
     void send(question, topic);
   };
 
+  /**
+   * Focus containment, fullscreen only. As a small sheet the panel is not modal
+   * and the page behind it stays reachable by keyboard, which is the point of a
+   * non-modal widget. Fullscreen covers the page, so Tab has to cycle inside it
+   * rather than wander onto content the visitor cannot see.
+   */
+  const trapTab = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (!isFullscreen || event.key !== "Tab") return;
+    const root = panelRef.current;
+    if (!root) return;
+
+    const focusable = Array.from(
+      root.querySelectorAll<HTMLElement>(FOCUSABLE),
+    ).filter((element) => element.offsetParent !== null);
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
     <>
-      {/* Backdrop, phones only — there the panel is a sheet over the page, and a
-          tap outside should close it. On desktop it sits beside the content and
-          the page stays usable. */}
+      {/* Backdrop. As a sheet it is phones only — there the panel covers the
+          page and a tap outside should close it, while on desktop the panel sits
+          beside the content and the page stays usable. Fullscreen is modal at
+          every width, so the backdrop is too: on desktop it dims the gutter
+          around the panel, and a click there closes. */}
       <button
         type="button"
         aria-label="Close the assistant"
         onClick={onClose}
-        className="fixed inset-0 z-[55] bg-background/70 backdrop-blur-sm sm:hidden"
+        className={cx(
+          "fixed inset-0 z-[55] bg-background/70 backdrop-blur-sm",
+          !isFullscreen && "sm:hidden",
+        )}
       />
 
       <div
+        ref={panelRef}
         role="dialog"
         aria-label={`Ask about ${PROFILE.name}`}
+        // Modal only while fullscreen: a small sheet leaves the rest of the page
+        // available to assistive technology, which matches the fact that it is
+        // still visible and still scrollable.
+        aria-modal={isFullscreen}
+        onKeyDown={trapTab}
         className={cx(
           styles.panel,
-          "fixed z-[60] flex flex-col border border-border bg-background shadow-2xl",
-          // Phones: a sheet that clears the sticky header rather than covering
-          // it, so the site's own navigation is never trapped underneath.
-          "inset-x-2 bottom-2 top-[4.5rem]",
-          // Desktop: a card above the launcher, capped so it never runs off a
-          // short window.
-          "sm:inset-x-auto sm:top-auto sm:bottom-24 sm:right-5 sm:h-[min(620px,calc(100vh-9rem))] sm:w-[25rem]",
+          "fixed z-[60] flex flex-col bg-background shadow-2xl",
+          isFullscreen
+            ? cx(
+                styles.panelFullscreen,
+                // Phones: genuinely edge to edge, over the sticky header
+                // included — the whole point is room for the transcript and the
+                // composer. `100dvh` rather than `100vh` because the latter
+                // measures the viewport with the URL bar collapsed and pushes
+                // the composer off the bottom of the screen.
+                "inset-x-0 top-0 h-[100dvh] border-0",
+                // Desktop: a large centred panel inside a 2rem gutter, capped
+                // so it does not become an unreadably wide column of chat.
+                // `left`/`right` plus a max width and auto inline margins is
+                // what centres it — no transform, so the entrance animation is
+                // free to use one.
+                "sm:inset-8 sm:mx-auto sm:h-auto sm:max-w-[64rem] sm:border sm:border-border",
+              )
+            : cx(
+                "border border-border",
+                // Phones: a sheet that clears the sticky header rather than
+                // covering it, so the site's own navigation is never trapped
+                // underneath.
+                "inset-x-2 bottom-2 top-[4.5rem]",
+                // Desktop: a card above the launcher, capped so it never runs
+                // off a short window.
+                "sm:inset-x-auto sm:top-auto sm:bottom-24 sm:right-5 sm:h-[min(620px,calc(100vh-9rem))] sm:w-[25rem]",
+              ),
         )}
       >
         {/* Header */}
@@ -274,6 +385,10 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
               Answers come from this site only
             </p>
           </div>
+          {/* Window controls. 2.75rem square on phones so each one is its own
+              tappable target even with three of them side by side — fullscreen
+              hides the site's chrome, so these are the only way back out and
+              they have to be hit first time. */}
           <div className="flex shrink-0 items-center gap-1">
             {entries.length > 0 && (
               <button
@@ -281,17 +396,37 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
                 onClick={clear}
                 title="Clear conversation"
                 aria-label="Clear conversation"
-                className="inline-flex h-8 w-8 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="inline-flex h-11 w-11 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
               >
                 <Trash2 className="h-4 w-4" aria-hidden="true" />
               </button>
             )}
+            {/* Outlined where the other two are borderless, so it never reads as
+                a second close button. */}
+            <button
+              type="button"
+              onClick={onToggleFullscreen}
+              aria-pressed={isFullscreen}
+              title={isFullscreen ? "Exit full screen" : "Expand to full screen"}
+              aria-label={
+                isFullscreen
+                  ? "Exit full screen"
+                  : "Expand the assistant to full screen"
+              }
+              className="inline-flex h-11 w-11 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
+            >
+              {isFullscreen ? (
+                <Minimize2 className="h-4 w-4" aria-hidden="true" />
+              ) : (
+                <Maximize2 className="h-4 w-4" aria-hidden="true" />
+              )}
+            </button>
             <button
               type="button"
               onClick={onClose}
               title="Close"
               aria-label="Close the assistant"
-              className="inline-flex h-8 w-8 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="inline-flex h-11 w-11 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -306,6 +441,10 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
           className={cx(
             styles.transcript,
             "min-h-0 flex-1 space-y-4 overflow-y-auto p-4",
+            // Fullscreen on a wide screen would otherwise stretch the transcript
+            // to 64rem of line length. The panel gets the room; the reading
+            // column stays a reading column.
+            isFullscreen && "sm:mx-auto sm:w-full sm:max-w-3xl",
           )}
         >
           {entries.length === 0 && (
@@ -383,7 +522,13 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
 
         {/* Composer */}
         <div className="border-t border-border bg-card p-3">
-          <div className="flex gap-2">
+          <div
+            className={cx(
+              "flex gap-2",
+              // Lines up with the transcript's reading column when fullscreen.
+              isFullscreen && "sm:mx-auto sm:w-full sm:max-w-3xl",
+            )}
+          >
             <input
               ref={inputRef}
               type="text"
@@ -399,7 +544,10 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
               placeholder="Ask a question…"
               aria-label="Your question"
               disabled={loading}
-              className="min-w-0 flex-1 border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-50"
+              // Taller on phones: the composer row stretches, so this sets the
+              // height of the send button beside it as well, and 44px is the
+              // floor for a touch target.
+              className="min-w-0 flex-1 border border-border bg-background px-3 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-50 sm:py-2"
             />
             <button
               type="button"

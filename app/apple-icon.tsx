@@ -1,29 +1,13 @@
 import { ImageResponse } from "next/og";
+import { IconMark } from "@/lib/icon-mark";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default function AppleIcon() {
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 88,
-          background: "#0f0f0f",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#22e0d4",
-          fontWeight: 900,
-          letterSpacing: "-0.08em",
-          fontFamily: "system-ui, -apple-system, sans-serif",
-        }}
-      >
-        ED
-      </div>
-    ),
-    { ...size }
-  );
+  // Same mark, more air: iOS masks the icon into a squircle and shows it
+  // large, where a favicon-tight letter reads as cramped.
+  return new ImageResponse(<IconMark size={size.width} glyph={0.68} />, {
+    ...size,
+  });
 }
