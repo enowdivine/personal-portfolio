@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle, Mail, Phone } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 function IconWhatsApp({ className }: { className?: string }) {
   return (
@@ -60,7 +61,9 @@ export function ContactForm() {
   if (submitted) {
     return (
       <section>
-        <div className="container py-32 max-w-md text-center">
+        {/* Plays once when the panel swaps in — the only motion that marks a
+            state change rather than an arrival. */}
+        <div className="animate-rise container py-32 max-w-md text-center">
           <CheckCircle className="h-10 w-10 text-primary mx-auto mb-6" />
           <h1 className="text-2xl font-black tracking-tight text-foreground mb-3">
             Message sent.
@@ -87,13 +90,18 @@ export function ContactForm() {
       {/* Hero */}
       <section className="border-b border-border">
         <div className="container py-24 md:py-28">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
+          {/* Above the fold: CSS entrance, h1 transform-only so LCP is
+              unaffected. */}
+          <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
             Contact
           </span>
-          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
+          <h1 className="animate-lift text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
             Get in touch.
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+          <p
+            className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
+            style={{ animationDelay: "120ms" }}
+          >
             Senior remote roles, contract work, or interesting problems worth solving — a
             few sentences is enough. Reply within one business day.
           </p>
@@ -182,7 +190,7 @@ export function ContactForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-60"
+                  className="lift inline-flex items-center gap-2 bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-60"
                 >
                   {isSubmitting ? "Sending…" : "Send →"}
                 </button>
@@ -193,8 +201,11 @@ export function ContactForm() {
             </form>
 
             {/* Side */}
+            {/* The form itself is deliberately left static — inputs and labels
+                should be ready the instant they are on screen, not fading. Only
+                the reference cards beside it reveal. */}
             <aside className="space-y-6">
-              <div className="border border-border p-6">
+              <Reveal className="border border-border p-6">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">
                   Reach me directly
                 </p>
@@ -228,11 +239,13 @@ export function ContactForm() {
                   className="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors pt-3 border-t border-border"
                 >
                   <span>LinkedIn</span>
-                  <span aria-hidden>→</span>
+                  <span aria-hidden className="nudge">
+                    →
+                  </span>
                 </a>
-              </div>
+              </Reveal>
 
-              <div className="border border-border p-6">
+              <Reveal delay={130} className="border border-border p-6">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
                   Time zones served
                 </p>
@@ -240,7 +253,7 @@ export function ContactForm() {
                 <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
                   Remote-first, flexible hours
                 </p>
-              </div>
+              </Reveal>
             </aside>
           </div>
         </div>

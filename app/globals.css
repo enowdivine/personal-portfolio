@@ -30,6 +30,31 @@
     border-color: var(--color-border);
   }
 
+  :root {
+    /* One curve and one duration for every reveal on the site, so the scroll
+       reveals and the hero entrance read as a single motion vocabulary.
+
+       The curve is a pronounced ease-out: it covers most of the distance in
+       the first third, so a 30px travel is legible without the whole thing
+       feeling slow. A gentler curve at this duration reads as "nothing
+       happened". */
+    --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-reveal: 680ms;
+    --dur-interact: 200ms;
+
+    /* Travel distances. `far` is for full-width section headers and cards:
+       the larger the element, the more distance it needs before the movement
+       reads as intentional rather than as a rendering wobble. */
+    --travel-base: 30px;
+    --travel-far: 40px;
+    --travel-hero: 30px;
+    /* The headline's travel. Distance is free here — what would cost LCP is
+       the opacity fade and the delay, not the movement. Kept smaller than the
+       rest anyway: a headline at this type size throws a lot of pixels around
+       for every px it moves. */
+    --travel-hero-lcp: 18px;
+  }
+
   html {
     scroll-behavior: smooth;
     text-size-adjust: 100%;
@@ -47,5 +72,218 @@
   ::selection {
     background-color: hsl(178 70% 52% / 0.25);
     color: hsl(178 70% 75%);
+  }
+
+  /* The `--color-ring` token existed but was never used. Outline, not border
+     or shadow, so nothing reflows when focus lands. */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────────────────
+   components/Reveal.tsx flips `data-reveal` from "" to "in"; everything
+   visual is here.
+
+   The hidden state is keyed on `[data-reveal=""]` — the exact initial value —
+   not on the bare attribute. Revealing is then the rule CEASING to match, and
+   the visible state is just the element's own defaults: no override rule, no
+   `!important`, no specificity race with the reduced-motion block below.
+
+   Both conditions on the media query are load-bearing.
+
+   `scripting: enabled` — only JS can flip that attribute, so with JS off
+   nothing ever would and every one of these elements would sit at opacity 0
+   forever. Content hidden behind a script that will never run is worse than
+   content that simply does not animate. A browser too old to know the feature
+   drops the whole block, which fails the same safe way: everything visible,
+   nothing animated.
+
+   `prefers-reduced-motion: no-preference` — under reduced motion the element
+   is never given a hidden start state at all. That is stronger than un-hiding
+   it afterwards: with no start state there is no computed change when the
+   attribute flips, so no transition is triggered and the inline
+   `transition-delay` the `delay` prop sets has nothing to delay. (Contrast
+   `.animate-rise` below, which does need a bespoke override, because an
+   animation's `both` fill survives a duration guard.) */
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  /* Vertical travel only, one axis for the whole site — that is what makes
+     this read as one behaviour instead of a catalogue of entrance effects. */
+  [data-reveal=""] {
+    opacity: 0;
+    transform: translateY(var(--travel-base));
+    /* Only worth paying for while the element is still waiting to move; it
+       drops off the moment the attribute flips and this stops matching. */
+    will-change: opacity, transform;
+  }
+
+  [data-reveal=""][data-reveal-distance="far"] {
+    transform: translateY(var(--travel-far));
+  }
+
+  /* `transition` is a shorthand, so this resets transition-property for the
+     element — which would silently kill the `transition-colors` utility on any
+     card that both reveals and brightens its border on hover. Colour is listed
+     here (at the interaction duration, not the reveal one) so those cards keep
+     a snappy hover instead of a 680ms smear. Nothing changes colour at reveal
+     time, so the extra entries cost nothing on the way in.
+
+     Note that `.lift` below also sets this shorthand. The two never land on the
+     same element: `.lift` goes on the control, `[data-reveal]` on its wrapper. */
+  [data-reveal] {
+    transition:
+      opacity var(--dur-reveal) var(--ease-reveal),
+      transform var(--dur-reveal) var(--ease-reveal),
+      border-color var(--dur-interact) ease,
+      color var(--dur-interact) ease;
+  }
+}
+
+/* ── Hero entrance ───────────────────────────────────────────────────────
+   Heroes sit above the fold, so <Reveal> deliberately skips them: a scroll
+   reveal there waits on JS and pushes LCP out. These play on load in pure
+   CSS instead, so the pages using them stay server components — a class plus
+   an inline `animationDelay` to stagger.
+
+   `both` is load-bearing. Without it a delayed element would paint at full
+   opacity, jump to the 0% frame when its delay elapsed, then fade in. `both`
+   holds the first frame through the delay and the last frame after.
+
+   Two keyframes, on purpose:
+
+   `rise` fades and lifts. Used for hero supporting content — eyebrow, lead
+   paragraph, buttons — never the headline.
+
+   `lift` moves only. The headline is the LCP candidate on most of these
+   pages, and an element animating up from opacity 0 does not count as
+   painted until it is visible, which pushes the LCP timestamp out by the
+   whole animation. A transform-only entrance paints the text at full opacity
+   in the first frame — the pixels are there, they just settle 18px. Zero
+   delay on it as well, for the same reason. The distance grew with everything
+   else; the opacity rule and the zero delay are the parts that cannot move. */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--travel-hero));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lift {
+  from {
+    transform: translateY(var(--travel-hero-lcp));
+  }
+  to {
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise var(--dur-reveal) var(--ease-reveal) both;
+}
+
+.animate-lift {
+  animation: lift var(--dur-reveal) var(--ease-reveal) both;
+}
+
+/* ── Interaction ─────────────────────────────────────────────────────────
+   Transform plus a paint-only shadow — nothing here can move the layout.
+   Gated on `hover: hover` so a touch device never gets stuck holding the
+   hovered state after a tap, and on `no-preference` too, which is why the
+   reduced-motion block below has nothing to undo here. */
+
+.lift {
+  transition:
+    transform var(--dur-interact) var(--ease-reveal),
+    box-shadow var(--dur-interact) ease,
+    border-color var(--dur-interact) ease,
+    color var(--dur-interact) ease,
+    opacity var(--dur-interact) ease;
+}
+
+.nudge,
+.nudge-diag {
+  transition: transform var(--dur-interact) var(--ease-reveal);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lift:hover {
+    transform: translateY(-4px);
+    /* A plain black shadow is invisible on a near-black page, so the
+       elevation cue is a low-alpha wash of the brand teal instead. Paint
+       only — it changes nothing about layout. */
+    box-shadow: 0 8px 24px -10px hsl(178 70% 52% / 0.35);
+  }
+
+  /* Pressing puts it back down — the click should feel like the surface
+     meeting the cursor, not like the lift is stuck on. */
+  .lift:active {
+    transform: translateY(0);
+  }
+
+  /* Arrow glyphs inside the link or button they belong to. Scoped to the
+     interactive ancestor rather than a `group` class, so an arrow only ever
+     answers its own control — a card-level `group` would fire every arrow
+     inside it at once. `→` slides along its own axis; `↗` travels
+     diagonally, so it moves the way it points. */
+  a:hover .nudge,
+  button:hover .nudge {
+    transform: translateX(4px);
+  }
+  a:hover .nudge-diag,
+  button:hover .nudge-diag {
+    transform: translate(4px, -4px);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────
+   No blanket `transition-duration: 0.01ms` guard: it would not neutralise
+   `animation-delay`, and with `both` fill it would pin a delayed element at
+   opacity 0 for the length of its delay. Each piece of motion is addressed
+   directly instead.
+
+   There is no `[data-reveal]` rule here on purpose — the scroll-reveal block
+   is itself gated on `no-preference`, so those elements are never given a
+   hidden state to be rescued from. Re-verified after the distances grew: the
+   travel now lives in `--travel-*` on `:root`, but nothing reads those unless
+   the `no-preference` block matches, so a reduced-motion visitor gets the
+   final state on the first frame no matter how large the numbers get. The
+   gating also means a visitor who turns the preference ON mid-session has any
+   still-hidden element revealed the instant the query flips — the rule simply
+   stops matching. */
+
+@media (prefers-reduced-motion: reduce) {
+  /* The inline `animationDelay` at each hero call site survives a duration
+     guard, and `both` fill would hold the element at opacity 0 through it.
+     Drop the animation outright. `!important` beats the inline style;
+     `animation: none` alone would not. */
+  .animate-rise,
+  .animate-lift {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Pre-existing: the "Available" / "OSS" status dots. */
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  .lift,
+  .nudge,
+  .nudge-diag {
+    transition: none;
+  }
+
+  /* Anchor jumps and the footer's "Top" button. The button also passes
+     `behavior` explicitly from JS, which CSS cannot reach — see Footer.tsx. */
+  html {
+    scroll-behavior: auto;
   }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight, Mail } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import {
   HIRE_SPECIALTIES,
   PROFILE,
@@ -95,32 +96,40 @@ export default async function HirePage({ params }: PageProps) {
             </Link>{" "}
             / Hire / <span>{spec.role}</span>
           </nav>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+          {/* Above the fold: CSS entrance only. The h1 is the LCP element on
+              these pages, so it moves without fading. */}
+          <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
             Available for senior remote roles
           </span>
-          <h1 className="text-[clamp(2.25rem,5vw,4.25rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-4xl">
+          <h1 className="animate-lift text-[clamp(2.25rem,5vw,4.25rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-4xl">
             {spec.title}
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          <p
+            className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+            style={{ animationDelay: "120ms" }}
+          >
             {spec.lead}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 mt-10">
+          <div
+            className="animate-rise flex flex-wrap items-center gap-3 mt-10"
+            style={{ animationDelay: "240ms" }}
+          >
             <a
               href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
                 `${spec.role} — enquiry`,
               )}`}
-              className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
+              className="lift inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
             >
               <Mail className="w-4 h-4" />
               Get in touch
             </a>
             <a
               href={PROFILE.resume}
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold hover:border-foreground"
+              className="lift inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold hover:border-foreground"
             >
               Download CV
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="nudge-diag w-4 h-4" />
             </a>
           </div>
         </div>
@@ -130,20 +139,33 @@ export default async function HirePage({ params }: PageProps) {
       {bullets.length > 0 ? (
         <section className="border-b border-border">
           <div className="container py-20">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+            <Reveal
+              as="h2"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-4"
+            >
               What that looks like in production
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10">
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={120}
+              className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10"
+            >
               {spec.bulletsIntro}
-            </p>
+            </Reveal>
+            {/* A single tall column: each item crosses the line on its own, so
+                no stagger — a delay here would just read as lag. */}
             <ul className="space-y-6">
               {bullets.map((b, i) => (
-                <li key={`${b.company}-${i}`} className="border-l-2 border-border pl-5">
+                <Reveal
+                  as="li"
+                  key={`${b.company}-${i}`}
+                  className="border-l-2 border-border pl-5"
+                >
                   <span className="font-mono text-[10.5px] uppercase tracking-widest text-primary block mb-2">
                     {b.company}
                   </span>
                   <p className="text-base leading-relaxed">{b.bullet}</p>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -153,12 +175,15 @@ export default async function HirePage({ params }: PageProps) {
       {/* Skills */}
       <section className="border-b border-border">
         <div className="container py-20">
-          <h2 className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-8">
+          <Reveal
+            as="h2"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-8"
+          >
             Full stack
-          </h2>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {SKILLS.map((group) => (
-              <div key={group.label}>
+            {SKILLS.map((group, i) => (
+              <Reveal key={group.label} delay={(i % 2) * 130}>
                 <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-3">
                   {group.label}
                 </span>
@@ -172,7 +197,7 @@ export default async function HirePage({ params }: PageProps) {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -182,7 +207,7 @@ export default async function HirePage({ params }: PageProps) {
       {testimonial ? (
         <section className="border-b border-border">
           <div className="container py-20">
-            <blockquote className="max-w-3xl">
+            <Reveal as="blockquote" distance="far" className="max-w-3xl">
               <p className="text-xl md:text-2xl leading-relaxed font-medium tracking-tight">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -192,7 +217,7 @@ export default async function HirePage({ params }: PageProps) {
                 </span>{" "}
                 | {testimonial.role}
               </footer>
-            </blockquote>
+            </Reveal>
           </div>
         </section>
       ) : null}
@@ -200,23 +225,25 @@ export default async function HirePage({ params }: PageProps) {
       {/* CTA */}
       <section>
         <div className="container py-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4">
+          <Reveal as="h2" className="text-3xl md:text-4xl font-black tracking-tight mb-4">
             Need this on your team?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+          </Reveal>
+          <Reveal as="p" delay={120} className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Enow is currently accepting a small number of senior remote roles
             and consulting engagements. Get in touch — usually replies within
             one business day.
-          </p>
-          <a
-            href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
-              `${spec.role} — enquiry`,
-            )}`}
-            className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
-          >
-            <Mail className="w-4 h-4" />
-            Contact {PROFILE.name.split(" ")[0]}
-          </a>
+          </Reveal>
+          <Reveal delay={240}>
+            <a
+              href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
+                `${spec.role} — enquiry`,
+              )}`}
+              className="lift inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
+            >
+              <Mail className="w-4 h-4" />
+              Contact {PROFILE.name.split(" ")[0]}
+            </a>
+          </Reveal>
         </div>
       </section>
     </>

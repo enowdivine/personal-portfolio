@@ -1,0 +1,86 @@
+/*
+ * The only CSS the chat widget needs that Tailwind utilities cannot express:
+ * two keyframed animations, and an explicit reduced-motion opt-out for them.
+ *
+ * Everything lives here rather than in app/globals.css so the widget is
+ * self-contained, and so its reduced-motion handling is stated rather than
+ * inherited. A blanket global guard is not enough: collapsing
+ * `animation-duration` alone leaves `animation-delay` and `animation-fill-mode:
+ * both` in force, which on the sibling agency site left delayed animations
+ * still holding their first keyframe — an element stuck invisible. Each rule
+ * below therefore clears duration, delay and fill together, and every animated
+ * element is styled to look correct with no animation running at all.
+ */
+
+@keyframes chat-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes chat-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-0.2rem);
+  }
+}
+
+/* Resting state is the finished state, so `animation: none` is always safe. */
+.panel {
+  opacity: 1;
+  transform: none;
+  animation: chat-panel-in 180ms ease-out both;
+}
+
+.dot {
+  opacity: 0.35;
+  transform: none;
+  animation: chat-dot 1.05s ease-in-out infinite both;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/*
+ * The transcript auto-scrolls on every new turn, and `scroll-behavior: smooth`
+ * on `html` in app/globals.css is inherited here — so that scroll is motion the
+ * widget causes and therefore motion the widget has to be able to switch off.
+ */
+.transcript {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transcript {
+    scroll-behavior: auto;
+  }
+
+  .panel,
+  .dot,
+  .dot:nth-child(2),
+  .dot:nth-child(3) {
+    animation-name: none;
+    animation-duration: 0s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: none;
+    opacity: 1;
+    transform: none;
+  }
+}

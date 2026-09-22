@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, Workflow } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { PROFILE } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -15,14 +16,19 @@ export default function ConsultingPage() {
     <>
       {/* Hero */}
       <section className="border-b border-border">
+        {/* CSS entrance above the fold; the h1 moves without fading so LCP
+            lands on the first frame. */}
         <div className="container py-24 md:py-32">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+          <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
             Consulting · {PROFILE.specialty}
           </span>
-          <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-3xl">
+          <h1 className="animate-lift text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-3xl">
             Senior engineering, on retainer.
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          <p
+            className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+            style={{ animationDelay: "120ms" }}
+          >
             Direct access to a senior engineer who has shipped production
             payment systems and money-safe distributed backends. Used when
             you need a deep, second pair of eyes on the system you are about
@@ -35,26 +41,33 @@ export default function ConsultingPage() {
       <section className="border-b border-border">
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-16">
-            <div>
+            <Reveal distance="far">
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-4">
                 What I take on
               </span>
               <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
                 Six kinds of engineering work.
               </h2>
-            </div>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed self-end">
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={130}
+              className="text-sm md:text-base text-muted-foreground leading-relaxed self-end"
+            >
               Every engagement follows a familiar shape — discovery, scope,
               build, handover — but the deliverables change with the work.
               Here&rsquo;s what you actually walk away with, per project type.
-            </p>
+            </Reveal>
           </div>
 
+          {/* One card per screenful, so no stagger — each arrives on its own. */}
           <div className="space-y-8">
             {PROJECT_TYPES.map((p) => (
-              <article
+              <Reveal
+                as="article"
                 key={p.num}
-                className="border border-border overflow-hidden group"
+                distance="far"
+                className="border border-border overflow-hidden group hover:border-primary/40"
               >
                 {/* Image banner */}
                 <div className="relative w-full aspect-[21/9] overflow-hidden bg-muted border-b border-border">
@@ -137,21 +150,21 @@ export default function ConsultingPage() {
                 <div className="border-t border-border mt-8 pt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href={`/contact?type=${encodeURIComponent(p.title)}`}
-                    className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                    className="lift inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90"
                   >
                     Start a {p.title.toLowerCase()} project
-                    <ArrowUpRight className="h-4 w-4" />
+                    <ArrowUpRight className="nudge-diag h-4 w-4" />
                   </Link>
                   <a
                     href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(`${p.title} enquiry`)}`}
-                    className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                    className="lift inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary"
                   >
                     <Mail className="h-4 w-4" />
                     Email me
                   </a>
                 </div>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -162,7 +175,7 @@ export default function ConsultingPage() {
       <section className="border-b border-border">
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-12">
-            <div>
+            <Reveal distance="far">
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-4">
                 <Workflow className="inline-block h-3 w-3 mr-1.5" />
                 How we work
@@ -170,31 +183,37 @@ export default function ConsultingPage() {
               <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
                 How we&rsquo;ll work together.
               </h2>
-            </div>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed self-end">
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={130}
+              className="text-sm md:text-base text-muted-foreground leading-relaxed self-end"
+            >
               Most of the work happens by chat and shared docs. We only jump
               on a call when it actually helps.
-            </p>
+            </Reveal>
           </div>
 
+          {/* Two columns, so the delay is the column index rather than the item
+              index — row-mates lead and follow, rows do not accumulate lag. */}
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 border-t border-border pt-8 text-sm">
-            <li className="flex items-start gap-3">
+            <Reveal as="li" className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
                 <strong className="text-foreground block mb-1">Messages first, calls when needed.</strong>
                 Most of the work happens in your repo, in a shared channel, and in
                 review docs. We jump on a call only when it actually saves time.
               </span>
-            </li>
-            <li className="flex items-start gap-3">
+            </Reveal>
+            <Reveal as="li" delay={130} className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
                 <strong className="text-foreground block mb-1">A shared chat for questions.</strong>
                 Slack, Discord, or whatever your team uses. I reply the same
                 working day — not 24/7, but never silent for days either.
               </span>
-            </li>
-            <li className="flex items-start gap-3">
+            </Reveal>
+            <Reveal as="li" className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
                 <strong className="text-foreground block mb-1">Everything gets written down.</strong>
@@ -202,8 +221,8 @@ export default function ConsultingPage() {
                 your team can read later. Nothing important lives only in
                 someone&apos;s head.
               </span>
-            </li>
-            <li className="flex items-start gap-3">
+            </Reveal>
+            <Reveal as="li" delay={130} className="flex items-start gap-3">
               <span className="text-primary mt-1 shrink-0">·</span>
               <span className="text-muted-foreground">
                 <strong className="text-foreground block mb-1">A rhythm you can plan around.</strong>
@@ -211,7 +230,7 @@ export default function ConsultingPage() {
                 needs them. I work from West Africa and can overlap with most
                 timezones.
               </span>
-            </li>
+            </Reveal>
           </ul>
         </div>
       </section>
@@ -219,22 +238,29 @@ export default function ConsultingPage() {
       {/* Process */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12">
+          <Reveal
+            as="span"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12"
+          >
             Process
-          </span>
+          </Reveal>
 
+          {/* Three across on desktop, so they arrive left-to-right. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Step
+              delay={0}
               num="01"
               title="Intake call"
               body="A 30-minute call to understand what you're building, where it hurts, and whether either of these engagement shapes fits. No deck, no sales pitch."
             />
             <Step
+              delay={130}
               num="02"
               title="Scoped proposal"
               body="Within a few days I send a one-page proposal with the scope, the deliverables, and the price. Plain language, no surprises."
             />
             <Step
+              delay={260}
               num="03"
               title="Start"
               body="On signature and the first payment, work starts on the date we agreed. Most engagements kick off within a week."
@@ -246,9 +272,12 @@ export default function ConsultingPage() {
       {/* FAQ */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12">
+          <Reveal
+            as="span"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12"
+          >
             Common questions
-          </span>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-border pt-8">
             {[
@@ -276,11 +305,11 @@ export default function ConsultingPage() {
                 q: "Async-only, or some calls?",
                 a: "Both, depending on the work. Most of the day-to-day happens by chat and in shared docs. Calls get scheduled when they actually save time.",
               },
-            ].map((item) => (
-              <div key={item.q}>
+            ].map((item, i) => (
+              <Reveal key={item.q} delay={(i % 2) * 130}>
                 <h3 className="text-base font-bold text-foreground mb-3">{item.q}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -289,7 +318,7 @@ export default function ConsultingPage() {
       {/* CTA */}
       <section>
         <div className="container py-24">
-          <div className="border border-border p-10 md:p-16">
+          <Reveal distance="far" className="border border-border p-10 md:p-16">
             <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-6">
               Start the conversation
             </span>
@@ -304,20 +333,20 @@ export default function ConsultingPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={`mailto:${PROFILE.email}?subject=Consulting%20enquiry`}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 font-mono text-xs uppercase tracking-widest hover:opacity-90 transition-opacity"
+                className="lift inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 font-mono text-xs uppercase tracking-widest hover:opacity-90"
               >
                 <Mail className="h-3.5 w-3.5" />
                 {PROFILE.email}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-border hover:border-primary/40 hover:text-primary px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground transition-colors"
+                className="lift inline-flex items-center gap-2 border border-border hover:border-primary/40 hover:text-primary px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground"
               >
                 Or use the contact form
-                <ArrowUpRight className="h-3.5 w-3.5" />
+                <ArrowUpRight className="nudge-diag h-3.5 w-3.5" />
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
@@ -487,12 +516,22 @@ const PROJECT_TYPES: ProjectType[] = [
   },
 ];
 
-function Step({ num, title, body }: { num: string; title: string; body: string }) {
+function Step({
+  num,
+  title,
+  body,
+  delay,
+}: {
+  num: string;
+  title: string;
+  body: string;
+  delay: number;
+}) {
   return (
-    <div className="border-t border-border pt-6">
+    <Reveal delay={delay} className="border-t border-border pt-6">
       <span className="font-mono text-xs text-primary block mb-3">{num}</span>
       <h3 className="text-lg font-black tracking-tight text-foreground mb-3">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
-    </div>
+    </Reveal>
   );
 }

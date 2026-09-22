@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Phone } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { PROFILE } from "@/lib/data";
 
 function IconGitHub({ className }: { className?: string }) {
@@ -34,7 +35,10 @@ function IconMedium({ className }: { className?: string }) {
 
 export function Footer() {
   const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // CSS `scroll-behavior` cannot reach a scroll started from JS, so the
+    // preference has to be read here or this stays smooth under reduced motion.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
   };
 
   return (
@@ -42,16 +46,16 @@ export function Footer() {
       <div className="container py-14">
         {/* Top row: brand + contact icons */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 mb-12 items-start md:items-end">
-          <div>
+          <Reveal>
             <p className="text-xl md:text-2xl font-black tracking-tight text-foreground mb-2">
               {PROFILE.name}
             </p>
             <p className="text-sm text-muted-foreground max-w-md">
               Senior software engineer. Available for select projects and consulting engagements.
             </p>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={130}>
             <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3 text-left md:text-right">
               Reach me
             </p>
@@ -61,7 +65,7 @@ export function Footer() {
                   href={`mailto:${PROFILE.email}`}
                   aria-label="Email"
                   title="Email"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <Mail className="h-4 w-4" />
                 </a>
@@ -71,7 +75,7 @@ export function Footer() {
                   href={`tel:${PROFILE.phoneE164}`}
                   aria-label="Call"
                   title="Call"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <Phone className="h-4 w-4" />
                 </a>
@@ -83,7 +87,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
                   title="WhatsApp"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <IconWhatsApp className="h-4 w-4" />
                 </a>
@@ -95,7 +99,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                   title="GitHub"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <IconGitHub className="h-4 w-4" />
                 </a>
@@ -107,7 +111,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   title="LinkedIn"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <IconLinkedIn className="h-4 w-4" />
                 </a>
@@ -119,18 +123,18 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label="Medium"
                   title="Medium"
-                  className="inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="lift inline-flex items-center justify-center h-10 w-10 border border-border text-muted-foreground hover:text-primary hover:border-primary/40"
                 >
                   <IconMedium className="h-4 w-4" />
                 </a>
               </li>
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         {/* Middle row: Open source + Resume */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-border pt-10">
-          <div>
+          <Reveal>
             <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
               Open source
             </p>
@@ -149,9 +153,9 @@ export function Footer() {
             <p className="text-xs text-muted-foreground mt-1 leading-snug">
               Database-backed state machine on npm
             </p>
-          </div>
+          </Reveal>
 
-          <div className="sm:text-right">
+          <Reveal delay={130} className="sm:text-right">
             <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
               Resume
             </p>
@@ -162,9 +166,11 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
             >
               Download PDF
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true" className="nudge">
+                →
+              </span>
             </a>
-          </div>
+          </Reveal>
         </div>
 
         {/* Bottom bar */}
@@ -175,7 +181,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollTop}
-            className="inline-flex items-center gap-1.5 border border-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-foreground hover:border-primary hover:text-primary transition-colors"
+            className="lift inline-flex items-center gap-1.5 border border-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-foreground hover:border-primary hover:text-primary"
           >
             <span aria-hidden="true">↑</span>
             Top

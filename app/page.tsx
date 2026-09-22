@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Mail, Download } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { PROFILE, TESTIMONIALS } from "@/lib/data";
 
 const AGENCY_URL = "https://saassimplified.net";
@@ -13,11 +14,16 @@ export default function Home() {
       {/* Hero */}
       <section className="border-b border-border relative overflow-hidden">
         {/* Background portrait | dark scrim so foreground text stays legible */}
+        {/* `loading="eager"` + `fetchPriority="high"` rather than the
+            deprecated `priority`, and not `preload` either: this image is
+            hidden below md, so on mobile the headline is the LCP element and
+            a <link rel=preload> in the head would be a wasted fetch. */}
         <Image
           src="/hero-bg.jpg"
           alt=""
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-right hidden md:block -z-10"
         />
@@ -42,24 +48,35 @@ export default function Home() {
           }}
         />
         <div className="container py-24 md:py-32 relative">
+          {/* Hero entrance. Pure CSS on first paint — no <Reveal> above the
+              fold, because that would gate the headline behind hydration. The
+              h1 uses `animate-lift` (transform only, no delay) so it paints
+              at full opacity in the first frame and LCP is untouched; only the
+              supporting content fades. */}
           <div className="max-w-3xl">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+            <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
               Portfolio · {PROFILE.specialty}
             </span>
 
-            <h1 className="text-[clamp(2rem,4.25vw,3.5rem)] font-black leading-[1.05] tracking-tight text-foreground mb-8 max-w-2xl">
+            <h1 className="animate-lift text-[clamp(2rem,4.25vw,3.5rem)] font-black leading-[1.05] tracking-tight text-foreground mb-8 max-w-2xl">
               Senior software engineer building SaaS, payment integrations, and microservices at scale.
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10">
+            <p
+              className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-10"
+              style={{ animationDelay: "120ms" }}
+            >
               7+ years building the payment and correctness layers behind fintech, remittance, and
               SaaS products used across the US, EU, and Africa. Founded SaaS Simplified in 2018.
               Available for senior remote roles and select consulting.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div
+              className="animate-rise flex flex-wrap items-center gap-3"
+              style={{ animationDelay: "240ms" }}
+            >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                className="lift inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90"
               >
                 <Mail className="h-4 w-4" />
                 Get in touch
@@ -68,14 +85,17 @@ export default function Home() {
                 href={PROFILE.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-border px-7 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                className="lift inline-flex items-center gap-2 border border-border px-7 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary"
               >
                 <Download className="h-4 w-4" />
                 Resume
               </a>
             </div>
 
-            <div className="mt-10 flex items-center gap-3">
+            <div
+              className="animate-rise mt-10 flex items-center gap-3"
+              style={{ animationDelay: "350ms" }}
+            >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
                 Currently open to senior remote roles
@@ -97,7 +117,10 @@ export default function Home() {
         />
         <div className="container py-24 md:py-28 relative">
           {/* Section header */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-14">
+          <Reveal
+            distance="far"
+            className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-14"
+          >
             <div>
               <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
                 Open source
@@ -112,10 +135,15 @@ export default function Home() {
                 Shipped, versioned, and used in production.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* stateledger card */}
-          <article className="relative border border-border bg-background hover:border-primary/40 transition-colors group">
+          <Reveal
+            as="article"
+            delay={140}
+            distance="far"
+            className="relative border border-border bg-background hover:border-primary/40 transition-colors"
+          >
             {/* Top strip */}
             <div className="flex flex-wrap items-center justify-between border-b border-border px-6 md:px-10 py-4 gap-3">
               <div className="flex items-center gap-3">
@@ -172,7 +200,7 @@ export default function Home() {
                     href="https://github.com/enowdivine/stateledger"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                    className="lift inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -183,13 +211,13 @@ export default function Home() {
                       <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.26 3.38.96.11-.75.4-1.26.74-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .98-.32 3.21 1.18a11.11 11.11 0 0 1 5.83 0c2.23-1.5 3.21-1.18 3.21-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
                     </svg>
                     View on GitHub
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="nudge-diag h-3.5 w-3.5" />
                   </a>
                   <a
                     href="https://www.npmjs.com/package/@stateledger/core"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                    className="lift inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -200,7 +228,7 @@ export default function Home() {
                       <path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z" />
                     </svg>
                     View on npm
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="nudge-diag h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
@@ -251,7 +279,7 @@ export default function Home() {
                 </div>
               </aside>
             </div>
-          </article>
+          </Reveal>
         </div>
       </section>
 
@@ -259,11 +287,17 @@ export default function Home() {
       <section className="border-b border-border">
         <div className="container py-20">
           <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <Reveal
+              as="span"
+              className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+            >
               Now / 2026
-            </span>
+            </Reveal>
+            {/* Staggered down the list, so it reads as a feed filling in
+                rather than four paragraphs arriving at once. The `space-y-3`
+                rhythm is untouched: each <Reveal> IS the <p>. */}
             <div className="space-y-3 text-base text-foreground leading-relaxed max-w-2xl">
-              <p>
+              <Reveal as="p">
                 Shipped{" "}
                 <a
                   href="https://tyketz.com"
@@ -275,8 +309,8 @@ export default function Home() {
                 </a>{" "}
                 — event ticketing platform for African organizers, with mobile money
                 checkout, QR ticketing, and organizer dashboards.
-              </p>
-              <p>
+              </Reveal>
+              <Reveal as="p" delay={120}>
                 Just shipped{" "}
                 <a
                   href="https://es-qs.com"
@@ -288,8 +322,8 @@ export default function Home() {
                 </a>{" "}
                 — a UK quantity surveying practice&rsquo;s new marketing site with
                 services, projects, and a lead-capture enquiry flow.
-              </p>
-              <p>
+              </Reveal>
+              <Reveal as="p" delay={240}>
                 Building{" "}
                 <a
                   href="https://uniassist.africa"
@@ -301,8 +335,8 @@ export default function Home() {
                 </a>{" "}
                 — pre-launch admissions platform being built for an established admissions
                 organization, expanding their reach from Cameroon into 10 African countries.
-              </p>
-              <p>
+              </Reveal>
+              <Reveal as="p" delay={360}>
                 Running{" "}
                 <a
                   href="https://saassimplified.net"
@@ -313,7 +347,7 @@ export default function Home() {
                   SaaS Simplified
                 </a>{" "}
                 — a small senior agency for production SaaS work.
-              </p>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -323,7 +357,7 @@ export default function Home() {
       <section className="border-b border-border">
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-end">
-            <div>
+            <Reveal distance="far">
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-3">
                 Selected work
               </span>
@@ -335,16 +369,18 @@ export default function Home() {
                 under SaaS Simplified, since that's where the work is delivered from. Cleaner story for
                 everyone landing here.
               </p>
-            </div>
-            <a
-              href={AGENCY_PROJECTS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border hover:border-primary/40 hover:text-primary px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground transition-colors"
-            >
-              View projects on saassimplified.net
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+            </Reveal>
+            <Reveal delay={140}>
+              <a
+                href={AGENCY_PROJECTS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lift inline-flex items-center gap-2 border border-border hover:border-primary/40 hover:text-primary px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground"
+              >
+                View projects on saassimplified.net
+                <ArrowUpRight className="nudge-diag h-3.5 w-3.5" />
+              </a>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -352,14 +388,28 @@ export default function Home() {
       {/* Testimonials */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12">
+          <Reveal
+            as="span"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-12"
+          >
             What people say
-          </span>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <figure
+            {/* Border brightens on hover, but no lift: nothing in these cards
+                is clickable, and a card that rises under the cursor promises
+                a click that is not there.
+
+                Delay is the column index, not the item index — two cards per
+                row arrive together, and staggering by absolute position would
+                leave the fifth card waiting half a second after it was already
+                on screen. */}
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal
+                as="figure"
                 key={t.name}
-                className="border border-border p-8 flex flex-col"
+                delay={(i % 2) * 130}
+                distance="far"
+                className="border border-border p-8 flex flex-col hover:border-primary/40 transition-colors"
               >
                 <span className="font-mono text-3xl text-primary leading-none mb-4">
                   &ldquo;
@@ -384,7 +434,7 @@ export default function Home() {
                     </p>
                   </div>
                 </figcaption>
-              </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -394,20 +444,27 @@ export default function Home() {
       <section>
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-end">
-            <h2 className="text-[clamp(2rem,5vw,3.75rem)] font-black tracking-tight text-foreground leading-[0.95]">
+            <Reveal
+              as="h2"
+              distance="far"
+              className="text-[clamp(2rem,5vw,3.75rem)] font-black tracking-tight text-foreground leading-[0.95]"
+            >
               Have a problem worth solving?
-            </h2>
-            <div className="flex flex-col items-start md:items-end gap-3">
+            </Reveal>
+            <Reveal delay={150} className="flex flex-col items-start md:items-end gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                className="lift inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:opacity-90"
               >
-                Start a conversation →
+                Start a conversation
+                <span aria-hidden="true" className="nudge">
+                  →
+                </span>
               </Link>
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
                 Or email {PROFILE.email}
               </span>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

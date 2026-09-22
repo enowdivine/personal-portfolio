@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { PROFILE, EXPERIENCE, SKILLS, EDUCATION } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -17,19 +18,32 @@ export default function AboutPage() {
       <section className="border-b border-border">
         <div className="container py-24 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-16 items-start">
+            {/* Above the fold: CSS entrance, not <Reveal>. The h1 gets
+                `animate-lift` — transform only — so the LCP text paints in the
+                first frame at full opacity. */}
             <div>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
+              <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
                 About
               </span>
-              <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
+              <h1 className="animate-lift text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
                 Senior backend engineer with deep payments expertise.
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              <p
+                className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+                style={{ animationDelay: "120ms" }}
+              >
                 {PROFILE.summary}
               </p>
             </div>
 
-            <div className="relative w-full max-w-[360px] mx-auto lg:mx-0">
+            {/* `animate-lift`, not `animate-rise`: below `lg` this column
+                stacks under the headline and the portrait becomes the largest
+                paint on the page, so fading it in would move LCP by the whole
+                animation. Transform-only keeps the pixels in frame one. */}
+            <div
+              className="animate-lift relative w-full max-w-[360px] mx-auto lg:mx-0"
+              style={{ animationDelay: "200ms" }}
+            >
               {/* Offset accent block */}
               <div
                 aria-hidden
@@ -42,7 +56,8 @@ export default function AboutPage() {
                   src="/avatar.jpg"
                   alt={PROFILE.name}
                   fill
-                  priority
+                  loading="eager"
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 360px, 360px"
                   className="object-cover"
                 />
@@ -80,7 +95,13 @@ export default function AboutPage() {
       <section className="border-b border-border">
         <div className="container py-20">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16">
-            <div className="space-y-5 text-base text-foreground leading-relaxed max-w-2xl">
+            {/* One reveal for the whole prose column, not one per paragraph.
+                At 30px and 680ms, four long paragraphs sliding in sequence is
+                fussier than it is alive — the motion belongs to the block. */}
+            <Reveal
+              distance="far"
+              className="space-y-5 text-base text-foreground leading-relaxed max-w-2xl"
+            >
               <p>
                 Enow Divine is a senior backend engineer based in{" "}
                 <span className="text-primary">{PROFILE.location}</span>, building the
@@ -108,10 +129,10 @@ export default function AboutPage() {
                 Open to senior remote roles where the work is technically meaningful, the
                 team is competent, and the scope is real.
               </p>
-            </div>
+            </Reveal>
 
             <aside className="space-y-6">
-              <div className="border border-border p-5">
+              <Reveal delay={130} className="border border-border p-5">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
                   Quick facts
                 </p>
@@ -150,17 +171,19 @@ export default function AboutPage() {
                     </dd>
                   </div>
                 </dl>
-              </div>
+              </Reveal>
 
-              <a
-                href={PROFILE.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-between border border-border p-4 text-sm text-foreground hover:border-primary hover:text-primary transition-colors"
-              >
-                <span className="font-semibold">Download full resume</span>
-                <Download className="h-4 w-4" />
-              </a>
+              <Reveal delay={260}>
+                <a
+                  href={PROFILE.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="lift inline-flex w-full items-center justify-between border border-border p-4 text-sm text-foreground hover:border-primary hover:text-primary"
+                >
+                  <span className="font-semibold">Download full resume</span>
+                  <Download className="h-4 w-4" />
+                </a>
+              </Reveal>
             </aside>
           </div>
         </div>
@@ -169,19 +192,25 @@ export default function AboutPage() {
       {/* Experience */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <div className="mb-16 max-w-3xl">
+          <Reveal distance="far" className="mb-16 max-w-3xl">
             <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-3">
               Experience
             </span>
             <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
               Where the work has happened.
             </h2>
-          </div>
+          </Reveal>
 
+          {/* Each <Reveal> IS the row, so `divide-y` still draws its hairlines
+              between siblings. No stagger here: these rows are tall enough to
+              cross the line one at a time, and a delay on an element that
+              already arrived alone just reads as lag. */}
           <div className="border border-border divide-y divide-border">
             {EXPERIENCE.map((job, i) => (
-              <article
+              <Reveal
+                as="article"
                 key={`${job.company}-${i}`}
+                distance="far"
                 className="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-4 md:gap-8 p-8"
               >
                 <span className="font-mono text-xs text-primary">
@@ -216,7 +245,7 @@ export default function AboutPage() {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -225,19 +254,24 @@ export default function AboutPage() {
       {/* Skills */}
       <section className="border-b border-border">
         <div className="container py-24">
-          <div className="mb-12 max-w-3xl">
+          <Reveal distance="far" className="mb-12 max-w-3xl">
             <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-3">
               Stack
             </span>
             <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
               Tools of the trade.
             </h2>
-          </div>
+          </Reveal>
 
+          {/* <Reveal> takes over as the grid cell — the per-index border classes
+              have to stay on the cell itself or the grid's hairlines break.
+              Staggered by column, not by index: cells in the same row arrive
+              together, so the offset belongs to the position in the row. */}
           <div className="grid grid-cols-1 md:grid-cols-2 border border-border">
             {SKILLS.map((group, i) => (
-              <div
+              <Reveal
                 key={group.label}
+                delay={(i % 2) * 130}
                 className={`p-6 border-b border-border md:border-b ${
                   i % 2 === 0 ? "md:border-r" : ""
                 } ${i >= SKILLS.length - 2 ? "md:border-b-0" : ""}`}
@@ -255,7 +289,7 @@ export default function AboutPage() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -265,17 +299,20 @@ export default function AboutPage() {
       <section className="border-b border-border">
         <div className="container py-20">
           <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <Reveal
+              as="span"
+              className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+            >
               Education
-            </span>
-            <div>
+            </Reveal>
+            <Reveal delay={130}>
               <h3 className="text-xl font-black tracking-tight text-foreground mb-1">
                 {EDUCATION.degree}
               </h3>
               <p className="text-sm text-muted-foreground">
                 {EDUCATION.institution} · <span className="font-mono">{EDUCATION.date}</span>
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -284,15 +321,24 @@ export default function AboutPage() {
       <section>
         <div className="container py-24">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-end">
-            <h2 className="text-[clamp(2rem,5vw,3.75rem)] font-black tracking-tight text-foreground leading-[0.95]">
-              Have a role or project in mind?
-            </h2>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+            <Reveal
+              as="h2"
+              distance="far"
+              className="text-[clamp(2rem,5vw,3.75rem)] font-black tracking-tight text-foreground leading-[0.95]"
             >
-              Get in touch →
-            </Link>
+              Have a role or project in mind?
+            </Reveal>
+            <Reveal delay={150}>
+              <Link
+                href="/contact"
+                className="lift inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-semibold text-primary-foreground hover:opacity-90"
+              >
+                Get in touch
+                <span aria-hidden="true" className="nudge">
+                  →
+                </span>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

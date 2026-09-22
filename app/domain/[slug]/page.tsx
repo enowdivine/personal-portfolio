@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight, Mail } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import {
   DOMAIN_TOPICS,
   PROFILE,
@@ -68,13 +69,18 @@ export default async function DomainPage({ params }: PageProps) {
             </Link>{" "}
             / Domain / <span>{spec.role}</span>
           </nav>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
+          {/* Above the fold: CSS entrance only. The h1 is the LCP element on
+              these pages, so it moves without fading. */}
+          <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-8">
             Consulting focus
           </span>
-          <h1 className="text-[clamp(2.25rem,5vw,4.25rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-4xl">
+          <h1 className="animate-lift text-[clamp(2.25rem,5vw,4.25rem)] font-black leading-[0.95] tracking-tight text-foreground mb-6 max-w-4xl">
             {spec.title}
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          <p
+            className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+            style={{ animationDelay: "120ms" }}
+          >
             {spec.lead}
           </p>
         </div>
@@ -83,15 +89,25 @@ export default async function DomainPage({ params }: PageProps) {
       {bullets.length > 0 ? (
         <section className="border-b border-border">
           <div className="container py-20">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+            <Reveal
+              as="h2"
+              className="text-2xl md:text-3xl font-bold tracking-tight mb-4"
+            >
               Track record
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10">
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={120}
+              className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10"
+            >
               {spec.bulletsIntro}
-            </p>
+            </Reveal>
+            {/* A single tall column: each item crosses the line on its own, so
+                no stagger — a delay here would just read as lag. */}
             <ul className="space-y-6">
               {bullets.map((b, i) => (
-                <li
+                <Reveal
+                  as="li"
                   key={`${b.company}-${i}`}
                   className="border-l-2 border-border pl-5"
                 >
@@ -99,7 +115,7 @@ export default async function DomainPage({ params }: PageProps) {
                     {b.company}
                   </span>
                   <p className="text-base leading-relaxed">{b.bullet}</p>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -109,7 +125,7 @@ export default async function DomainPage({ params }: PageProps) {
       {testimonial ? (
         <section className="border-b border-border">
           <div className="container py-20">
-            <blockquote className="max-w-3xl">
+            <Reveal as="blockquote" distance="far" className="max-w-3xl">
               <p className="text-xl md:text-2xl leading-relaxed font-medium tracking-tight">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -119,30 +135,32 @@ export default async function DomainPage({ params }: PageProps) {
                 </span>{" "}
                 | {testimonial.role}
               </footer>
-            </blockquote>
+            </Reveal>
           </div>
         </section>
       ) : null}
 
       <section>
         <div className="container py-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4">
+          <Reveal as="h2" className="text-3xl md:text-4xl font-black tracking-tight mb-4">
             Building something in this space?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+          </Reveal>
+          <Reveal as="p" delay={120} className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Enow takes on a small number of consulting engagements per quarter.
             Send the brief and expect a reply within one business day.
-          </p>
-          <a
-            href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
-              `${spec.role} — enquiry`,
-            )}`}
-            className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
-          >
-            <Mail className="w-4 h-4" />
-            Contact {PROFILE.name.split(" ")[0]}
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Reveal>
+          <Reveal delay={240}>
+            <a
+              href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
+                `${spec.role} — enquiry`,
+              )}`}
+              className="lift inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 text-sm font-semibold hover:opacity-90"
+            >
+              <Mail className="w-4 h-4" />
+              Contact {PROFILE.name.split(" ")[0]}
+              <ArrowUpRight className="nudge-diag w-4 h-4" />
+            </a>
+          </Reveal>
         </div>
       </section>
     </>

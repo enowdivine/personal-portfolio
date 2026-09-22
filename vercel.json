@@ -9,7 +9,7 @@
           "value": "enowdivine.vercel.app"
         }
       ],
-      "destination": "https://enowdivine.saassimplified.net/$1",
+      "destination": "https://enowdivine.net/$1",
       "permanent": true
     }
   ]
