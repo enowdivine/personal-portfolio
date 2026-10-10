@@ -10,8 +10,20 @@
  * Every topic here is reachable from the opening screen. There is no menu and
  * no submenu on this site — four starters is the whole map — so an id that no
  * starter uses would be dead weight in the validator.
+ *
+ * The ids are ALSO the message keys: each one's button copy, its one-line hint
+ * and the question it actually asks live under `ChatWidget.starters.<id>` in
+ * messages/en.json and messages/fr.json. That is the whole reason this file no
+ * longer carries any English — the starter a French visitor taps has to send a
+ * French question, or the assistant answers the right thing in the wrong
+ * language.
  */
 
+/**
+ * In the order a stranger reads them: who, what, proof, how to engage. The
+ * opening screen renders one starter button per entry, in this order. This is
+ * a personal site, not a support desk — anything else the visitor can type.
+ */
 export const CHAT_TOPICS = ["who", "what", "work", "hire"] as const;
 
 export type ChatTopic = (typeof CHAT_TOPICS)[number];
@@ -22,49 +34,3 @@ export function isChatTopic(value: unknown): value is ChatTopic {
     (CHAT_TOPICS as readonly string[]).includes(value)
   );
 }
-
-export interface ChatStarter {
-  topic: ChatTopic;
-  /** Button copy. */
-  label: string;
-  /** One line under the label, so the four buttons are not four bare nouns. */
-  hint: string;
-  /**
-   * What tapping the button actually asks. It is sent as the visitor's own
-   * message — a template starts a real conversation rather than pasting text
-   * into the composer. The route validates `topic`, never this string.
-   */
-  question: string;
-}
-
-/**
- * Four starters, in the order a stranger reads them: who, what, proof, how to
- * engage. This is a personal site, not a support desk — anything else the
- * visitor can simply type.
- */
-export const CHAT_STARTERS: readonly ChatStarter[] = [
-  {
-    topic: "who",
-    label: "Who is Divine?",
-    hint: "The short version",
-    question: "Who is Enow Divine?",
-  },
-  {
-    topic: "what",
-    label: "What does he do?",
-    hint: "Specialties and stack",
-    question: "What does Enow Divine do?",
-  },
-  {
-    topic: "work",
-    label: "What's he worked on?",
-    hint: "Roles and shipped work",
-    question: "What has Enow Divine worked on?",
-  },
-  {
-    topic: "hire",
-    label: "Is he available?",
-    hint: "Hiring and consulting",
-    question: "Is Enow Divine available, and how do I hire him?",
-  },
-];

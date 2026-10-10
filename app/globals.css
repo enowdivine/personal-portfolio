@@ -6,23 +6,98 @@
   max-width: 1280px;
 }
 
-@theme {
-  --color-background: hsl(0 0% 6%);
-  --color-foreground: hsl(0 0% 96%);
-  --color-card: hsl(0 0% 9%);
-  --color-card-foreground: hsl(0 0% 96%);
-  --color-muted: hsl(0 0% 12%);
-  --color-muted-foreground: hsl(0 0% 60%);
-  --color-accent: hsl(0 0% 14%);
-  --color-accent-foreground: hsl(0 0% 96%);
-  --color-primary: hsl(178 70% 52%);
-  --color-primary-foreground: hsl(180 60% 8%);
-  --color-border: hsl(0 0% 16%);
-  --color-input: hsl(0 0% 14%);
-  --color-ring: hsl(178 70% 52%);
+/* ══════════════════════════════════════════════════════════════════════════
+   This site and saassimplified.net are one brand with two front doors — they
+   link to each other constantly, so a visitor crossing between them must not
+   feel they changed companies. The palette, the two type faces, the radii and
+   the hover vocabulary below are therefore deliberately the SAME VALUES the
+   agency site uses, ported rather than imported (separate repos, no shared
+   package). If a token changes there it should change here, by hand, on
+   purpose.
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+   What is NOT shared: this site is a personal card, so it carries no sand/ink
+   section-banding at agency density and no WhatsApp-green CTA chrome.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Type ──────────────────────────────────────────────────────────────
+     Two faces, two jobs. Bricolage Grotesque carries every headline — a
+     grotesque with actual character, which is what keeps a plain-language
+     page from reading as a template. Inter carries body copy, where
+     neutrality is the point. Both are loaded in app/layout.tsx via
+     next/font.
+
+     `--font-mono` is deliberately NOT redefined: the only monospace left on
+     this site is the npm install command on the landing page, and Tailwind's
+     default ui-monospace stack renders that correctly with no webfont to
+     download. Everything that used to be mono — eyebrows, labels, metadata —
+     is now the uppercase label treatment, because the terminal costume was
+     exactly what this redesign drops. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: var(--font-display-face), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+
+  /* ── Palette ───────────────────────────────────────────────────────────
+     Warm daylight. The ground is a warm paper white; the ink is the deep
+     navy from the SaaS Simplified mark (#183953); the accent is that brand's
+     amber, used bright where it sits on ink and darkened to a bronze where
+     it has to behave as text or carry white. Ratios below were measured on
+     the agency site and hold here because the grounds are identical. */
+
+  --color-background: hsl(38 44% 98%);
+  /* Navy ink rather than black: 15.41:1 on the ground, and it stops the page
+     reading as grey-on-grey the way a neutral charcoal does. */
+  --color-foreground: hsl(205 38% 13%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(205 38% 13%);
+  /* The bronze end of the brand amber. It clears AA in BOTH roles — as text
+     on every ground here (5.01 on background, 5.20 on card, 4.70 on sand)
+     and as a fill under white (5.20). The bright logo amber cannot do either
+     safely; it lives in `--color-amber` and is only ever paired with ink. */
+  --color-primary: hsl(24 82% 38%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(36 30% 94%);
+  --color-secondary-foreground: hsl(205 38% 13%);
+  --color-muted: hsl(36 30% 94%);
+  /* 5.97:1 on the ground, 5.61 on sand, 6.20 on a card. Cast to match the
+     navy ink so the two read as one family. */
+  --color-muted-foreground: hsl(205 12% 38%);
+  --color-accent: hsl(34 40% 92%);
+  --color-accent-foreground: hsl(205 38% 13%);
+  --color-destructive: hsl(0 72% 42%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(34 18% 86%);
+  --color-input: hsl(34 16% 79%);
+  --color-ring: hsl(24 82% 38%);
+
+  /* The alternating section wash. Warm, barely-there, and the thing that
+     gives the page bands of depth without a single grey box. */
+  --color-sand: hsl(36 34% 95%);
+  /* Dark ground for the footer. Same hue family as the foreground, two steps
+     deeper, so a dark panel reads as the same design rather than a borrowed
+     one. White on it: 15.98:1. */
+  --color-ink: hsl(205 40% 13%);
+  --color-ink-soft: hsl(205 36% 18%);
+  /* Body copy on ink — 8.47:1. Light-on-dark reads optically thinner than its
+     ratio, so this sits well above the 4.5 floor on purpose. */
+  --color-ink-muted: hsl(205 14% 74%);
+  --color-ink-border: hsl(205 25% 26%);
+  /* The logo amber, undiluted. NEVER paired with white (2.00:1 on a card) —
+     only with ink (8.01:1): the hero swash, status dots, accents on the
+     footer's ink ground. */
+  --color-amber: hsl(32 96% 62%);
+  /* WhatsApp is a functional colour, not a brand accent — the people who
+     reach out from Cameroon recognise the green and tap it. The published
+     #25D366 cannot carry white text (1.9:1), so this is it taken down to
+     where it can: 5.19:1. */
+  --color-whatsapp: hsl(152 62% 30%);
+
+  /* Soft radii. The previous design used square corners as part of a
+     terminal look this site has dropped. */
+  --radius-lg: 0.875rem;
+  --radius-md: 0.625rem;
+  --radius-sm: 0.375rem;
 }
 
 @layer base {
@@ -67,15 +142,55 @@
     color: var(--color-foreground);
     font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss03";
     overscroll-behavior-y: none;
+    /* Inter sets loose by default. 1.6 is what makes body copy read as a
+       block of text rather than a list of lines. */
+    line-height: 1.6;
+    letter-spacing: -0.006em;
+    text-wrap: pretty;
+  }
+
+  /* Every heading is Bricolage Grotesque. Its optical-size axis already
+     tightens the fit as the type grows, so the tracking here is roughly half
+     what Inter needed — pulling Bricolage in as hard as Inter collapses the
+     counters at display sizes. Set in the base layer so no call site has to
+     remember a `font-display` utility. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.016em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.026em;
+    line-height: 1.02;
+  }
+
+  h2 {
+    letter-spacing: -0.022em;
+    line-height: 1.06;
+  }
+
+  h3 {
+    letter-spacing: -0.018em;
+  }
+
+  p {
+    line-height: 1.65;
   }
 
   ::selection {
-    background-color: hsl(178 70% 52% / 0.25);
-    color: hsl(178 70% 75%);
+    background-color: color-mix(in oklab, var(--color-amber) 42%, transparent);
+    color: var(--color-foreground);
   }
 
-  /* The `--color-ring` token existed but was never used. Outline, not border
-     or shadow, so nothing reflows when focus lands. */
+  /* Outline, not border or shadow, so nothing reflows when focus lands. */
   :focus-visible {
     outline: 2px solid var(--color-ring);
     outline-offset: 2px;
@@ -161,8 +276,7 @@
    painted until it is visible, which pushes the LCP timestamp out by the
    whole animation. A transform-only entrance paints the text at full opacity
    in the first frame — the pixels are there, they just settle 18px. Zero
-   delay on it as well, for the same reason. The distance grew with everything
-   else; the opacity rule and the zero delay are the parts that cannot move. */
+   delay on it as well, for the same reason. */
 
 @keyframes rise {
   from {
@@ -203,6 +317,7 @@
     transform var(--dur-interact) var(--ease-reveal),
     box-shadow var(--dur-interact) ease,
     border-color var(--dur-interact) ease,
+    background-color var(--dur-interact) ease,
     color var(--dur-interact) ease,
     opacity var(--dur-interact) ease;
 }
@@ -215,10 +330,12 @@
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .lift:hover {
     transform: translateY(-4px);
-    /* A plain black shadow is invisible on a near-black page, so the
-       elevation cue is a low-alpha wash of the brand teal instead. Paint
-       only — it changes nothing about layout. */
-    box-shadow: 0 8px 24px -10px hsl(178 70% 52% / 0.35);
+    /* Warm shadow, not black. On a warm paper ground a neutral shadow reads
+       as dirt, so the elevation cue is tinted toward the navy ink instead —
+       the same mix the agency site uses on its cards. */
+    box-shadow:
+      0 2px 4px color-mix(in oklab, var(--color-ink) 7%, transparent),
+      0 22px 44px -24px color-mix(in oklab, var(--color-ink) 32%, transparent);
   }
 
   /* Pressing puts it back down — the click should feel like the surface
@@ -242,6 +359,155 @@
   }
 }
 
+/* ── Surfaces ────────────────────────────────────────────────────────────
+   The resting elevation every card shares. Separate from `.lift` because
+   plenty of cards here are not interactive (testimonials, fact panels) and
+   should still sit off the page, while plenty of `.lift` targets are outline
+   buttons that must NOT carry a resting shadow. */
+
+.card-rest {
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--color-ink) 6%, transparent),
+    0 8px 24px -16px color-mix(in oklab, var(--color-ink) 22%, transparent);
+}
+
+/* ── Stack marquee ───────────────────────────────────────────────────────
+   The landing page's technology rows. components/StackMarquee.tsx lays out two
+   identical "laps" per row inside `.marquee-track`; the sliding is all here.
+
+   The loop: slide the track left by exactly one lap and the row looks endless,
+   because the lap arriving on the right is the one that just left on the left.
+   `-50%` of the track is a lap PLUS half the gap between the two laps, so the
+   extra half gap is subtracted — without it every cycle jumps by 6px, which on
+   a row of logos is immediately visible as a stutter.
+
+   Percentages, not pixels, so the distance is measured against the track as
+   actually rendered. The component's width maths only picks a repeat count and
+   a duration; it never has to be exactly right.
+
+   Direction alternates per row via `data-direction`, played in reverse rather
+   than with a second keyframe set — reverse runs translateX from one lap back
+   to zero, which keeps content against both edges for the whole cycle exactly
+   as the forward direction does.
+
+   No `will-change` here. Unlike the reveals, these animations never stop, so
+   the compositor layer is permanent anyway and the hint buys nothing. */
+
+.marquee {
+  --marquee-gap: 0.75rem;
+  --marquee-fade: 3.5rem;
+  overflow: hidden;
+  /* Room for the chips' resting shadow, which `overflow: hidden` would
+     otherwise shave off along the top and bottom edges. */
+  padding-block: 1rem;
+  /* The rows are full-bleed, so they need to end rather than be cut off.
+     Unprefixed: Lightning CSS adds the `-webkit-` copy at build time. */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--marquee-fade),
+    #000 calc(100% - var(--marquee-fade)),
+    transparent 100%
+  );
+}
+
+.marquee-track,
+.marquee-lap {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: var(--marquee-gap);
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-track[data-direction="reverse"] {
+  animation-direction: reverse;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - var(--marquee-gap) / 2));
+  }
+}
+
+/* Pause under the cursor, so a visitor who wants to read a chip can. Gated on
+   a real pointer: on a touch screen `:hover` sticks after a tap and would
+   leave a row frozen for the rest of the visit. */
+@media (hover: hover) {
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* One chip. This is the rare case where a component's look belongs in the
+   stylesheet rather than in utilities at the call site: a seamless loop needs
+   every chip repeated six or eight times over, and that many copies of a
+   hundred-character class list is weight the HTML — and the RSC payload, which
+   carries it a second time — pays for on every visit. `card-rest` stays a
+   class, because that resting elevation is shared with every card on the
+   site. */
+.tech-chip {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-card);
+  padding: 0.5rem 0.9375rem;
+  /* Set here so the name inside needs no class of its own. */
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  white-space: nowrap;
+}
+
+/* The hand-drawn amber sweep under the landing page's key phrase — the one
+   deliberately human mark on the site, and the strongest single cue that this
+   page and the agency's homepage were drawn by the same hand.
+
+   It is a background image on an inline span rather than an SVG sibling so it
+   wraps WITH the text: on a phone the phrase breaks over two lines and the
+   sweep breaks with it, which a positioned SVG cannot do. */
+.swash {
+  padding-bottom: 0.14em;
+  /* Without `clone` the browser treats the wrapped phrase as one inline box
+     and paints the sweep across it once — first line gets the left end of the
+     stroke, last line the right end, the lines between a flat middle. `clone`
+     gives every line fragment its own complete stroke, which is the whole
+     reason this is a background rather than an SVG. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.42em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M3 14.5C56 7.5 128 4.5 180 6.5c42 1.6 82 5.4 117 9.5' fill='none' stroke='%23FEAA53' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* The warm light behind the hero portrait. Two offset radials — amber
+   high-right, a cooler bronze breath low-left — so that corner has depth
+   without a gradient banner across the page. Masked by its own falloff, so
+   there is no edge to hide. */
+.hero-aura {
+  background-image:
+    radial-gradient(
+      42% 46% at 72% 18%,
+      color-mix(in oklab, var(--color-amber) 46%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      38% 42% at 24% 86%,
+      color-mix(in oklab, var(--color-primary) 16%, transparent) 0%,
+      transparent 72%
+    );
+}
+
 /* ── Reduced motion ──────────────────────────────────────────────────────
    No blanket `transition-duration: 0.01ms` guard: it would not neutralise
    `animation-delay`, and with `both` fill it would pin a delayed element at
@@ -250,13 +516,9 @@
 
    There is no `[data-reveal]` rule here on purpose — the scroll-reveal block
    is itself gated on `no-preference`, so those elements are never given a
-   hidden state to be rescued from. Re-verified after the distances grew: the
-   travel now lives in `--travel-*` on `:root`, but nothing reads those unless
-   the `no-preference` block matches, so a reduced-motion visitor gets the
-   final state on the first frame no matter how large the numbers get. The
-   gating also means a visitor who turns the preference ON mid-session has any
-   still-hidden element revealed the instant the query flips — the rule simply
-   stops matching. */
+   hidden state to be rescued from. The gating also means a visitor who turns
+   the preference ON mid-session has any still-hidden element revealed the
+   instant the query flips — the rule simply stops matching. */
 
 @media (prefers-reduced-motion: reduce) {
   /* The inline `animationDelay` at each hero call site survives a duration
@@ -270,8 +532,9 @@
     transform: none;
   }
 
-  /* Pre-existing: the "Available" / "OSS" status dots. */
-  .animate-pulse {
+  /* The "available" status dots. */
+  .animate-pulse,
+  .animate-ping {
     animation: none !important;
   }
 
@@ -279,6 +542,41 @@
   .nudge,
   .nudge-diag {
     transition: none;
+  }
+
+  /* The stack rows. Stopping the animation alone would leave a visitor with a
+     row clipped mid-chip and a duplicate lap they can see but never reach, so
+     the duplicates are removed from the layout entirely and what is left — one
+     genuine copy of each row, the same list a screen reader gets — wraps onto
+     as many lines as it needs inside the container. Nothing is hidden from
+     anyone: the rows just become a static chip grid.
+
+     `animation-name`, not the `animation` shorthand: the only thing the call
+     site sets inline is `--marquee-duration`, so there is no inline
+     `animation-*` longhand to out-specify, and killing the name is enough to
+     stop it. (Contrast `.animate-rise` above, which does need `!important`.) */
+  .marquee {
+    mask-image: none;
+  }
+
+  .marquee-track {
+    animation-name: none;
+    /* Block, not flex: the surviving lap is then a full-width child that wraps
+       inside the container, rather than a flex item negotiating its width. */
+    display: block;
+    width: auto;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .marquee-lap {
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .marquee-dup {
+    display: none;
   }
 
   /* Anchor jumps and the footer's "Top" button. The button also passes

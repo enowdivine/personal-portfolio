@@ -1,33 +1,70 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Mail, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { ArrowRight, CheckCircle, Mail, Phone } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { IconLinkedIn, IconWhatsApp } from "@/components/icons";
+import {
+  ENQUIRY_REASONS,
+  PROFILE,
+  type EngagementId,
+  type EngagementType,
+} from "@/lib/data";
 
-function IconWhatsApp({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.5-.5-.67-.5l-.57-.02c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.11.57-.08 1.75-.71 2-1.4.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Zm-5.44 7.44h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.5-5.24c0-5.46 4.44-9.9 9.88-9.9 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.98c0 5.46-4.45 9.87-9.9 9.87ZM20.52 3.45A11.83 11.83 0 0 0 12.05 0C5.5 0 .1 5.4.1 12a11.9 11.9 0 0 0 1.6 5.94L0 24l6.24-1.63a11.86 11.86 0 0 0 5.7 1.45h.01c6.55 0 11.94-5.4 11.94-11.98 0-3.19-1.24-6.19-3.5-8.44Z" />
-    </svg>
-  );
-}
-import { PROFILE } from "@/lib/data";
+type ContactFormProps = {
+  /**
+   * The engagement the visitor came from, e.g. `/contact?type=Payment
+   * systems`. Those links have existed on /consulting for a while but nothing
+   * read the parameter, so every one of them landed on an empty form and the
+   * context was lost. Now it arrives pre-selected.
+   *
+   * Two halves, because the chip and the email want different things:
+   * `engagementId` names the message that is PRINTED (localised), while
+   * `engagementType` is the English string that is POSTED and ends up as the
+   * enquiry's subject line. Translating the posted value would hand Divine an
+   * inbox sorted by two different vocabularies.
+   */
+  engagementId?: EngagementId;
+  engagementType?: EngagementType;
+};
 
-const REASONS = [
-  "Full-time senior role",
-  "Contract / consulting",
-  "Project work",
-  "Just saying hi",
-];
+export function ContactForm({
+  engagementId,
+  engagementType,
+}: ContactFormProps) {
+  const t = useTranslations("ContactPage");
+  const tProfile = useTranslations("Profile");
+  const tEngagements = useTranslations("Engagements");
 
-export function ContactForm() {
-  const [form, setForm] = useState({
+  /* Each option as {value, label}: `value` is the English string that gets
+     POSTED and lands in the enquiry email, `label` is the localised string the
+     visitor reads. Both halves come from the closed sets in lib/data.ts, so a
+     chip can never post something the API did not expect. */
+  const reasons: { value: string; label: string }[] = [
+    ...(engagementId && engagementType
+      ? [
+          {
+            value: engagementType,
+            label: tEngagements(`${engagementId}.name`),
+          },
+        ]
+      : []),
+    ...ENQUIRY_REASONS.map((reason) => ({
+      value: reason.value,
+      label: t(`form.reasons.${reason.id}`),
+    })),
+  ];
+
+  const emptyForm = {
     name: "",
     company: "",
     email: "",
-    reason: "",
+    reason: engagementType ?? "",
     message: "",
-  });
+  };
+
+  const [form, setForm] = useState(emptyForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -47,12 +84,27 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || "Failed");
+
+      if (!res.ok) {
+        /* The status, not the body. /api/contact answers with an English
+           `error` string — it is a server, it has no locale — and printing it
+           put English sentences in front of French visitors. The three cases
+           it actually distinguishes (too many messages, rejected input,
+           everything else) each have their own translated message here. */
+        const key =
+          res.status === 429
+            ? "rateLimited"
+            : res.status === 400
+              ? "invalid"
+              : "generic";
+        setError(t(`form.errors.${key}`, { email: PROFILE.email }));
+        return;
+      }
+
       setSubmitted(true);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong";
-      setError(`${msg}. If this keeps happening, email directly at ${PROFILE.email}`);
+      console.error("[contact] request failed:", err);
+      setError(t("form.errors.network", { email: PROFILE.email }));
     } finally {
       setIsSubmitting(false);
     }
@@ -60,26 +112,43 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <section>
-        {/* Plays once when the panel swaps in — the only motion that marks a
-            state change rather than an arrival. */}
-        <div className="animate-rise container py-32 max-w-md text-center">
-          <CheckCircle className="h-10 w-10 text-primary mx-auto mb-6" />
-          <h1 className="text-2xl font-black tracking-tight text-foreground mb-3">
-            Message sent.
-          </h1>
-          <p className="text-sm text-muted-foreground mb-8">
-            Reply within one business day.
-          </p>
-          <button
-            onClick={() => {
-              setSubmitted(false);
-              setForm({ name: "", company: "", email: "", reason: "", message: "" });
-            }}
-            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+      <section className="bg-gradient-to-b from-sand via-background to-background">
+        {/* Plays once when the panel swaps in — the only motion on the site
+            that marks a state change rather than an arrival. */}
+        <div className="animate-rise container max-w-lg py-28 text-center md:py-32">
+          <span
+            className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10"
+            aria-hidden="true"
           >
-            ← Send another
-          </button>
+            <CheckCircle className="h-7 w-7 text-primary" />
+          </span>
+          <h1 className="text-2xl font-bold text-foreground">
+            {t("success.title")}
+          </h1>
+          <p className="mt-3 text-[15px] text-muted-foreground">
+            {t("success.body")}
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={PROFILE.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lift inline-flex items-center justify-center gap-2.5 rounded-full bg-whatsapp px-6 py-3 text-sm font-semibold text-white"
+            >
+              <IconWhatsApp className="h-4 w-4 shrink-0" />
+              {t("success.whatsapp")}
+            </a>
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitted(false);
+                setForm(emptyForm);
+              }}
+              className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              {t("success.again")}
+            </button>
+          </div>
         </div>
       </section>
     );
@@ -87,172 +156,215 @@ export function ContactForm() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-border">
-        <div className="container py-24 md:py-28">
-          {/* Above the fold: CSS entrance, h1 transform-only so LCP is
-              unaffected. */}
-          <span className="animate-rise font-mono text-[11px] uppercase tracking-widest text-primary block mb-6">
-            Contact
-          </span>
-          <h1 className="animate-lift text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.92] tracking-tight text-foreground mb-6 max-w-3xl">
-            Get in touch.
+      {/* ── Hero ───────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-b from-sand via-background to-background">
+        <div className="container py-16 md:py-20">
+          <p className="animate-rise text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+            {t("hero.label")}
+          </p>
+          {/* Transform-only entrance: the LCP element on this page. */}
+          <h1 className="animate-lift mt-5 max-w-3xl text-[clamp(2.1rem,5.4vw,3.5rem)] font-extrabold text-foreground">
+            {t("hero.title")}
           </h1>
           <p
-            className="animate-rise text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
-            style={{ animationDelay: "120ms" }}
+            className="animate-rise mt-6 max-w-xl text-[17px] leading-relaxed text-muted-foreground md:text-lg"
+            style={{ animationDelay: "100ms" }}
           >
-            Senior remote roles, contract work, or interesting problems worth solving — a
-            few sentences is enough. Reply within one business day.
+            {t("hero.lede")}
           </p>
         </div>
       </section>
 
-      {/* Form + side */}
-      <section className="border-b border-border">
-        <div className="container py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16">
-            {/* Form */}
-            <form onSubmit={submit} className="space-y-6" aria-label="Contact form">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Field id="f-name" label="Name *">
+      {/* ── Form + channels ────────────────────────────────────────────── */}
+      <section className="border-t border-border bg-sand">
+        <div className="container py-16 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1fr_340px] lg:gap-14">
+            {/* The form itself is deliberately static — inputs and labels
+                should be ready the instant they are on screen, not fading. */}
+            <form
+              onSubmit={submit}
+              aria-label={t("form.ariaLabel")}
+              className="card-rest space-y-6 rounded-3xl border border-border bg-card p-7 md:p-9"
+            >
+              <div className="grid gap-4 md:grid-cols-2">
+                <Field id="f-name" label={t("form.name")}>
                   <input
                     id="f-name"
                     type="text"
                     required
                     value={form.name}
                     onChange={handle("name")}
-                    className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Jane Smith"
+                    className={INPUT}
+                    placeholder={t("form.namePlaceholder")}
                   />
                 </Field>
-                <Field id="f-company" label="Company">
+                <Field id="f-company" label={t("form.company")}>
                   <input
                     id="f-company"
                     type="text"
                     value={form.company}
                     onChange={handle("company")}
-                    className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Acme Inc."
+                    className={INPUT}
+                    placeholder={t("form.companyPlaceholder")}
                   />
                 </Field>
               </div>
 
-              <Field id="f-email" label="Email *">
+              <Field id="f-email" label={t("form.email")}>
                 <input
                   id="f-email"
                   type="email"
                   required
                   value={form.email}
                   onChange={handle("email")}
-                  className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="jane@acme.com"
+                  className={INPUT}
+                  placeholder={t("form.emailPlaceholder")}
                 />
               </Field>
 
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
-                  Reason
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  {t("form.aboutLabel")}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {REASONS.map((r) => (
+                  {reasons.map((reason) => (
                     <button
                       type="button"
-                      key={r}
-                      onClick={() => setForm((p) => ({ ...p, reason: r }))}
-                      className={`font-mono text-[11px] uppercase tracking-widest px-3 py-2 border transition-colors ${
-                        form.reason === r
+                      key={reason.value}
+                      aria-pressed={form.reason === reason.value}
+                      onClick={() =>
+                        setForm((p) => ({ ...p, reason: reason.value }))
+                      }
+                      className={`rounded-full border px-4 py-2 text-[13px] font-medium transition-colors ${
+                        form.reason === reason.value
                           ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                          : "border-border text-muted-foreground hover:border-primary hover:text-primary"
                       }`}
                     >
-                      {r}
+                      {reason.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              <Field id="f-message" label="Message *">
+              <Field id="f-message" label={t("form.message")}>
                 <textarea
                   id="f-message"
                   required
                   rows={6}
                   value={form.message}
                   onChange={handle("message")}
-                  className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                  placeholder="A few sentences about the role, project, or question…"
+                  className={`${INPUT} resize-none`}
+                  placeholder={t("form.messagePlaceholder")}
                 />
               </Field>
 
-              {error && <p className="text-sm text-red-400">{error}</p>}
+              {error && (
+                <p className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                  {error}
+                </p>
+              )}
 
-              <div className="flex items-center gap-6">
+              <div className="flex flex-wrap items-center gap-5">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="lift inline-flex items-center gap-2 bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-60"
+                  className="lift inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-[15px] font-semibold text-primary-foreground disabled:opacity-60"
                 >
-                  {isSubmitting ? "Sending…" : "Send →"}
+                  {isSubmitting ? t("form.sending") : t("form.submit")}
+                  {!isSubmitting && (
+                    <ArrowRight className="nudge h-4 w-4" aria-hidden="true" />
+                  )}
                 </button>
-                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                  ~1 business day reply
+                <span className="text-[13px] text-muted-foreground">
+                  {t("form.replyNote")}
                 </span>
               </div>
             </form>
 
-            {/* Side */}
-            {/* The form itself is deliberately left static — inputs and labels
-                should be ready the instant they are on screen, not fading. Only
-                the reference cards beside it reveal. */}
-            <aside className="space-y-6">
-              <Reveal className="border border-border p-6">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">
-                  Reach me directly
+            <aside className="space-y-5">
+              {/* WhatsApp first, on purpose: it is the channel most enquiries
+                  actually arrive on, and the one a visitor on a phone can act
+                  on without typing an address. */}
+              <Reveal className="card-rest rounded-2xl border border-border bg-card p-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  {t("side.reachLabel")}
                 </p>
-                <a
-                  href={`mailto:${PROFILE.email}`}
-                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-3"
-                >
-                  <Mail className="h-4 w-4 shrink-0" />
-                  <span className="break-all">{PROFILE.email}</span>
-                </a>
-                <a
-                  href={`tel:${PROFILE.phoneE164}`}
-                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-3"
-                >
-                  <Phone className="h-4 w-4 shrink-0" />
-                  <span>{PROFILE.phone}</span>
-                </a>
                 <a
                   href={PROFILE.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors mb-4"
+                  className="lift mt-4 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-white"
                 >
                   <IconWhatsApp className="h-4 w-4 shrink-0" />
-                  <span>WhatsApp</span>
+                  {t("side.whatsapp")}
                 </a>
-                <a
-                  href={PROFILE.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors pt-3 border-t border-border"
-                >
-                  <span>LinkedIn</span>
-                  <span aria-hidden className="nudge">
-                    →
-                  </span>
-                </a>
+                <ul className="mt-5 space-y-3 border-t border-border pt-5">
+                  <li>
+                    <a
+                      href={`mailto:${PROFILE.email}`}
+                      className="flex items-center gap-3 text-sm text-foreground transition-colors hover:text-primary"
+                    >
+                      <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      <span className="break-all">{PROFILE.email}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`tel:${PROFILE.phoneE164}`}
+                      className="flex items-center gap-3 text-sm text-foreground transition-colors hover:text-primary"
+                    >
+                      <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      <span>{PROFILE.phone}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={PROFILE.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-sm text-foreground transition-colors hover:text-primary"
+                    >
+                      <IconLinkedIn className="h-4 w-4 shrink-0" />
+                      <span>LinkedIn</span>
+                    </a>
+                  </li>
+                </ul>
               </Reveal>
 
-              <Reveal delay={130} className="border border-border p-6">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
-                  Time zones served
+              <Reveal
+                delay={120}
+                className="card-rest rounded-2xl border border-border bg-card p-6"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  {t("side.goodToKnow")}
                 </p>
-                <p className="text-sm text-foreground">US · EU · Africa</p>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
-                  Remote-first, flexible hours
-                </p>
+                <dl className="mt-4 space-y-4 text-sm">
+                  <div>
+                    <dt className="font-semibold text-foreground">
+                      {t("side.timeZones.term")}
+                    </dt>
+                    <dd className="mt-0.5 text-muted-foreground">
+                      {t("side.timeZones.value")}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-foreground">
+                      {t("side.next.term")}
+                    </dt>
+                    <dd className="mt-0.5 text-muted-foreground">
+                      {t("side.next.value")}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-foreground">
+                      {t("side.based.term")}
+                    </dt>
+                    <dd className="mt-0.5 text-muted-foreground">
+                      {tProfile("location")}
+                    </dd>
+                  </div>
+                </dl>
               </Reveal>
             </aside>
           </div>
@@ -261,6 +373,12 @@ export function ContactForm() {
     </>
   );
 }
+
+/* One input treatment, used by all four fields. A constant rather than four
+   copies of the same twenty utilities, so the focus ring cannot drift between
+   them. */
+const INPUT =
+  "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none";
 
 function Field({
   id,
@@ -275,7 +393,7 @@ function Field({
     <div>
       <label
         htmlFor={id}
-        className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground block mb-2"
+        className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
       >
         {label}
       </label>

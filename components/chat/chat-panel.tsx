@@ -7,9 +7,10 @@ import {
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
+import { useTranslations } from "next-intl";
 import { Maximize2, Minimize2, Send, Trash2, X } from "lucide-react";
 import { PROFILE } from "@/lib/data";
-import { CHAT_STARTERS, type ChatTopic } from "./chat-context";
+import { CHAT_TOPICS, type ChatTopic } from "./chat-context";
 import {
   CHAT_MESSAGES_KEY,
   readChatStorage,
@@ -78,19 +79,27 @@ function loadEntries(): ChatEntry[] {
   }
 }
 
-function errorTextFor(code: unknown): string {
+/**
+ * The error-code-to-message mapping, as a MESSAGE KEY rather than a sentence.
+ *
+ * /api/chat answers with a machine code and an English sentence; the sentence
+ * is for the server log, and printing it put English bubbles in front of
+ * French visitors. The code is the part worth reading, and each one has its
+ * own entry under `ChatWidget.errors`.
+ */
+function errorKeyFor(code: unknown): string {
   switch (code) {
     case "not_configured":
-      return `The assistant is not available right now. You can still reach Divine directly at ${PROFILE.email}.`;
+      return "notConfigured";
     case "rate_limited":
-      return "That is a lot of questions at once — give it a minute and try again.";
+      return "rateLimited";
     case "model_unavailable":
     case "upstream_unavailable":
-      return "The assistant is temporarily unavailable. Please try again shortly.";
+      return "unavailable";
     case "invalid_request":
-      return "That message could not be sent. Try rephrasing it.";
+      return "invalidRequest";
     default:
-      return "Something went wrong sending that. Please try again.";
+      return "generic";
   }
 }
 
@@ -115,6 +124,7 @@ export function ChatPanel({
   isFullscreen,
   onToggleFullscreen,
 }: ChatPanelProps) {
+  const t = useTranslations("ChatWidget");
   const [entries, setEntries] = useState<ChatEntry[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -233,7 +243,13 @@ export function ChatPanel({
               : undefined;
           setEntries([
             ...nextEntries,
-            { role: "assistant", content: errorTextFor(code), isError: true },
+            {
+              role: "assistant",
+              content: t(`errors.${errorKeyFor(code)}`, {
+                email: PROFILE.email,
+              }),
+              isError: true,
+            },
           ]);
           return;
         }
@@ -246,7 +262,11 @@ export function ChatPanel({
         if (typeof reply !== "string" || !reply) {
           setEntries([
             ...nextEntries,
-            { role: "assistant", content: errorTextFor(undefined), isError: true },
+            {
+              role: "assistant",
+              content: t("errors.generic", { email: PROFILE.email }),
+              isError: true,
+            },
           ]);
           return;
         }
@@ -258,8 +278,7 @@ export function ChatPanel({
           ...nextEntries,
           {
             role: "assistant",
-            content:
-              "That did not reach the server. Check your connection and try again.",
+            content: t("errors.network", { email: PROFILE.email }),
             isError: true,
           },
         ]);
@@ -267,7 +286,7 @@ export function ChatPanel({
         setLoading(false);
       }
     },
-    [entries, loading],
+    [entries, loading, t],
   );
 
   const clear = () => {
@@ -327,10 +346,13 @@ export function ChatPanel({
           around the panel, and a click there closes. */}
       <button
         type="button"
-        aria-label="Close the assistant"
+        aria-label={t("panel.closeAria")}
         onClick={onClose}
         className={cx(
-          "fixed inset-0 z-[55] bg-background/70 backdrop-blur-sm",
+          // Tinted toward the navy ink rather than the page ground: on a warm
+          // paper background a white-on-white scrim does not read as a scrim
+          // at all.
+          "fixed inset-0 z-[55] bg-ink/40 backdrop-blur-sm",
           !isFullscreen && "sm:hidden",
         )}
       />
@@ -338,7 +360,7 @@ export function ChatPanel({
       <div
         ref={panelRef}
         role="dialog"
-        aria-label={`Ask about ${PROFILE.name}`}
+        aria-label={t("panel.dialogLabel", { name: PROFILE.name })}
         // Modal only while fullscreen: a small sheet leaves the rest of the page
         // available to assistive technology, which matches the fact that it is
         // still visible and still scrollable.
@@ -346,7 +368,10 @@ export function ChatPanel({
         onKeyDown={trapTab}
         className={cx(
           styles.panel,
-          "fixed z-[60] flex flex-col bg-background shadow-2xl",
+          // `overflow-hidden` is what makes the rounded corners real: the
+          // header and the composer both paint their own card ground, and
+          // without it those squares sit proud of the panel's radius.
+          "fixed z-[60] flex flex-col overflow-hidden bg-background shadow-2xl",
           isFullscreen
             ? cx(
                 styles.panelFullscreen,
@@ -361,10 +386,10 @@ export function ChatPanel({
                 // `left`/`right` plus a max width and auto inline margins is
                 // what centres it — no transform, so the entrance animation is
                 // free to use one.
-                "sm:inset-8 sm:mx-auto sm:h-auto sm:max-w-[64rem] sm:border sm:border-border",
+                "sm:inset-8 sm:mx-auto sm:h-auto sm:max-w-[64rem] sm:rounded-3xl sm:border sm:border-border",
               )
             : cx(
-                "border border-border",
+                "rounded-3xl border border-border",
                 // Phones: a sheet that clears the sticky header rather than
                 // covering it, so the site's own navigation is never trapped
                 // underneath.
@@ -378,11 +403,11 @@ export function ChatPanel({
         {/* Header */}
         <div className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-3">
           <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-              Ask about Divine
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+              {t("panel.title")}
             </p>
             <p className="truncate text-xs text-muted-foreground">
-              Answers come from this site only
+              {t("panel.subtitle")}
             </p>
           </div>
           {/* Window controls. 2.75rem square on phones so each one is its own
@@ -394,9 +419,9 @@ export function ChatPanel({
               <button
                 type="button"
                 onClick={clear}
-                title="Clear conversation"
-                aria-label="Clear conversation"
-                className="inline-flex h-11 w-11 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
+                title={t("panel.clear")}
+                aria-label={t("panel.clear")}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-9 sm:w-9"
               >
                 <Trash2 className="h-4 w-4" aria-hidden="true" />
               </button>
@@ -407,13 +432,17 @@ export function ChatPanel({
               type="button"
               onClick={onToggleFullscreen}
               aria-pressed={isFullscreen}
-              title={isFullscreen ? "Exit full screen" : "Expand to full screen"}
+              title={
+                isFullscreen
+                  ? t("panel.exitFullscreen")
+                  : t("panel.fullscreen")
+              }
               aria-label={
                 isFullscreen
-                  ? "Exit full screen"
-                  : "Expand the assistant to full screen"
+                  ? t("panel.exitFullscreen")
+                  : t("panel.fullscreenAria")
               }
-              className="inline-flex h-11 w-11 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-9 sm:w-9"
             >
               {isFullscreen ? (
                 <Minimize2 className="h-4 w-4" aria-hidden="true" />
@@ -424,9 +453,9 @@ export function ChatPanel({
             <button
               type="button"
               onClick={onClose}
-              title="Close"
-              aria-label="Close the assistant"
-              className="inline-flex h-11 w-11 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-8 sm:w-8"
+              title={t("panel.close")}
+              aria-label={t("panel.closeAria")}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-transparent text-muted-foreground transition-colors hover:border-border hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-9 sm:w-9"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -437,7 +466,7 @@ export function ChatPanel({
         <div
           role="log"
           aria-live="polite"
-          aria-label="Conversation"
+          aria-label={t("panel.conversation")}
           className={cx(
             styles.transcript,
             "min-h-0 flex-1 space-y-4 overflow-y-auto p-4",
@@ -450,29 +479,33 @@ export function ChatPanel({
           {entries.length === 0 && (
             <div className="flex h-full flex-col justify-center">
               <p className="text-sm text-foreground">
-                Ask anything about {PROFILE.name} — his experience, what he
-                specialises in, or how to work with him.
+                {t("empty.body", { name: PROFILE.name })}
               </p>
               <div className="mt-5 space-y-2">
-                {CHAT_STARTERS.map((starter) => (
+                {CHAT_TOPICS.map((topic) => (
                   <button
-                    key={starter.topic}
+                    key={topic}
                     type="button"
                     disabled={loading}
-                    onClick={() => startFrom(starter.question, starter.topic)}
-                    className="block w-full border border-border bg-card px-3.5 py-2.5 text-left transition-colors hover:border-primary/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50"
+                    /* The question is sent in the visitor's own language, which
+                       is also what tells the model which language to answer
+                       in — see the VOICE rules in lib/ai-knowledge-base.ts. */
+                    onClick={() =>
+                      startFrom(t(`starters.${topic}.question`), topic)
+                    }
+                    className="block w-full rounded-2xl border border-border bg-card px-4 py-3 text-left transition-colors hover:border-primary/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50"
                   >
                     <span className="block text-sm font-semibold text-foreground">
-                      {starter.label}
+                      {t(`starters.${topic}.label`)}
                     </span>
-                    <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {starter.hint}
+                    <span className="mt-0.5 block text-[12px] text-muted-foreground">
+                      {t(`starters.${topic}.hint`)}
                     </span>
                   </button>
                 ))}
               </div>
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                AI answers · verify anything that matters
+              <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                {t("empty.footer")}
               </p>
             </div>
           )}
@@ -487,9 +520,12 @@ export function ChatPanel({
             >
               <div
                 className={cx(
-                  "max-w-[88%] px-3 py-2 text-sm leading-relaxed",
+                  "max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed",
                   entry.isError
-                    ? "border border-red-500/40 bg-red-500/10 text-red-300"
+                    ? // Was a dark-theme red that disappeared into a light
+                      // ground; now the site's own destructive token, which is
+                      // measured against this background.
+                      "border border-destructive/30 bg-destructive/5 text-destructive"
                     : entry.role === "user"
                       ? "bg-primary text-primary-foreground"
                       : "border border-border bg-card text-foreground",
@@ -506,12 +542,12 @@ export function ChatPanel({
 
           {loading && (
             <div className="flex justify-start">
-              <div className="border border-border bg-card px-3 py-2.5">
-                <span className="sr-only">Thinking…</span>
+              <div className="rounded-2xl border border-border bg-card px-3.5 py-3">
+                <span className="sr-only">{t("panel.thinking")}</span>
                 <span className="flex gap-1" aria-hidden="true">
-                  <span className={cx(styles.dot, "h-1.5 w-1.5 bg-primary")} />
-                  <span className={cx(styles.dot, "h-1.5 w-1.5 bg-primary")} />
-                  <span className={cx(styles.dot, "h-1.5 w-1.5 bg-primary")} />
+                  <span className={cx(styles.dot, "h-1.5 w-1.5 rounded-full bg-primary")} />
+                  <span className={cx(styles.dot, "h-1.5 w-1.5 rounded-full bg-primary")} />
+                  <span className={cx(styles.dot, "h-1.5 w-1.5 rounded-full bg-primary")} />
                 </span>
               </div>
             </div>
@@ -541,20 +577,20 @@ export function ChatPanel({
                   void send(input);
                 }
               }}
-              placeholder="Ask a question…"
-              aria-label="Your question"
+              placeholder={t("panel.inputPlaceholder")}
+              aria-label={t("panel.inputLabel")}
               disabled={loading}
               // Taller on phones: the composer row stretches, so this sets the
               // height of the send button beside it as well, and 44px is the
               // floor for a touch target.
-              className="min-w-0 flex-1 border border-border bg-background px-3 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-50 sm:py-2"
+              className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-50 sm:py-2.5"
             />
             <button
               type="button"
               onClick={() => void send(input)}
               disabled={loading || !input.trim()}
-              aria-label="Send question"
-              className="inline-flex shrink-0 items-center justify-center bg-primary px-3.5 text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-40"
+              aria-label={t("panel.send")}
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-primary px-4 text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-40"
             >
               <Send className="h-4 w-4" aria-hidden="true" />
             </button>

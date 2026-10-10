@@ -118,7 +118,7 @@ function inline(text: string, keyPrefix: string): ReactNode[] {
       out.push(
         <code
           key={key}
-          className="border border-border bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]"
+          className="rounded-md border border-border bg-muted/60 px-1.5 py-0.5 font-mono text-[0.85em]"
         >
           {part.slice(1, -1)}
         </code>,

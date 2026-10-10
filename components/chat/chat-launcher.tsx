@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { MessageSquare, X } from "lucide-react";
 import { ChatPanel } from "./chat-panel";
 import { cx } from "./cx";
@@ -14,6 +15,7 @@ import { cx } from "./cx";
  * assistant offers both itself.
  */
 export function ChatLauncher() {
+  const t = useTranslations("ChatWidget.launcher");
   const [isOpen, setIsOpen] = useState(false);
   // Fullscreen is owned here rather than in the panel because the launcher has
   // to know about it too: a fullscreen panel covers this corner on every screen
@@ -50,13 +52,13 @@ export function ChatLauncher() {
         type="button"
         onClick={() => (isOpen ? close() : setIsOpen(true))}
         aria-expanded={isOpen}
-        aria-label={isOpen ? "Close the assistant" : "Ask about Divine"}
+        aria-label={isOpen ? t("closeAria") : t("openAria")}
         className={cx(
           // 3.5rem square on phones — comfortably past the 44x44 minimum for a
           // touch target, and clear of the sticky header at the other end of
           // the viewport. From `sm` up it becomes the labelled pill again,
           // where the text carries the height.
-          "fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 text-sm font-semibold shadow-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-auto sm:w-auto sm:px-4 sm:py-3",
+          "fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full text-sm font-semibold shadow-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-auto sm:w-auto sm:px-5 sm:py-3",
           isOpen
             ? isFullscreen
               ? // Fullscreen covers this corner at every width, and the panel
@@ -74,7 +76,7 @@ export function ChatLauncher() {
           <MessageSquare className="h-6 w-6 sm:h-4 sm:w-4" aria-hidden="true" />
         )}
         <span className="hidden sm:inline">
-          {isOpen ? "Close" : "Ask about Divine"}
+          {isOpen ? t("close") : t("open")}
         </span>
       </button>
 

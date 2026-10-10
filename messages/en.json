@@ -1,0 +1,781 @@
+{
+  "Profile": {
+    "title": "Senior Software Engineer",
+    "location": "Buea, Cameroon",
+    "summary": "Senior software engineer with 7+ years building the payment and correctness layers behind fintech, remittance and SaaS products across the US, EU and Africa — payments that don't double-charge and systems that stay consistent under load. Founder of SaaS Simplified.",
+    "shortBio": "Senior software engineer specializing in payments, money-movement correctness and distributed backends. Founded SaaS Simplified in 2018 and takes on a small number of builds and consulting engagements at a time.",
+    "siteTitle": "Enow Divine — Senior Software Engineer & Founder, SaaS Simplified"
+  },
+  "Header": {
+    "home": "Home",
+    "consulting": "Consulting",
+    "about": "About",
+    "writing": "Writing",
+    "startProject": "Start a project",
+    "whatsappAria": "Message on WhatsApp",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "Footer": {
+    "availableLabel": "Available for new work",
+    "ctaTitle": "Tell Divine what you are building.",
+    "ctaBody": "Payment systems, SaaS products, mobile apps, business sites and AI features — scoped and priced up front, delivered through SaaS Simplified. Replies within one business day.",
+    "whatsapp": "WhatsApp",
+    "startProject": "Start a project",
+    "timeZones": "Working across US · EU · Africa time zones",
+    "thisSite": "This site",
+    "consulting": "Consulting",
+    "about": "About",
+    "contact": "Contact",
+    "resume": "Resume (PDF)",
+    "elsewhere": "Elsewhere",
+    "caseStudies": "Case studies",
+    "reachHim": "Reach him",
+    "socials": {
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "call": "Call",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "medium": "Medium"
+    },
+    "top": "Top"
+  },
+  "HomePage": {
+    "meta": {
+      "description": "Enow Divine builds payment systems, SaaS products and mobile apps for founders and teams — 7+ years, 10+ production platforms. Available for consulting through SaaS Simplified."
+    },
+    "hero": {
+      "badge": "Taking on a few projects",
+      "title": "Enow Divine builds software that <swash>handles real money</swash> — and keeps getting it right.",
+      "lede": "Senior software engineer and founder of SaaS Simplified, based in {location}. Seven years and 10+ production platforms, for teams who need the parts that touch customers and money to be exactly right.",
+      "ctaPrimary": "Book an intake call",
+      "ctaWhatsapp": "WhatsApp",
+      "ctaEmail": "Email",
+      "points": {
+        "reply": "Replies within one business day",
+        "timeZones": "US · EU · Africa time zones",
+        "scope": "Fixed scope, written up front"
+      },
+      "portraitAlt": "{name} at his desk in {location}"
+    },
+    "services": {
+      "label": "What Divine builds",
+      "title": "Four kinds of work, one engineer accountable for all of it.",
+      "lede": "No account manager in the middle, no handover to a junior after the contract is signed. Scope and price are written down before anything starts.",
+      "items": {
+        "payments": {
+          "title": "Payment systems",
+          "body": "Cards, mobile money, escrow and subscriptions — built so they never double-charge and always reconcile."
+        },
+        "saas": {
+          "title": "SaaS products",
+          "body": "Subscription products from first login to billing, or a rebuild of the one that is holding your team back."
+        },
+        "mobile": {
+          "title": "Mobile apps",
+          "body": "iOS and Android from one codebase, taken all the way through App Store and Play Store review."
+        },
+        "sites": {
+          "title": "Sites, and AI features",
+          "body": "Business sites that convert, and production LLM features with real cost caps — not chatbot demos."
+        }
+      },
+      "more": "See how an engagement runs, end to end"
+    },
+    "recent": {
+      "label": "Recently shipped",
+      "title": "Live products, not a slide deck.",
+      "lede": "Client builds are delivered through SaaS Simplified, so the full case studies — the problem, the build, the result — live on the agency site.",
+      "cta": "Read the case studies",
+      "items": {
+        "tyketz": "Event ticketing for African organizers — mobile money checkout, QR tickets, organizer dashboards.",
+        "esqs": "A UK quantity surveying practice's marketing site, with services, projects and a lead-capture enquiry flow.",
+        "uniassist": "A pre-launch admissions platform for an established admissions organization, expanding it from Cameroon into 10 African countries.",
+        "agency": "The small senior agency Divine founded in 2018, and where client builds are delivered from."
+      }
+    },
+    "testimonials": {
+      "label": "What people say",
+      "title": "The people who have worked with him."
+    },
+    "oss": {
+      "label": "Open source",
+      "title": "stateledger — the payment-correctness work, published.",
+      "body": "A database-backed state machine for payment workflows, on npm under the MIT licence. It handles concurrent webhooks, duplicate provider notifications and audit-traceable transitions — the same failure modes that cost real platforms real money. Code you can pull down and read before you hire anyone."
+    },
+    "cta": {
+      "title": "Have something that has to work the first time?",
+      "body": "Send the brief — the system, where it hurts, and when you need it. A reply, with an honest read on whether this is a good fit, comes back within one business day.",
+      "primary": "Start a conversation",
+      "whatsapp": "Message on WhatsApp",
+      "emailPrefix": "Or email"
+    }
+  },
+  "Stack": {
+    "label": "The stack",
+    "title": "The tools behind those products.",
+    "lede": "Nothing here is new to Divine — every one of these has already carried something of his into production, which is what makes a delivery date worth quoting.",
+    "rows": {
+      "webMobile": "Web & mobile",
+      "backend": "Backend & APIs",
+      "data": "Data & infrastructure",
+      "payments": "Payments, AI & tooling"
+    }
+  },
+  "Skills": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "infrastructure": "Infrastructure",
+    "payments": "Payments & Fintech",
+    "other": "Other"
+  },
+  "Education": {
+    "degree": "B.Sc. Computer Engineering",
+    "institution": "University of Buea, Cameroon",
+    "date": "Dec 2022"
+  },
+  "Experience": {
+    "jobs": {
+      "impactFactors": {
+        "role": "Senior Software Engineer · Full-time",
+        "location": "US · Remote",
+        "period": "Feb 2025 – Present",
+        "bullets": {
+          "b1": "Became the primary backend engineer for a multi-tenant faith-community platform used by churches and ministries (giving, community, messaging) — the person new features and cross-team backend issues route to, across 15+ services.",
+          "b2": "Protected recurring giving and subscription revenue from silent failures: fixed a renewal race that could drop active subscriptions mid-payment, and added recovery that reconciles failed renewals without ever double-charging donors.",
+          "b3": "Secured customer organizations' admin controls against takeover — rebuilt role authorization across every service and closed a path where non-admins could grant themselves admin rights.",
+          "b4": "Made platform data trustworthy under load: a user action like a deletion or role change now propagates once and correctly across every service, even when events are retried or arrive out of order."
+        }
+      },
+      "primusLearning": {
+        "role": "Software Engineer · Contract",
+        "location": "US · Remote",
+        "period": "Apr 2024 – Present",
+        "bullets": {
+          "b1": "Made a crowdfunding platform's core \"all-or-nothing\" promise real: re-architected money flow so backer funds are held in escrow and released to creators only when a campaign hits its goal — otherwise every backer is automatically refunded — protecting both sides of the transaction.",
+          "b2": "Eliminated a bug that double-counted campaign totals and tax figures — reworked payment processing so a duplicate or retried provider notification can never be counted twice, verified under concurrent load.",
+          "b3": "Built the compliance controls a money-moving product needs to operate legally: a tamper-proof audit trail, anti-money-laundering caps, and automated tax-threshold reporting.",
+          "b4": "Made automated trading safe on a custodial trading platform — a crash-safe execution engine with built-in guardrails (spending caps, kill-switches, auto-pause) and hardware-key-protected withdrawals, so trades can't run away or exceed set limits."
+        }
+      },
+      "saasSimplified": {
+        "role": "Founder & Lead Engineer",
+        "location": "Cameroon · Remote",
+        "period": "2018",
+        "bullets": {
+          "b1": "Founded and lead a senior software agency — 10+ production platforms shipped across fintech, remittance, ticketing, and education, including 5 apps published to the App Store and Play Store.",
+          "b2": "Built a cross-border remittance app (live on both stores, 5 corridors into Central Africa) that guarantees senders the exact rate they saw — the exchange rate is locked at submission with money-safe decimal handling and duplicate-transfer protection, so diaspora transfers land correct to the last franc.",
+          "b3": "Authored stateledger, an open-source payment state-machine library for Node/TypeScript (3 packages on npm) — the reliable equivalent the Node ecosystem was missing for handling payment workflows.",
+          "b4": "Also shipped a pan-African admissions platform letting students apply and pay by mobile money across 10 countries without traveling to campus; a mobile-money event-ticketing platform with fraud-resistant QR tickets; and PulseLab, a real-time webhook debugger."
+        }
+      },
+      "tandoDating": {
+        "role": "Mobile Engineer · Contract",
+        "location": "Switzerland · Remote",
+        "period": "Sep 2024 – Apr 2026",
+        "bullets": {
+          "b1": "Gave a diaspora dating app a reliable foundation to scale on — led its migration from MongoDB to PostgreSQL, restructuring the entire data model (33 models, 150+ endpoints) for enforceable integrity.",
+          "b2": "Stopped subscription revenue leaking from forged or unverified receipts by adding cryptographic verification across Apple, Google, and card payments.",
+          "b3": "Rebuilt match discovery on a location-aware scoring engine; the product reached 1,000+ users in its first month."
+        }
+      },
+      "aeco": {
+        "role": "Software Engineer",
+        "location": "Cameroon",
+        "period": "Jan 2024 – Aug 2024",
+        "bullets": {
+          "b1": "Rebuilt AECO Education and Saint Louis University's digital presence (30% engagement lift) and built the student-application system that grew into a pan-African admissions platform."
+        }
+      },
+      "summitTech": {
+        "role": "CTO",
+        "location": "Cameroon · Full-time",
+        "period": "Jun 2021 – May 2024",
+        "bullets": {
+          "b1": "Led a team of 3 engineers and 10 interns; owned technical scoping of all incoming projects.",
+          "b2": "Built the digital platform for a 5-company conglomerate that generated 3M FCFA in its first two months and drove a 30% annual revenue increase.",
+          "b3": "Built RHIIBMS, a school-management system that cut admission processing by weeks with 100% budget-calculation accuracy."
+        }
+      }
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "About",
+      "description": "About Enow Divine — senior software engineer specializing in payment systems, money-movement correctness and distributed backends, and founder of SaaS Simplified. 7+ years of production experience."
+    },
+    "hero": {
+      "label": "About",
+      "title": "Seven years of making the hard parts behave."
+    },
+    "story": {
+      "p1": "Enow Divine is a senior software engineer based in <mark>{location}</mark>, building the payment and correctness layers behind fintech, remittance and SaaS products used across the US, Europe and Africa. He started freelancing in 2018 and formalized it into a small studio, SaaS Simplified, shortly after.",
+      "p2": "His specialty is <mark>payment systems and money-movement correctness</mark> — idempotent webhooks, decimal-safe money math, race-free inventory, cryptographic receipt verification, escrow flows, audit trails. In plain terms: the work that decides whether your customers get charged twice, and whether your finance team can trust the numbers. He is equally comfortable across the stack — React, Next.js, React Native — when a project calls for it.",
+      "p3": "He has shipped 10+ production platforms across fintech, remittance, ticketing and education — including 5 apps published to the App Store and Play Store — and authored <mark>stateledger</mark>, an open-source payment state-machine library for Node/TypeScript. Today he splits his time between full-time US backend work and running SaaS Simplified, the engineering studio he founded.",
+      "p4": "Clients tend to be founders and small teams who have something that has to work the first time — money moving, users waiting, a launch date that will not move."
+    },
+    "facts": {
+      "label": "Quick facts",
+      "experience": {
+        "term": "Experience",
+        "value": "7+ years"
+      },
+      "specialty": {
+        "term": "Specialty",
+        "value": "Payments · Money movement · Distributed systems"
+      },
+      "based": {
+        "term": "Based"
+      },
+      "timeZones": {
+        "term": "Time zones served",
+        "value": "US · EU · Africa"
+      },
+      "education": {
+        "term": "Education"
+      }
+    },
+    "ctaPrimary": "Start a project",
+    "ctaResume": "Download resume",
+    "experience": {
+      "label": "Experience",
+      "title": "Where the work has happened.",
+      "active": "Active"
+    },
+    "tools": {
+      "label": "Stack",
+      "title": "Tools of the trade.",
+      "lede": "The tools behind the work above, grouped the way he actually reaches for them. Every one has already carried something of his into production."
+    },
+    "cta": {
+      "title": "Have a project that needs this kind of attention?",
+      "body": "Send what you are building and when you need it. A reply comes back within one business day.",
+      "primary": "Start a conversation",
+      "whatsapp": "Message on WhatsApp",
+      "orSee": "Or see <link>how an engagement runs</link> first."
+    }
+  },
+  "Engagements": {
+    "payments": {
+      "name": "Payment systems",
+      "cta": "Start a payment systems project",
+      "description": "For fintech products, marketplaces, and any platform moving money between two sides. Cards, mobile money, escrow, subscriptions — the parts that have to be right the first time.",
+      "howItStarts": "A discovery call maps your money flow — sources, custody points, exits — and names the risky joints: duplicate processing, race conditions, reconciliation gaps. A fixed proposal follows within a few days.",
+      "process": {
+        "p1": "Map the money flow: sources, custody points, exits",
+        "p2": "Choose the provider stack (Stripe, Paystack, MTN/Orange Mobile Money, Fapshi)",
+        "p3": "Design idempotent processing and escrow rules",
+        "p4": "Build the audit trail before shipping anything else",
+        "p5": "Wire compliance hooks: transaction limits, KYC, threshold reporting",
+        "p6": "Load-test the concurrency story before go-live"
+      },
+      "deliverables": {
+        "d1": "Payment processing service in your codebase, integrated with your provider(s)",
+        "d2": "A state machine for every money-movement flow, tested against duplicates and races",
+        "d3": "Reconciliation dashboard or CLI for your finance and ops team",
+        "d4": "Runbook for the common failure modes: duplicate webhook, provider outage, partial refund",
+        "d5": "Written architecture doc for whoever maintains it next",
+        "d6": "30 days of post-launch bug-fix support"
+      }
+    },
+    "sites": {
+      "name": "Business & marketing sites",
+      "cta": "Start a business site project",
+      "description": "For consultancies, agencies and SMBs who need a professional site that actually converts — not another template drop.",
+      "howItStarts": "A discovery call on your positioning, your audience, and the one action a visitor should take. A page-by-page proposal follows within three business days.",
+      "process": {
+        "p1": "Define the positioning, the audience, and the primary conversion action",
+        "p2": "Sitemap and wireframe review before any design work",
+        "p3": "Build page by page, with weekly demos",
+        "p4": "SEO and performance instrumentation baked in, not bolted on",
+        "p5": "Contact form wired to your inbox, analytics live",
+        "p6": "Deploy and hand over to your team"
+      },
+      "deliverables": {
+        "d1": "Live site on your own domain (Vercel or your infrastructure)",
+        "d2": "A fully editable Next.js and Tailwind codebase in your repo",
+        "d3": "Contact form delivering to your inbox",
+        "d4": "Bilingual (EN/FR) if it is in scope",
+        "d5": "Sitemap, robots.txt, structured data, analytics and Open Graph metadata",
+        "d6": "Handover doc and a 30-day bug-fix window"
+      }
+    },
+    "saas": {
+      "name": "SaaS products",
+      "cta": "Start a SaaS project",
+      "description": "For founders shipping a subscription product from scratch, or teams rebuilding an aging one that is holding them back.",
+      "howItStarts": "Discovery on the core user workflow — the loop from signup to primary action to billing. Then a scoped MVP proposal, weekly demos, and no black-box build phases.",
+      "process": {
+        "p1": "Define the core loop: signup → primary action → billing",
+        "p2": "Auth and multi-tenant foundation (workspaces, roles, org-level isolation)",
+        "p3": "Core feature build, with weekly demos",
+        "p4": "Stripe subscriptions with plan changes and usage metering",
+        "p5": "Admin console and analytics dashboards",
+        "p6": "Deploy with observability wired up, and onboard your beta users"
+      },
+      "deliverables": {
+        "d1": "Live SaaS on your domain, ready for real users",
+        "d2": "Multi-tenant codebase with workspace and org isolation",
+        "d3": "Stripe subscriptions with plan changes and usage metering",
+        "d4": "Admin console for user and billing management",
+        "d5": "API for third-party integrations",
+        "d6": "Deployment and monitoring runbook"
+      }
+    },
+    "mobile": {
+      "name": "Mobile apps",
+      "cta": "Start a mobile app project",
+      "description": "For products that need to live in your users' pockets — payments, community, on-the-go tools. iOS and Android from a single codebase.",
+      "howItStarts": "Discovery on the core mobile workflow, what the backend has to provide, and where you are in the app-store journey — a fresh developer account or existing listings.",
+      "process": {
+        "p1": "Define the mobile-first user flow",
+        "p2": "Design system and core screens",
+        "p3": "Native features: push, camera, biometrics, deep links",
+        "p4": "Backend API tuned for mobile constraints (batching, offline)",
+        "p5": "App Store and Play Store submission, from certificate setup to first accept",
+        "p6": "Over-the-air update pipeline (Expo EAS), so future fixes skip resubmission"
+      },
+      "deliverables": {
+        "d1": "iOS and Android apps from one Expo/React Native codebase",
+        "d2": "App Store and Play Store listings live",
+        "d3": "Backend API in your repo",
+        "d4": "Over-the-air update workflow — ship fixes without a new submission",
+        "d5": "Push notification setup (APNs and FCM)",
+        "d6": "Handover doc covering build, release and update cycles"
+      }
+    },
+    "ai": {
+      "name": "AI integrations",
+      "cta": "Start an AI integration project",
+      "description": "For teams adding real LLM features to their product — not chatbot demos, but production workflows with cost caps and fallbacks.",
+      "howItStarts": "Discovery on the use case, your latency and cost constraints, and — most importantly — where AI actually helps versus where a plain form field would do the job better.",
+      "process": {
+        "p1": "Define the use case and agree what a correct output looks like",
+        "p2": "Model selection (OpenAI, Anthropic, Groq) with real cost analysis",
+        "p3": "Prompt design plus a small evaluation harness, so iteration is confident",
+        "p4": "Streaming UX and fallback logic for model outages",
+        "p5": "A retrieval pipeline if the feature needs one (pgvector or a dedicated embeddings DB)",
+        "p6": "Cost and rate-limit guardrails before any of it reaches real users"
+      },
+      "deliverables": {
+        "d1": "The AI feature integrated in your codebase, with streaming UX",
+        "d2": "Prompt library and evaluation set, so your team can keep iterating",
+        "d3": "Cost monitoring and hard-cap guards",
+        "d4": "Fallback logic for model outages and rate limits",
+        "d5": "Deployment and observability for the AI-specific paths",
+        "d6": "A doc explaining the prompt design decisions and how to change them"
+      }
+    },
+    "advisory": {
+      "name": "Advisory engagements",
+      "cta": "Start an advisory engagement",
+      "description": "For teams who want a senior engineer's judgement on a decision without commissioning a full build. Architecture audits, second opinions, ongoing engineering advice.",
+      "howItStarts": "A discovery call works out whether you need a fixed-scope review of an existing system or an ongoing retainer to bounce decisions off. A scoped proposal follows within a few days.",
+      "process": {
+        "p1": "Discovery call to scope the ask: one-off review, or ongoing retainer",
+        "p2": "Written scope with a fixed price (review) or monthly hours (retainer)",
+        "p3": "Async work in your repo, a shared channel, and review docs",
+        "p4": "Two scheduled deep-dive calls for reviews; weekly check-ins for retainers",
+        "p5": "A written deliverable at the end of a review, or a running decision log on retainer",
+        "p6": "Two weeks of follow-up email support after a review wraps"
+      },
+      "deliverables": {
+        "d1": "Written architecture assessment (10–20 pages) with findings ranked by risk and effort",
+        "d2": "A prioritized roadmap: what to fix now, what to defer, what to leave alone",
+        "d3": "Inline code and schema annotations in your repo where they help",
+        "d4": "A running decision log for retainer engagements",
+        "d5": "Same-business-day answers to async questions",
+        "d6": "A 90-minute walkthrough and Q&A with your team after a review"
+      }
+    }
+  },
+  "ConsultingPage": {
+    "meta": {
+      "title": "Consulting",
+      "description": "Work with Enow Divine: payment systems, SaaS products, mobile apps, business sites, AI features and architecture advisory. Fixed scope, written proposals, most engagements start within a week.",
+      "ogTitle": "Consulting — Enow Divine",
+      "ogDescription": "Payment systems, SaaS products, mobile apps, business sites, AI features and architecture advisory. Fixed scope, written proposals."
+    },
+    "hero": {
+      "label": "Consulting",
+      "title": "Senior engineering you can <swash>actually book</swash>.",
+      "lede": "Divine takes on a small number of builds and advisory engagements at a time, delivered through his agency, SaaS Simplified. One senior engineer accountable for the work, a fixed scope agreed before anything starts, and everything important written down as you go.",
+      "ctaPrimary": "Book an intake call",
+      "ctaWhatsapp": "WhatsApp",
+      "ctaEmail": "Email",
+      "points": {
+        "proposal": "One-page proposal in a few days",
+        "start": "Most engagements start within a week",
+        "warranty": "30-day bug-fix window on builds"
+      }
+    },
+    "types": {
+      "label": "What Divine takes on",
+      "title": "Six kinds of engagement.",
+      "lede": "Every engagement follows the same shape — discovery, scope, build, handover — but what you walk away with changes with the work. Each one below lists the steps and the exact deliverables, so there is nothing to discover after you have signed."
+    },
+    "card": {
+      "howItStarts": "How it starts",
+      "process": "How the work runs",
+      "deliverables": "What you get",
+      "emailAbout": "Email about this"
+    },
+    "working": {
+      "label": "Working together",
+      "title": "What it is like day to day.",
+      "lede": "Most of the work happens in your repo, in a shared channel and in written updates. Calls get scheduled when they genuinely save time, not as a weekly ritual.",
+      "items": {
+        "async": {
+          "title": "Messages first, calls when they help",
+          "body": "Most of the work happens in your repo, in a shared channel, and in review docs. A call gets scheduled when it saves time, not to fill a slot in the calendar."
+        },
+        "channel": {
+          "title": "A shared channel for questions",
+          "body": "Slack, Discord, or whatever your team already uses. Replies land the same working day — not around the clock, but never silent for days either."
+        },
+        "written": {
+          "title": "Everything gets written down",
+          "body": "Every review, decision and piece of work ends up in a document your team can read later. Nothing important lives only in one person's head."
+        },
+        "rhythm": {
+          "title": "A rhythm you can plan around",
+          "body": "One weekly check-in by default, deep-dive calls when the work needs them. Divine works from West Africa and overlaps with US, European and African hours."
+        }
+      },
+      "stackLink": "See the stack those builds run on"
+    },
+    "steps": {
+      "label": "Getting started",
+      "title": "Three steps, about a week.",
+      "items": {
+        "intake": {
+          "title": "Intake call",
+          "body": "Thirty minutes to understand what you are building, where it hurts, and whether one of these engagement shapes fits. No deck, no sales pitch."
+        },
+        "proposal": {
+          "title": "Scoped proposal",
+          "body": "Within a few days you get a one-page proposal: the scope, the deliverables and the price. Plain language, no surprises later."
+        },
+        "start": {
+          "title": "Start",
+          "body": "On signature and the first payment, work begins on the date agreed. Most engagements kick off within a week."
+        }
+      }
+    },
+    "faq": {
+      "label": "Common questions",
+      "title": "Before you write.",
+      "lede": "Anything not answered here is worth asking on the intake call — it is free, and it is the fastest way to find out whether this is a fit.",
+      "items": {
+        "scope": {
+          "q": "Does Divine handle both building and advising?",
+          "a": "Yes. Most engagements are build work — payment systems, SaaS, mobile, marketing sites, AI features. He also takes advisory-only work when a team just needs a second opinion or an ongoing brain to bounce things off."
+        },
+        "advisoryToBuild": {
+          "q": "Can advisory turn into a full build?",
+          "a": "Yes. If an advisory engagement surfaces work you want done, it gets scoped separately and SaaS Simplified takes it on. Advisory and build are always billed separately — there is never upsell pressure inside the advisory hours."
+        },
+        "who": {
+          "q": "Who actually does the work?",
+          "a": "Divine, as the senior engineer accountable for the engagement. Larger builds are delivered through SaaS Simplified, the agency he founded in 2018, and the scope says up front who is involved."
+        },
+        "nda": {
+          "q": "Do you sign NDAs?",
+          "a": "Yes. Send yours and it gets reviewed; if you do not have one, there is a short mutual NDA ready to share."
+        },
+        "speed": {
+          "q": "How fast can we start?",
+          "a": "Most engagements kick off within a week of signature. Larger builds can take longer to schedule, and you will hear that on the intake call rather than after signing."
+        },
+        "capacity": {
+          "q": "How many clients at once?",
+          "a": "A small number, deliberately, so every client gets real senior attention rather than shared time. If there is no capacity, you will be told on the intake call and offered a start date."
+        }
+      }
+    },
+    "cta": {
+      "title": "Tell Divine about the system you are working on.",
+      "body": "A short message is enough: what it does, where it hurts, and how soon you need it. The reply comes back within one business day, with an honest read on whether this is the right fit.",
+      "primary": "Book an intake call",
+      "whatsapp": "Message on WhatsApp",
+      "emailPrefix": "Or email",
+      "caseStudiesPrefix": "Shipped client work lives on"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contact",
+      "description": "Get in touch with Enow Divine — payment systems, SaaS products, mobile apps, business sites and AI features. WhatsApp, email or the form; a reply comes back within one business day."
+    },
+    "hero": {
+      "label": "Contact",
+      "title": "Tell Divine what you need built.",
+      "lede": "A few sentences is enough: what it does, where it hurts, and when you need it. Every message gets a real reply within one business day."
+    },
+    "form": {
+      "ariaLabel": "Contact form",
+      "name": "Name *",
+      "namePlaceholder": "Jane Smith",
+      "company": "Company",
+      "companyPlaceholder": "Acme Inc.",
+      "email": "Email *",
+      "emailPlaceholder": "jane@acme.com",
+      "message": "Message *",
+      "messagePlaceholder": "A few sentences about the project, the problem, or the question…",
+      "aboutLabel": "What is this about?",
+      "reasons": {
+        "project": "Project work",
+        "contract": "Contract / consulting",
+        "fulltime": "Full-time senior role",
+        "other": "Something else"
+      },
+      "submit": "Send message",
+      "sending": "Sending…",
+      "replyNote": "Reply within one business day",
+      "errors": {
+        "rateLimited": "That is a few messages in a short time. Give it a moment, or email directly at {email}.",
+        "invalid": "That message could not be sent — check the name, email and message, then try again.",
+        "generic": "Something went wrong sending that. If it keeps happening, email directly at {email}.",
+        "network": "That did not reach the server. Check your connection, or email directly at {email}."
+      }
+    },
+    "success": {
+      "title": "Message sent.",
+      "body": "A reply comes back within one business day. If it is urgent, WhatsApp is the faster door.",
+      "whatsapp": "WhatsApp",
+      "again": "Send another"
+    },
+    "side": {
+      "reachLabel": "Reach him directly",
+      "whatsapp": "WhatsApp",
+      "goodToKnow": "Good to know",
+      "timeZones": {
+        "term": "Time zones served",
+        "value": "US · EU · Africa, remote-first with flexible hours"
+      },
+      "next": {
+        "term": "What happens next",
+        "value": "A reply within one business day, then a 30-minute intake call if it looks like a fit."
+      },
+      "based": {
+        "term": "Based in"
+      }
+    }
+  },
+  "HirePage": {
+    "breadcrumbAria": "Breadcrumb",
+    "breadcrumb": "Hire",
+    "badge": "Available for new engagements",
+    "ctaPrimary": "Start a conversation",
+    "whatsapp": "WhatsApp",
+    "cv": "Download CV",
+    "evidence": {
+      "label": "Evidence",
+      "title": "What that looks like in production."
+    },
+    "stack": {
+      "label": "Full stack",
+      "title": "Everything he works in."
+    },
+    "cta": {
+      "title": "Need a {role} on this?",
+      "body": "Divine takes on a small number of engagements at a time. Send the brief — scope, timeline, and where it currently stands — and a reply comes back within one business day.",
+      "points": {
+        "years": "7+ years in production",
+        "timeZones": "US · EU · Africa time zones",
+        "scope": "Fixed scope, written up front"
+      },
+      "primary": "Start a conversation",
+      "email": "Email about this role",
+      "orSee": "Or see <link>how an engagement runs</link>."
+    }
+  },
+  "HireSpecialties": {
+    "senior-node-js-engineer": {
+      "title": "Hire a Senior Node.js Engineer",
+      "role": "Senior Node.js Engineer",
+      "roleLower": "senior Node.js engineer",
+      "metaDescription": "Hire Enow Divine, a senior Node.js engineer with 7+ years shipping production backends for fintech, remittance, and SaaS. Available for senior remote roles and consulting.",
+      "lead": "Enow builds and owns production Node.js backends end-to-end — architecture, delivery, on-call. Seven years across payment platforms, remittance apps, subscription SaaS, and open-source infrastructure. Available for senior remote roles and select consulting engagements.",
+      "bulletsIntro": "Recent Node.js work, with real impact instead of tech-stack buzzwords:"
+    },
+    "senior-backend-engineer": {
+      "title": "Hire a Senior Backend Engineer",
+      "role": "Senior Backend Engineer",
+      "roleLower": "senior backend engineer",
+      "metaDescription": "Hire a senior backend engineer with 7+ years across payments, distributed systems, and multi-tenant SaaS. Trusted remote delivery across US, EU, and African time zones.",
+      "lead": "Enow specialises in the hard parts: money movement that doesn't double-charge, systems that stay consistent under load, and services that fail safely. Seven years shipping backends behind fintech, remittance, and platform-scale SaaS.",
+      "bulletsIntro": "Backend engagements shipping in production right now:"
+    },
+    "payment-systems-engineer": {
+      "title": "Hire a Payment Systems Engineer",
+      "role": "Payment Systems Engineer",
+      "roleLower": "payment systems engineer",
+      "metaDescription": "Payment systems engineering — Stripe, mobile money, multi-currency, idempotency, reconciliation. Enow Divine builds money-movement layers that don't double-charge and settle exactly as promised.",
+      "lead": "Payments are unforgiving: double-charges, silent failures, and reconciliation drift compound into revenue and trust loss fast. Enow has spent 7+ years building the money-movement layer for remittance, subscription, and crowdfunding platforms — idempotent, auditable, and correct under retry.",
+      "bulletsIntro": "Selected payment-systems work:"
+    },
+    "stripe-integration-consultant": {
+      "title": "Hire a Stripe Integration Consultant",
+      "role": "Stripe Integration Consultant",
+      "roleLower": "Stripe integration consultant",
+      "metaDescription": "Stripe integration consultant with production experience across subscriptions, one-time payments, receipt verification, and reconciliation. Available for remote consulting.",
+      "lead": "Stripe done right means renewals that never drop, receipts that can't be forged, and webhooks that can be retried without double-counting anything. Enow has shipped and owns these guarantees in production for both SaaS subscriptions and crowdfunding escrow.",
+      "bulletsIntro": "Stripe-adjacent work already live:"
+    },
+    "react-native-developer": {
+      "title": "Hire a React Native Developer",
+      "role": "React Native Developer",
+      "roleLower": "React Native developer",
+      "metaDescription": "React Native developer with published App Store and Play Store apps. Remittance, dating, and event-ticketing mobile experience. Available for remote contracts.",
+      "lead": "Cross-platform mobile that ships and stays shipped: 5 apps live on the App Store and Play Store across remittance, ticketing, and dating. Enow owns the mobile side from Expo tooling through native modules and payment SDK integration.",
+      "bulletsIntro": "Mobile work shipped to real users:"
+    },
+    "typescript-engineer": {
+      "title": "Hire a Senior TypeScript Engineer",
+      "role": "Senior TypeScript Engineer",
+      "roleLower": "senior TypeScript engineer",
+      "metaDescription": "Senior TypeScript engineer across Node.js backends, React frontends, and React Native mobile. 7+ years shipping strictly-typed production code. Available for remote roles.",
+      "lead": "Enow works end-to-end in TypeScript: strict-typed Node backends, React and Next.js frontends, React Native mobile, and open-source npm packages. Type safety used as a design tool, not a formality.",
+      "bulletsIntro": "Recent TypeScript-heavy work:"
+    },
+    "distributed-systems-engineer": {
+      "title": "Hire a Distributed Systems Engineer",
+      "role": "Distributed Systems Engineer",
+      "roleLower": "distributed systems engineer",
+      "metaDescription": "Distributed systems engineer with real experience across event ordering, idempotent workflows, race conditions, and multi-service consistency. Available for senior remote roles.",
+      "lead": "The hard problems in distributed systems are the ones that only show up in production: out-of-order events, retried notifications, race conditions on shared state. Enow has fixed and owns these classes of bug across multi-tenant SaaS and payment platforms.",
+      "bulletsIntro": "Distributed-systems work in production:"
+    },
+    "fintech-backend-engineer": {
+      "title": "Hire a Fintech Backend Engineer",
+      "role": "Fintech Backend Engineer",
+      "roleLower": "fintech backend engineer",
+      "metaDescription": "Fintech backend engineer with published remittance, crowdfunding, and subscription experience. Idempotent money movement, receipt verification, escrow, audit trails.",
+      "lead": "Fintech backends live and die on correctness, not features. Enow has shipped remittance corridors that lock rates at submission, crowdfunding escrow that only releases when a goal is met, and subscription systems that recover failed renewals without double-charging.",
+      "bulletsIntro": "Fintech engagements in production:"
+    }
+  },
+  "DomainPage": {
+    "breadcrumbAria": "Breadcrumb",
+    "breadcrumb": "Consulting focus",
+    "badge": "Consulting focus",
+    "ctaPrimary": "Book an intake call",
+    "whatsapp": "WhatsApp",
+    "track": {
+      "label": "Track record",
+      "title": "Already shipped, already in production."
+    },
+    "cta": {
+      "title": "Building something in this space?",
+      "body": "Divine takes on a small number of engagements at a time. Send the brief and expect a reply within one business day.",
+      "primary": "Start a conversation",
+      "email": "Email about this",
+      "caseStudiesPrefix": "Full client case studies live on"
+    }
+  },
+  "DomainTopics": {
+    "payment-reconciliation": {
+      "title": "Payment Reconciliation Consulting",
+      "role": "Payment Reconciliation Specialist",
+      "metaDescription": "Payment reconciliation, retry-safe webhooks, and duplicate-prevention consulting. Real production experience across Stripe, mobile money, and multi-currency stacks.",
+      "lead": "Reconciliation drift is what turns healthy payment systems into support-ticket generators. Enow builds reconciliation layers that survive retried webhooks, duplicated provider notifications, and multi-provider mismatches — so the ledger always matches the money.",
+      "bulletsIntro": "Reconciliation work already live:"
+    },
+    "cross-border-remittance": {
+      "title": "Cross-Border Remittance Engineering",
+      "role": "Cross-Border Remittance Engineer",
+      "metaDescription": "Cross-border remittance engineering — rate-locking, mobile money integration, multi-corridor reconciliation. Built and shipped a live diaspora-to-Africa remittance app.",
+      "lead": "Cross-border remittance means people trust you with their salaries. Enow shipped a live BHD/GBP → XAF remittance product across 5 corridors, with locked-at-submission rates, money-safe decimal handling, and duplicate-transfer protection.",
+      "bulletsIntro": "Remittance work in production:"
+    },
+    "subscription-payments": {
+      "title": "Subscription Payment Systems",
+      "role": "Subscription Payments Engineer",
+      "metaDescription": "Subscription payment systems — renewal recovery, dunning, receipt verification, revenue leak prevention. Owns the payment layer for real production SaaS.",
+      "lead": "Subscription revenue leaks in a hundred silent ways: dropped renewals, forged receipts, race conditions during mid-payment retries. Enow closes each of those failure modes and owns the recovery paths in production.",
+      "bulletsIntro": "Subscription-payments work:"
+    },
+    "mobile-money-integration": {
+      "title": "Mobile Money Integration",
+      "role": "Mobile Money Integration Engineer",
+      "metaDescription": "Mobile money integration across MTN, Orange, and other African rails. Production experience: remittance, event ticketing, admissions, cross-border transfers.",
+      "lead": "Mobile money is how money moves in Africa. Enow has integrated MTN Mobile Money, Orange Money, and Fapshi across remittance, ticketing, and admissions platforms — including reconciliation, retry logic, and fraud protection.",
+      "bulletsIntro": "Mobile-money integrations shipped:"
+    },
+    "multi-tenant-saas": {
+      "title": "Multi-Tenant SaaS Backend",
+      "role": "Multi-Tenant SaaS Engineer",
+      "metaDescription": "Multi-tenant SaaS backend engineering — role authorization, event ordering across services, tenant data isolation. Owner of the primary backend for a live multi-tenant platform.",
+      "lead": "Multi-tenant SaaS is where authorization bugs become breach reports and event races become inconsistent tenant state. Enow is the primary backend engineer on a live multi-tenant faith-community platform, rebuilding role authorization and event propagation across 15+ services.",
+      "bulletsIntro": "Multi-tenant work in production:"
+    }
+  },
+  "NotFoundPage": {
+    "label": "404",
+    "title": "That page is not here.",
+    "lede": "It may have moved, or it may never have existed. The work itself is still one click away.",
+    "consulting": "See consulting",
+    "home": "Back to home"
+  },
+  "ChatWidget": {
+    "launcher": {
+      "open": "Ask about Divine",
+      "close": "Close",
+      "openAria": "Ask about Divine",
+      "closeAria": "Close the assistant"
+    },
+    "panel": {
+      "title": "Ask about Divine",
+      "subtitle": "Answers come from this site only",
+      "dialogLabel": "Ask about {name}",
+      "conversation": "Conversation",
+      "clear": "Clear conversation",
+      "fullscreen": "Expand to full screen",
+      "fullscreenAria": "Expand the assistant to full screen",
+      "exitFullscreen": "Exit full screen",
+      "close": "Close",
+      "closeAria": "Close the assistant",
+      "thinking": "Thinking…",
+      "inputPlaceholder": "Ask a question…",
+      "inputLabel": "Your question",
+      "send": "Send question"
+    },
+    "empty": {
+      "body": "Ask anything about {name} — his experience, what he specialises in, or how to work with him.",
+      "footer": "AI answers · verify anything that matters"
+    },
+    "starters": {
+      "who": {
+        "label": "Who is Divine?",
+        "hint": "The short version",
+        "question": "Who is Enow Divine?"
+      },
+      "what": {
+        "label": "What does he do?",
+        "hint": "Specialties and stack",
+        "question": "What does Enow Divine do?"
+      },
+      "work": {
+        "label": "What's he worked on?",
+        "hint": "Roles and shipped work",
+        "question": "What has Enow Divine worked on?"
+      },
+      "hire": {
+        "label": "Is he available?",
+        "hint": "Hiring and consulting",
+        "question": "Is Enow Divine available, and how do I hire him?"
+      }
+    },
+    "errors": {
+      "notConfigured": "The assistant is not available right now. You can still reach Divine directly at {email}.",
+      "rateLimited": "That is a lot of questions at once — give it a minute and try again.",
+      "unavailable": "The assistant is temporarily unavailable. Please try again shortly.",
+      "invalidRequest": "That message could not be sent. Try rephrasing it.",
+      "generic": "Something went wrong sending that. Please try again.",
+      "network": "That did not reach the server. Check your connection and try again."
+    }
+  }
+}

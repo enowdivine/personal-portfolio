@@ -1,0 +1,781 @@
+{
+  "Profile": {
+    "title": "Ingénieur logiciel senior",
+    "location": "Buea, Cameroun",
+    "summary": "Ingénieur logiciel senior, plus de 7 ans passés à construire les couches de paiement et de fiabilité derrière des produits fintech, de transfert d'argent et SaaS aux États-Unis, en Europe et en Afrique — des paiements qui ne débitent jamais deux fois et des systèmes qui restent cohérents sous charge. Fondateur de SaaS Simplified.",
+    "shortBio": "Ingénieur logiciel senior spécialisé dans les paiements, la fiabilité des flux d'argent et les backends distribués. Il a fondé SaaS Simplified en 2018 et ne prend qu'un petit nombre de projets et de missions de conseil à la fois.",
+    "siteTitle": "Enow Divine — ingénieur logiciel senior et fondateur de SaaS Simplified"
+  },
+  "Header": {
+    "home": "Accueil",
+    "consulting": "Prestations",
+    "about": "À propos",
+    "writing": "Articles",
+    "startProject": "Démarrer un projet",
+    "whatsappAria": "Écrire sur WhatsApp",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue"
+  },
+  "Footer": {
+    "availableLabel": "Disponible pour de nouveaux projets",
+    "ctaTitle": "Dites à Divine ce que vous construisez.",
+    "ctaBody": "Systèmes de paiement, produits SaaS, applications mobiles, sites d'entreprise et fonctionnalités IA — cadrés et chiffrés à l'avance, livrés via SaaS Simplified. Réponse sous un jour ouvré.",
+    "whatsapp": "WhatsApp",
+    "startProject": "Démarrer un projet",
+    "timeZones": "Disponible sur les fuseaux États-Unis · Europe · Afrique",
+    "thisSite": "Ce site",
+    "consulting": "Prestations",
+    "about": "À propos",
+    "contact": "Contact",
+    "resume": "CV (PDF)",
+    "elsewhere": "Ailleurs",
+    "caseStudies": "Études de cas",
+    "reachHim": "Le contacter",
+    "socials": {
+      "whatsapp": "WhatsApp",
+      "email": "E-mail",
+      "call": "Appeler",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "medium": "Medium"
+    },
+    "top": "Haut de page"
+  },
+  "HomePage": {
+    "meta": {
+      "description": "Enow Divine construit des systèmes de paiement, des produits SaaS et des applications mobiles pour des fondateurs et des équipes — plus de 7 ans, plus de 10 plateformes en production. Disponible en conseil via SaaS Simplified."
+    },
+    "hero": {
+      "badge": "Quelques projets acceptés en ce moment",
+      "title": "Enow Divine construit des logiciels qui <swash>touchent à l'argent réel</swash> — et qui ne se trompent pas.",
+      "lede": "Ingénieur logiciel senior et fondateur de SaaS Simplified, basé à {location}. Sept ans de métier et plus de 10 plateformes en production, pour les équipes dont les clients et les paiements ne tolèrent aucune approximation.",
+      "ctaPrimary": "Réserver un appel de cadrage",
+      "ctaWhatsapp": "WhatsApp",
+      "ctaEmail": "E-mail",
+      "points": {
+        "reply": "Réponse sous un jour ouvré",
+        "timeZones": "Fuseaux États-Unis · Europe · Afrique",
+        "scope": "Périmètre fixe, écrit à l'avance"
+      },
+      "portraitAlt": "{name} à son bureau, à {location}"
+    },
+    "services": {
+      "label": "Ce que Divine construit",
+      "title": "Quatre types de missions, un seul ingénieur qui en répond.",
+      "lede": "Pas de chargé de clientèle au milieu, pas de passage de relais à un junior une fois le contrat signé. Le périmètre et le prix sont écrits avant que quoi que ce soit ne commence.",
+      "items": {
+        "payments": {
+          "title": "Systèmes de paiement",
+          "body": "Cartes, mobile money, séquestre et abonnements — conçus pour ne jamais débiter deux fois et pour toujours se rapprocher au centime."
+        },
+        "saas": {
+          "title": "Produits SaaS",
+          "body": "Un produit par abonnement, de la première connexion à la facturation — ou la refonte de celui qui freine votre équipe."
+        },
+        "mobile": {
+          "title": "Applications mobiles",
+          "body": "iOS et Android depuis une seule base de code, menés jusqu'au bout de la validation App Store et Play Store."
+        },
+        "sites": {
+          "title": "Sites et fonctionnalités IA",
+          "body": "Des sites d'entreprise qui convertissent, et de vraies fonctionnalités LLM en production avec des plafonds de coûts — pas des démos de chatbot."
+        }
+      },
+      "more": "Voir comment une mission se déroule, de bout en bout"
+    },
+    "recent": {
+      "label": "Mis en ligne récemment",
+      "title": "Des produits en ligne, pas une présentation.",
+      "lede": "Les projets clients sont livrés via SaaS Simplified : les études de cas complètes — le problème, la construction, le résultat — vivent donc sur le site de l'agence.",
+      "cta": "Lire les études de cas",
+      "items": {
+        "tyketz": "Billetterie d'événements pour organisateurs africains — paiement par mobile money, billets QR, tableaux de bord organisateur.",
+        "esqs": "Le site vitrine d'un cabinet britannique d'économie de la construction : prestations, réalisations et formulaire de prise de contact.",
+        "uniassist": "Une plateforme d'admissions avant lancement, pour un acteur établi des admissions, étendue du Cameroun à 10 pays africains.",
+        "agency": "La petite agence senior que Divine a fondée en 2018, et depuis laquelle les projets clients sont livrés."
+      }
+    },
+    "testimonials": {
+      "label": "Ce qu'on en dit",
+      "title": "Celles et ceux qui ont travaillé avec lui."
+    },
+    "oss": {
+      "label": "Open source",
+      "title": "stateledger — le travail sur la fiabilité des paiements, publié.",
+      "body": "Une machine à états adossée à la base de données pour les flux de paiement, publiée sur npm sous licence MIT. Elle encaisse les webhooks concurrents, les notifications dupliquées des prestataires et les transitions traçables en audit — exactement les pannes qui coûtent cher aux vraies plateformes. Du code que l'on peut télécharger et lire avant d'embaucher qui que ce soit."
+    },
+    "cta": {
+      "title": "Un chantier qui doit marcher du premier coup ?",
+      "body": "Envoyez le brief — le système, là où ça coince, et pour quand. La réponse arrive sous un jour ouvré, avec un avis honnête sur la pertinence de la mission.",
+      "primary": "Entamer la discussion",
+      "whatsapp": "Écrire sur WhatsApp",
+      "emailPrefix": "Ou écrivez à"
+    }
+  },
+  "Stack": {
+    "label": "La stack",
+    "title": "Les outils derrière ces produits.",
+    "lede": "Rien ici n'est nouveau pour Divine — chacun de ces outils a déjà porté l'un de ses projets en production, et c'est ce qui rend une date de livraison crédible.",
+    "rows": {
+      "webMobile": "Web et mobile",
+      "backend": "Backend et APIs",
+      "data": "Données et infrastructure",
+      "payments": "Paiements, IA et outillage"
+    }
+  },
+  "Skills": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "infrastructure": "Infrastructure",
+    "payments": "Paiements et fintech",
+    "other": "Autres"
+  },
+  "Education": {
+    "degree": "Licence en génie informatique",
+    "institution": "Université de Buea, Cameroun",
+    "date": "déc. 2022"
+  },
+  "Experience": {
+    "jobs": {
+      "impactFactors": {
+        "role": "Ingénieur logiciel senior · Temps plein",
+        "location": "États-Unis · À distance",
+        "period": "févr. 2025 – aujourd'hui",
+        "bullets": {
+          "b1": "Devenu l'ingénieur backend principal d'une plateforme multi-locataires destinée aux communautés religieuses (dons, vie communautaire, messagerie) — celui vers qui remontent les nouvelles fonctionnalités et les problèmes backend inter-équipes, sur plus de 15 services.",
+          "b2": "Protégé les revenus de dons récurrents et d'abonnements contre les pannes silencieuses : correction d'une condition de concurrence au renouvellement qui pouvait interrompre des abonnements actifs en cours de paiement, et mise en place d'une reprise qui régularise les renouvellements échoués sans jamais débiter deux fois les donateurs.",
+          "b3": "Mis les droits d'administration des organisations clientes à l'abri d'une prise de contrôle — autorisation par rôle reconstruite dans chaque service, et fermeture d'une faille par laquelle un non-administrateur pouvait s'octroyer des droits d'administration.",
+          "b4": "Rendu les données de la plateforme fiables sous charge : une action utilisateur — suppression, changement de rôle — se propage désormais une seule fois et correctement dans tous les services, même quand les événements sont réessayés ou arrivent dans le désordre."
+        }
+      },
+      "primusLearning": {
+        "role": "Ingénieur logiciel · Mission",
+        "location": "États-Unis · À distance",
+        "period": "avr. 2024 – aujourd'hui",
+        "bullets": {
+          "b1": "Rendu réelle la promesse « tout ou rien » d'une plateforme de financement participatif : flux d'argent repensé pour que les fonds des contributeurs soient conservés sous séquestre et versés aux créateurs uniquement si la campagne atteint son objectif — sinon chaque contributeur est remboursé automatiquement, ce qui protège les deux côtés de la transaction.",
+          "b2": "Éliminé un bug qui comptait deux fois les totaux de campagne et les montants de taxes — traitement des paiements repris pour qu'une notification dupliquée ou réessayée d'un prestataire ne puisse jamais être comptée deux fois, vérifié sous charge concurrente.",
+          "b3": "Construit les contrôles de conformité dont un produit qui déplace de l'argent a besoin pour opérer légalement : piste d'audit infalsifiable, plafonds anti-blanchiment et déclarations automatiques de seuils fiscaux.",
+          "b4": "Rendu le trading automatisé sûr sur une plateforme de trading avec conservation des fonds — un moteur d'exécution résistant aux pannes, avec garde-fous intégrés (plafonds de dépense, coupe-circuits, mise en pause automatique) et retraits protégés par clé matérielle, pour que les ordres ne s'emballent jamais et ne dépassent jamais les limites fixées."
+        }
+      },
+      "saasSimplified": {
+        "role": "Fondateur et ingénieur principal",
+        "location": "Cameroun · À distance",
+        "period": "2018",
+        "bullets": {
+          "b1": "Fondé et dirige une agence logicielle senior — plus de 10 plateformes mises en production dans la fintech, le transfert d'argent, la billetterie et l'éducation, dont 5 applications publiées sur l'App Store et le Play Store.",
+          "b2": "Construit une application de transfert d'argent transfrontalier (en ligne sur les deux stores, 5 corridors vers l'Afrique centrale) qui garantit à l'expéditeur le taux exact qu'il a vu — le taux de change est verrouillé à l'envoi, avec des calculs décimaux sûrs pour l'argent et une protection contre les transferts en double, pour que les envois de la diaspora arrivent justes au franc près.",
+          "b3": "Auteur de stateledger, une bibliothèque open source de machine à états pour les paiements en Node/TypeScript (3 paquets sur npm) — l'équivalent fiable qui manquait à l'écosystème Node pour piloter des flux de paiement.",
+          "b4": "A également livré une plateforme panafricaine d'admissions permettant aux étudiants de candidater et de payer par mobile money dans 10 pays sans se déplacer sur le campus ; une billetterie d'événements par mobile money avec des billets QR résistants à la fraude ; et PulseLab, un débogueur de webhooks en temps réel."
+        }
+      },
+      "tandoDating": {
+        "role": "Ingénieur mobile · Mission",
+        "location": "Suisse · À distance",
+        "period": "sept. 2024 – avr. 2026",
+        "bullets": {
+          "b1": "Donné à une application de rencontres pour la diaspora une base fiable pour grandir — migration de MongoDB vers PostgreSQL menée de bout en bout, avec une refonte complète du modèle de données (33 modèles, plus de 150 endpoints) pour une intégrité réellement vérifiable.",
+          "b2": "Stoppé la fuite de revenus d'abonnement liée aux reçus falsifiés ou non vérifiés, en ajoutant une vérification cryptographique sur les paiements Apple, Google et carte bancaire.",
+          "b3": "Reconstruit la découverte de profils sur un moteur de score tenant compte de la localisation ; le produit a dépassé 1 000 utilisateurs dès son premier mois."
+        }
+      },
+      "aeco": {
+        "role": "Ingénieur logiciel",
+        "location": "Cameroun",
+        "period": "janv. 2024 – août 2024",
+        "bullets": {
+          "b1": "Refonte de la présence en ligne d'AECO Education et de Saint Louis University (+30 % d'engagement) et construction du système de candidature étudiante devenu depuis une plateforme panafricaine d'admissions."
+        }
+      },
+      "summitTech": {
+        "role": "Directeur technique (CTO)",
+        "location": "Cameroun · Temps plein",
+        "period": "juin 2021 – mai 2024",
+        "bullets": {
+          "b1": "Encadré une équipe de 3 ingénieurs et 10 stagiaires ; responsable du cadrage technique de tous les projets entrants.",
+          "b2": "Construit la plateforme numérique d'un conglomérat de 5 sociétés, qui a généré 3 millions de FCFA en deux mois et porté une hausse de 30 % du chiffre d'affaires annuel.",
+          "b3": "Construit RHIIBMS, un logiciel de gestion scolaire qui a réduit de plusieurs semaines le traitement des admissions, avec des calculs budgétaires justes à 100 %."
+        }
+      }
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "À propos",
+      "description": "À propos d'Enow Divine — ingénieur logiciel senior spécialisé dans les systèmes de paiement, la fiabilité des flux d'argent et les backends distribués, fondateur de SaaS Simplified. Plus de 7 ans d'expérience en production."
+    },
+    "hero": {
+      "label": "À propos",
+      "title": "Sept ans à faire tenir les parties difficiles."
+    },
+    "story": {
+      "p1": "Enow Divine est un ingénieur logiciel senior basé à <mark>{location}</mark>. Il construit les couches de paiement et de fiabilité derrière des produits fintech, de transfert d'argent et SaaS utilisés aux États-Unis, en Europe et en Afrique. Il s'est lancé en indépendant en 2018, puis a structuré l'activité en un petit studio, SaaS Simplified, peu de temps après.",
+      "p2": "Sa spécialité : <mark>les systèmes de paiement et la fiabilité des flux d'argent</mark> — webhooks idempotents, calculs décimaux sûrs pour l'argent, stocks sans conflit de concurrence, vérification cryptographique des reçus, séquestre, pistes d'audit. En clair : ce qui détermine si vos clients sont débités deux fois, et si votre équipe financière peut se fier aux chiffres. Il est tout aussi à l'aise sur l'ensemble de la stack — React, Next.js, React Native — quand le projet le demande.",
+      "p3": "Il a mis en production plus de 10 plateformes dans la fintech, le transfert d'argent, la billetterie et l'éducation — dont 5 applications publiées sur l'App Store et le Play Store — et il est l'auteur de <mark>stateledger</mark>, une bibliothèque open source de machine à états pour les paiements en Node/TypeScript. Il partage aujourd'hui son temps entre un poste backend à temps plein aux États-Unis et la direction de SaaS Simplified, le studio d'ingénierie qu'il a fondé.",
+      "p4": "Ses clients sont le plus souvent des fondateurs et de petites équipes qui ont un chantier devant réussir du premier coup — de l'argent qui circule, des utilisateurs qui attendent, une date de lancement qui ne bougera pas."
+    },
+    "facts": {
+      "label": "En bref",
+      "experience": {
+        "term": "Expérience",
+        "value": "Plus de 7 ans"
+      },
+      "specialty": {
+        "term": "Spécialité",
+        "value": "Paiements · Flux d'argent · Systèmes distribués"
+      },
+      "based": {
+        "term": "Basé à"
+      },
+      "timeZones": {
+        "term": "Fuseaux horaires couverts",
+        "value": "États-Unis · Europe · Afrique"
+      },
+      "education": {
+        "term": "Formation"
+      }
+    },
+    "ctaPrimary": "Démarrer un projet",
+    "ctaResume": "Télécharger le CV",
+    "experience": {
+      "label": "Parcours",
+      "title": "Là où le travail a eu lieu.",
+      "active": "En cours"
+    },
+    "tools": {
+      "label": "Stack",
+      "title": "Les outils du métier.",
+      "lede": "Les outils derrière le travail ci-dessus, regroupés comme il s'en sert réellement. Chacun a déjà porté l'un de ses projets en production."
+    },
+    "cta": {
+      "title": "Un projet qui demande ce niveau d'attention ?",
+      "body": "Envoyez ce que vous construisez et pour quand. La réponse arrive sous un jour ouvré.",
+      "primary": "Entamer la discussion",
+      "whatsapp": "Écrire sur WhatsApp",
+      "orSee": "Ou voyez d'abord <link>comment une mission se déroule</link>."
+    }
+  },
+  "Engagements": {
+    "payments": {
+      "name": "Systèmes de paiement",
+      "cta": "Démarrer un projet de paiement",
+      "description": "Pour les produits fintech, les marketplaces et toute plateforme qui fait circuler de l'argent entre deux parties. Cartes, mobile money, séquestre, abonnements — les parties qui doivent être justes du premier coup.",
+      "howItStarts": "Un appel de cadrage cartographie votre flux d'argent — sources, points de conservation, sorties — et nomme les jointures risquées : traitements en double, conditions de concurrence, écarts de rapprochement. Une proposition à prix fixe suit sous quelques jours.",
+      "process": {
+        "p1": "Cartographier le flux d'argent : sources, points de conservation, sorties",
+        "p2": "Choisir les prestataires (Stripe, Paystack, MTN/Orange Mobile Money, Fapshi)",
+        "p3": "Concevoir un traitement idempotent et les règles de séquestre",
+        "p4": "Construire la piste d'audit avant toute autre mise en ligne",
+        "p5": "Brancher la conformité : plafonds de transaction, KYC, déclaration de seuils",
+        "p6": "Tester la montée en charge et la concurrence avant la mise en service"
+      },
+      "deliverables": {
+        "d1": "Un service de traitement des paiements dans votre base de code, intégré à vos prestataires",
+        "d2": "Une machine à états pour chaque flux d'argent, testée contre les doublons et la concurrence",
+        "d3": "Un tableau de bord ou un outil en ligne de commande de rapprochement pour vos équipes finance et ops",
+        "d4": "Un guide d'exploitation pour les pannes courantes : webhook dupliqué, prestataire indisponible, remboursement partiel",
+        "d5": "Un document d'architecture écrit, pour la personne qui reprendra le code",
+        "d6": "30 jours de correction de bugs après la mise en ligne"
+      }
+    },
+    "sites": {
+      "name": "Sites d'entreprise et vitrines",
+      "cta": "Démarrer un projet de site",
+      "description": "Pour les cabinets, les agences et les PME qui ont besoin d'un site professionnel qui convertit vraiment — pas d'un énième modèle déposé en ligne.",
+      "howItStarts": "Un appel de cadrage sur votre positionnement, votre audience et l'unique action qu'un visiteur devrait faire. Une proposition page par page suit sous trois jours ouvrés.",
+      "process": {
+        "p1": "Définir le positionnement, l'audience et l'action de conversion principale",
+        "p2": "Valider l'arborescence et les maquettes fonctionnelles avant tout travail de design",
+        "p3": "Construire page par page, avec une démonstration chaque semaine",
+        "p4": "SEO et mesure des performances intégrés dès le départ, pas ajoutés après",
+        "p5": "Formulaire de contact relié à votre boîte mail, analytics en service",
+        "p6": "Mise en ligne et transmission à votre équipe"
+      },
+      "deliverables": {
+        "d1": "Un site en ligne sur votre propre domaine (Vercel ou votre infrastructure)",
+        "d2": "Une base de code Next.js et Tailwind entièrement modifiable, dans votre dépôt",
+        "d3": "Un formulaire de contact qui arrive dans votre boîte mail",
+        "d4": "Bilingue (FR/EN) si c'est dans le périmètre",
+        "d5": "Sitemap, robots.txt, données structurées, analytics et métadonnées Open Graph",
+        "d6": "Un document de transmission et 30 jours de correction de bugs"
+      }
+    },
+    "saas": {
+      "name": "Produits SaaS",
+      "cta": "Démarrer un projet SaaS",
+      "description": "Pour les fondateurs qui lancent un produit par abonnement de zéro, ou les équipes qui refondent celui qui a vieilli et les freine.",
+      "howItStarts": "Cadrage du parcours utilisateur central — la boucle de l'inscription à l'action principale puis à la facturation. Puis une proposition de MVP chiffrée, des démonstrations chaque semaine, et aucune phase de développement en boîte noire.",
+      "process": {
+        "p1": "Définir la boucle centrale : inscription → action principale → facturation",
+        "p2": "Authentification et socle multi-locataires (espaces de travail, rôles, isolation par organisation)",
+        "p3": "Développement des fonctionnalités clés, avec une démonstration chaque semaine",
+        "p4": "Abonnements Stripe avec changement de formule et facturation à l'usage",
+        "p5": "Console d'administration et tableaux de bord analytiques",
+        "p6": "Mise en ligne avec l'observabilité branchée, et accueil de vos premiers utilisateurs"
+      },
+      "deliverables": {
+        "d1": "Un SaaS en ligne sur votre domaine, prêt pour de vrais utilisateurs",
+        "d2": "Une base de code multi-locataires avec isolation par espace de travail et par organisation",
+        "d3": "Des abonnements Stripe avec changement de formule et facturation à l'usage",
+        "d4": "Une console d'administration pour la gestion des comptes et de la facturation",
+        "d5": "Une API pour les intégrations tierces",
+        "d6": "Un guide de déploiement et de supervision"
+      }
+    },
+    "mobile": {
+      "name": "Applications mobiles",
+      "cta": "Démarrer un projet mobile",
+      "description": "Pour les produits qui doivent vivre dans la poche de vos utilisateurs — paiements, communauté, outils de terrain. iOS et Android depuis une seule base de code.",
+      "howItStarts": "Cadrage du parcours mobile central, de ce que le backend doit fournir, et de votre situation côté stores — compte développeur à créer ou fiches déjà en ligne.",
+      "process": {
+        "p1": "Définir le parcours utilisateur pensé pour le mobile",
+        "p2": "Système de design et écrans principaux",
+        "p3": "Fonctions natives : notifications push, appareil photo, biométrie, liens profonds",
+        "p4": "API backend ajustée aux contraintes du mobile (regroupement des requêtes, hors ligne)",
+        "p5": "Soumission à l'App Store et au Play Store, de la création des certificats à la première validation",
+        "p6": "Chaîne de mise à jour à distance (Expo EAS), pour que les correctifs évitent une nouvelle soumission"
+      },
+      "deliverables": {
+        "d1": "Des applications iOS et Android depuis une base de code Expo/React Native unique",
+        "d2": "Des fiches App Store et Play Store en ligne",
+        "d3": "L'API backend dans votre dépôt",
+        "d4": "Un flux de mise à jour à distance — publier un correctif sans nouvelle soumission",
+        "d5": "La configuration des notifications push (APNs et FCM)",
+        "d6": "Un document de transmission couvrant les cycles de build, de publication et de mise à jour"
+      }
+    },
+    "ai": {
+      "name": "Intégrations IA",
+      "cta": "Démarrer un projet d'intégration IA",
+      "description": "Pour les équipes qui ajoutent de vraies fonctionnalités LLM à leur produit — pas des démos de chatbot, mais des flux en production avec plafonds de coûts et solutions de repli.",
+      "howItStarts": "Cadrage du cas d'usage, de vos contraintes de latence et de coût, et — surtout — de là où l'IA aide vraiment par rapport à là où un simple champ de formulaire ferait mieux l'affaire.",
+      "process": {
+        "p1": "Définir le cas d'usage et s'accorder sur ce qu'est une bonne réponse",
+        "p2": "Choix du modèle (OpenAI, Anthropic, Groq) avec une vraie analyse de coûts",
+        "p3": "Conception des prompts et petit harnais d'évaluation, pour itérer en confiance",
+        "p4": "Interface en flux continu et logique de repli en cas d'indisponibilité du modèle",
+        "p5": "Une chaîne de recherche documentaire si la fonctionnalité en a besoin (pgvector ou base d'embeddings dédiée)",
+        "p6": "Garde-fous de coût et de débit avant que tout cela n'atteigne de vrais utilisateurs"
+      },
+      "deliverables": {
+        "d1": "La fonctionnalité IA intégrée à votre base de code, avec une interface en flux continu",
+        "d2": "Une bibliothèque de prompts et un jeu d'évaluation, pour que votre équipe continue d'itérer",
+        "d3": "Le suivi des coûts et des plafonds stricts",
+        "d4": "Une logique de repli en cas d'indisponibilité du modèle ou de limite de débit",
+        "d5": "Le déploiement et l'observabilité des chemins propres à l'IA",
+        "d6": "Un document expliquant les choix de conception des prompts et comment les faire évoluer"
+      }
+    },
+    "advisory": {
+      "name": "Missions de conseil",
+      "cta": "Démarrer une mission de conseil",
+      "description": "Pour les équipes qui veulent l'avis d'un ingénieur senior sur une décision, sans commander un développement complet. Audits d'architecture, deuxièmes avis, conseil technique continu.",
+      "howItStarts": "Un appel de cadrage détermine si vous avez besoin d'une revue à périmètre fixe d'un système existant, ou d'un forfait mensuel pour soumettre vos décisions au fil de l'eau. Une proposition chiffrée suit sous quelques jours.",
+      "process": {
+        "p1": "Appel de cadrage pour délimiter la demande : revue ponctuelle ou forfait mensuel",
+        "p2": "Périmètre écrit, à prix fixe (revue) ou en heures mensuelles (forfait)",
+        "p3": "Travail en asynchrone dans votre dépôt, un canal partagé et des documents de revue",
+        "p4": "Deux appels d'approfondissement planifiés pour une revue ; un point hebdomadaire pour un forfait",
+        "p5": "Un livrable écrit à la fin d'une revue, ou un journal de décisions tenu en continu sur un forfait",
+        "p6": "Deux semaines de questions par e-mail après la clôture d'une revue"
+      },
+      "deliverables": {
+        "d1": "Une évaluation d'architecture écrite (10 à 20 pages), avec les constats classés par risque et par effort",
+        "d2": "Une feuille de route priorisée : ce qu'il faut corriger maintenant, reporter, ou laisser tel quel",
+        "d3": "Des annotations de code et de schéma directement dans votre dépôt, là où elles aident",
+        "d4": "Un journal de décisions tenu en continu pour les forfaits mensuels",
+        "d5": "Des réponses le jour ouvré même aux questions posées en asynchrone",
+        "d6": "Une présentation de 90 minutes et une séance de questions avec votre équipe après une revue"
+      }
+    }
+  },
+  "ConsultingPage": {
+    "meta": {
+      "title": "Prestations",
+      "description": "Travailler avec Enow Divine : systèmes de paiement, produits SaaS, applications mobiles, sites d'entreprise, fonctionnalités IA et conseil en architecture. Périmètre fixe, propositions écrites, la plupart des missions démarrent sous une semaine.",
+      "ogTitle": "Prestations — Enow Divine",
+      "ogDescription": "Systèmes de paiement, produits SaaS, applications mobiles, sites d'entreprise, fonctionnalités IA et conseil en architecture. Périmètre fixe, propositions écrites."
+    },
+    "hero": {
+      "label": "Prestations",
+      "title": "De l'ingénierie senior que l'on peut <swash>réellement réserver</swash>.",
+      "lede": "Divine ne prend qu'un petit nombre de projets et de missions de conseil à la fois, livrés via son agence, SaaS Simplified. Un ingénieur senior qui répond du travail, un périmètre fixé avant que quoi que ce soit ne commence, et tout ce qui compte écrit au fil de l'eau.",
+      "ctaPrimary": "Réserver un appel de cadrage",
+      "ctaWhatsapp": "WhatsApp",
+      "ctaEmail": "E-mail",
+      "points": {
+        "proposal": "Une proposition d'une page sous quelques jours",
+        "start": "La plupart des missions démarrent sous une semaine",
+        "warranty": "30 jours de correction de bugs sur les développements"
+      }
+    },
+    "types": {
+      "label": "Ce que Divine prend en charge",
+      "title": "Six types de missions.",
+      "lede": "Toutes les missions suivent la même forme — cadrage, périmètre, construction, transmission — mais ce que vous emportez change selon le travail. Chacune ci-dessous liste les étapes et les livrables exacts : il n'y a rien à découvrir après la signature."
+    },
+    "card": {
+      "howItStarts": "Comment ça démarre",
+      "process": "Comment le travail se déroule",
+      "deliverables": "Ce que vous obtenez",
+      "emailAbout": "Écrire à ce sujet"
+    },
+    "working": {
+      "label": "Travailler ensemble",
+      "title": "À quoi cela ressemble au quotidien.",
+      "lede": "L'essentiel du travail se passe dans votre dépôt, dans un canal partagé et dans des comptes rendus écrits. Les appels sont planifiés quand ils font vraiment gagner du temps, pas comme un rituel hebdomadaire.",
+      "items": {
+        "async": {
+          "title": "L'écrit d'abord, les appels quand ils servent",
+          "body": "L'essentiel du travail se passe dans votre dépôt, dans un canal partagé et dans des documents de revue. Un appel est planifié quand il fait gagner du temps, pas pour remplir une case dans l'agenda."
+        },
+        "channel": {
+          "title": "Un canal partagé pour les questions",
+          "body": "Slack, Discord, ou ce que votre équipe utilise déjà. Les réponses arrivent le jour ouvré même — pas 24 h sur 24, mais jamais de silence pendant des jours."
+        },
+        "written": {
+          "title": "Tout est écrit",
+          "body": "Chaque revue, chaque décision et chaque chantier finit dans un document que votre équipe pourra relire plus tard. Rien d'important ne reste dans la tête d'une seule personne."
+        },
+        "rhythm": {
+          "title": "Un rythme sur lequel on peut s'organiser",
+          "body": "Un point hebdomadaire par défaut, des appels d'approfondissement quand le travail le demande. Divine travaille depuis l'Afrique de l'Ouest et recoupe les horaires américains, européens et africains."
+        }
+      },
+      "stackLink": "Voir la stack sur laquelle tournent ces projets"
+    },
+    "steps": {
+      "label": "Pour commencer",
+      "title": "Trois étapes, environ une semaine.",
+      "items": {
+        "intake": {
+          "title": "Appel de cadrage",
+          "body": "Trente minutes pour comprendre ce que vous construisez, là où ça coince, et si l'une de ces formes de mission convient. Pas de présentation, pas d'argumentaire commercial."
+        },
+        "proposal": {
+          "title": "Proposition chiffrée",
+          "body": "Sous quelques jours, vous recevez une proposition d'une page : le périmètre, les livrables et le prix. En langage clair, sans surprise ensuite."
+        },
+        "start": {
+          "title": "Démarrage",
+          "body": "À la signature et au premier paiement, le travail commence à la date convenue. La plupart des missions démarrent sous une semaine."
+        }
+      }
+    },
+    "faq": {
+      "label": "Questions fréquentes",
+      "title": "Avant d'écrire.",
+      "lede": "Tout ce qui n'a pas de réponse ici mérite d'être posé lors de l'appel de cadrage — il est gratuit, et c'est le moyen le plus rapide de savoir si la collaboration a du sens.",
+      "items": {
+        "scope": {
+          "q": "Divine fait-il à la fois du développement et du conseil ?",
+          "a": "Oui. La plupart des missions sont du développement — systèmes de paiement, SaaS, mobile, sites vitrines, fonctionnalités IA. Il accepte aussi des missions de conseil seul, quand une équipe a simplement besoin d'un deuxième avis ou de quelqu'un à qui soumettre ses décisions."
+        },
+        "advisoryToBuild": {
+          "q": "Une mission de conseil peut-elle devenir un développement complet ?",
+          "a": "Oui. Si une mission de conseil fait apparaître un chantier que vous voulez mener, il est chiffré séparément et SaaS Simplified le prend en charge. Conseil et développement sont toujours facturés séparément — il n'y a jamais de pression commerciale pendant les heures de conseil."
+        },
+        "who": {
+          "q": "Qui fait réellement le travail ?",
+          "a": "Divine, en tant qu'ingénieur senior responsable de la mission. Les développements plus importants sont livrés via SaaS Simplified, l'agence qu'il a fondée en 2018, et le périmètre dit d'emblée qui intervient."
+        },
+        "nda": {
+          "q": "Signez-vous des accords de confidentialité ?",
+          "a": "Oui. Envoyez le vôtre et il sera relu ; si vous n'en avez pas, un accord de confidentialité mutuel court est prêt à être partagé."
+        },
+        "speed": {
+          "q": "Sous quel délai peut-on démarrer ?",
+          "a": "La plupart des missions démarrent sous une semaine après la signature. Les développements plus importants peuvent demander plus de temps à planifier, et vous l'entendrez lors de l'appel de cadrage plutôt qu'après la signature."
+        },
+        "capacity": {
+          "q": "Combien de clients en parallèle ?",
+          "a": "Un petit nombre, délibérément, pour que chaque client ait une vraie attention senior plutôt qu'un temps partagé. S'il n'y a plus de place, on vous le dira lors de l'appel de cadrage et une date de démarrage vous sera proposée."
+        }
+      }
+    },
+    "cta": {
+      "title": "Parlez à Divine du système sur lequel vous travaillez.",
+      "body": "Quelques phrases suffisent : ce qu'il fait, là où ça coince, et sous quel délai vous en avez besoin. La réponse arrive sous un jour ouvré, avec un avis honnête sur la pertinence de la mission.",
+      "primary": "Réserver un appel de cadrage",
+      "whatsapp": "Écrire sur WhatsApp",
+      "emailPrefix": "Ou écrivez à",
+      "caseStudiesPrefix": "Les projets clients livrés sont présentés sur"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contact",
+      "description": "Contacter Enow Divine — systèmes de paiement, produits SaaS, applications mobiles, sites d'entreprise et fonctionnalités IA. WhatsApp, e-mail ou formulaire ; la réponse arrive sous un jour ouvré."
+    },
+    "hero": {
+      "label": "Contact",
+      "title": "Dites à Divine ce que vous avez besoin de construire.",
+      "lede": "Quelques phrases suffisent : ce que ça fait, là où ça coince, et pour quand. Chaque message reçoit une vraie réponse sous un jour ouvré."
+    },
+    "form": {
+      "ariaLabel": "Formulaire de contact",
+      "name": "Nom *",
+      "namePlaceholder": "Jeanne Martin",
+      "company": "Entreprise",
+      "companyPlaceholder": "Acme SARL",
+      "email": "E-mail *",
+      "emailPlaceholder": "jeanne@acme.com",
+      "message": "Message *",
+      "messagePlaceholder": "Quelques phrases sur le projet, le problème ou la question…",
+      "aboutLabel": "De quoi s'agit-il ?",
+      "reasons": {
+        "project": "Un projet",
+        "contract": "Mission ou conseil",
+        "fulltime": "Poste senior à temps plein",
+        "other": "Autre chose"
+      },
+      "submit": "Envoyer le message",
+      "sending": "Envoi…",
+      "replyNote": "Réponse sous un jour ouvré",
+      "errors": {
+        "rateLimited": "Cela fait plusieurs messages en peu de temps. Patientez un instant, ou écrivez directement à {email}.",
+        "invalid": "Ce message n'a pas pu être envoyé — vérifiez le nom, l'e-mail et le message, puis réessayez.",
+        "generic": "L'envoi a échoué. Si cela se reproduit, écrivez directement à {email}.",
+        "network": "Le message n'a pas atteint le serveur. Vérifiez votre connexion, ou écrivez directement à {email}."
+      }
+    },
+    "success": {
+      "title": "Message envoyé.",
+      "body": "La réponse arrive sous un jour ouvré. Si c'est urgent, WhatsApp est la porte la plus rapide.",
+      "whatsapp": "WhatsApp",
+      "again": "Envoyer un autre message"
+    },
+    "side": {
+      "reachLabel": "Le joindre directement",
+      "whatsapp": "WhatsApp",
+      "goodToKnow": "Bon à savoir",
+      "timeZones": {
+        "term": "Fuseaux horaires couverts",
+        "value": "États-Unis · Europe · Afrique, à distance et avec des horaires souples"
+      },
+      "next": {
+        "term": "Ce qui se passe ensuite",
+        "value": "Une réponse sous un jour ouvré, puis un appel de cadrage de 30 minutes si la collaboration a du sens."
+      },
+      "based": {
+        "term": "Basé à"
+      }
+    }
+  },
+  "HirePage": {
+    "breadcrumbAria": "Fil d'Ariane",
+    "breadcrumb": "Recrutement",
+    "badge": "Disponible pour de nouvelles missions",
+    "ctaPrimary": "Entamer la discussion",
+    "whatsapp": "WhatsApp",
+    "cv": "Télécharger le CV",
+    "evidence": {
+      "label": "Preuves",
+      "title": "À quoi cela ressemble en production."
+    },
+    "stack": {
+      "label": "Stack complète",
+      "title": "Tout ce avec quoi il travaille."
+    },
+    "cta": {
+      "title": "Besoin d'un {role} sur ce chantier ?",
+      "body": "Divine ne prend qu'un petit nombre de missions à la fois. Envoyez le brief — périmètre, calendrier et état actuel — et la réponse arrive sous un jour ouvré.",
+      "points": {
+        "years": "Plus de 7 ans en production",
+        "timeZones": "Fuseaux États-Unis · Europe · Afrique",
+        "scope": "Périmètre fixe, écrit à l'avance"
+      },
+      "primary": "Entamer la discussion",
+      "email": "Écrire au sujet de ce poste",
+      "orSee": "Ou voyez <link>comment une mission se déroule</link>."
+    }
+  },
+  "HireSpecialties": {
+    "senior-node-js-engineer": {
+      "title": "Recruter un ingénieur Node.js senior",
+      "role": "Ingénieur Node.js senior",
+      "roleLower": "ingénieur Node.js senior",
+      "metaDescription": "Recrutez Enow Divine, ingénieur Node.js senior avec plus de 7 ans passés à livrer des backends en production pour la fintech, le transfert d'argent et le SaaS. Disponible pour des postes seniors à distance et du conseil.",
+      "lead": "Enow construit et assume des backends Node.js de production de bout en bout — architecture, livraison, astreinte. Sept ans sur des plateformes de paiement, des applications de transfert d'argent, du SaaS par abonnement et de l'infrastructure open source. Disponible pour des postes seniors à distance et quelques missions de conseil.",
+      "bulletsIntro": "Travaux Node.js récents, avec un impact réel plutôt que des mots-clés de stack :"
+    },
+    "senior-backend-engineer": {
+      "title": "Recruter un ingénieur backend senior",
+      "role": "Ingénieur backend senior",
+      "roleLower": "ingénieur backend senior",
+      "metaDescription": "Recrutez un ingénieur backend senior avec plus de 7 ans dans les paiements, les systèmes distribués et le SaaS multi-locataires. Livraison à distance éprouvée sur les fuseaux américains, européens et africains.",
+      "lead": "Enow est spécialisé dans les parties difficiles : des flux d'argent qui ne débitent pas deux fois, des systèmes qui restent cohérents sous charge, et des services qui échouent sans casser. Sept ans à livrer les backends de produits fintech, de transfert d'argent et de SaaS à l'échelle d'une plateforme.",
+      "bulletsIntro": "Missions backend actuellement en production :"
+    },
+    "payment-systems-engineer": {
+      "title": "Recruter un ingénieur systèmes de paiement",
+      "role": "Ingénieur systèmes de paiement",
+      "roleLower": "ingénieur systèmes de paiement",
+      "metaDescription": "Ingénierie des systèmes de paiement — Stripe, mobile money, multidevise, idempotence, rapprochement. Enow Divine construit des couches de flux d'argent qui ne débitent pas deux fois et qui règlent exactement ce qui a été promis.",
+      "lead": "Les paiements ne pardonnent pas : doubles débits, pannes silencieuses et écarts de rapprochement se transforment vite en pertes de revenus et de confiance. Enow a passé plus de 7 ans à construire la couche de flux d'argent de plateformes de transfert, d'abonnement et de financement participatif — idempotente, auditable et juste même en cas de réessai.",
+      "bulletsIntro": "Quelques travaux sur les systèmes de paiement :"
+    },
+    "stripe-integration-consultant": {
+      "title": "Recruter un consultant en intégration Stripe",
+      "role": "Consultant en intégration Stripe",
+      "roleLower": "consultant en intégration Stripe",
+      "metaDescription": "Consultant en intégration Stripe avec une expérience en production sur les abonnements, les paiements ponctuels, la vérification des reçus et le rapprochement. Disponible en conseil à distance.",
+      "lead": "Stripe bien fait, cela veut dire des renouvellements qui ne tombent jamais, des reçus infalsifiables et des webhooks que l'on peut réessayer sans rien compter deux fois. Enow a livré et assume ces garanties en production, pour des abonnements SaaS comme pour du séquestre de financement participatif.",
+      "bulletsIntro": "Travaux proches de Stripe déjà en ligne :"
+    },
+    "react-native-developer": {
+      "title": "Recruter un développeur React Native",
+      "role": "Développeur React Native",
+      "roleLower": "développeur React Native",
+      "metaDescription": "Développeur React Native avec des applications publiées sur l'App Store et le Play Store. Expérience mobile en transfert d'argent, rencontres et billetterie d'événements. Disponible pour des missions à distance.",
+      "lead": "Du mobile multiplateforme qui sort et qui tient : 5 applications en ligne sur l'App Store et le Play Store, dans le transfert d'argent, la billetterie et les rencontres. Enow assume toute la partie mobile, de l'outillage Expo aux modules natifs et à l'intégration des SDK de paiement.",
+      "bulletsIntro": "Travaux mobiles livrés à de vrais utilisateurs :"
+    },
+    "typescript-engineer": {
+      "title": "Recruter un ingénieur TypeScript senior",
+      "role": "Ingénieur TypeScript senior",
+      "roleLower": "ingénieur TypeScript senior",
+      "metaDescription": "Ingénieur TypeScript senior sur les backends Node.js, les frontends React et le mobile React Native. Plus de 7 ans de code de production typé strictement. Disponible pour des postes à distance.",
+      "lead": "Enow travaille de bout en bout en TypeScript : backends Node typés strictement, frontends React et Next.js, mobile React Native et paquets npm open source. Le typage comme outil de conception, pas comme formalité.",
+      "bulletsIntro": "Travaux récents à forte dose de TypeScript :"
+    },
+    "distributed-systems-engineer": {
+      "title": "Recruter un ingénieur systèmes distribués",
+      "role": "Ingénieur systèmes distribués",
+      "roleLower": "ingénieur systèmes distribués",
+      "metaDescription": "Ingénieur systèmes distribués avec une expérience réelle de l'ordre des événements, des traitements idempotents, des conditions de concurrence et de la cohérence entre services. Disponible pour des postes seniors à distance.",
+      "lead": "Les vrais problèmes des systèmes distribués sont ceux qui n'apparaissent qu'en production : événements dans le désordre, notifications réessayées, conditions de concurrence sur un état partagé. Enow a corrigé et assume ces familles de bugs sur du SaaS multi-locataires et des plateformes de paiement.",
+      "bulletsIntro": "Travaux sur les systèmes distribués en production :"
+    },
+    "fintech-backend-engineer": {
+      "title": "Recruter un ingénieur backend fintech",
+      "role": "Ingénieur backend fintech",
+      "roleLower": "ingénieur backend fintech",
+      "metaDescription": "Ingénieur backend fintech avec une expérience publiée en transfert d'argent, financement participatif et abonnements. Flux d'argent idempotents, vérification des reçus, séquestre, pistes d'audit.",
+      "lead": "Un backend fintech vit et meurt sur la justesse, pas sur les fonctionnalités. Enow a livré des corridors de transfert qui verrouillent le taux à l'envoi, du séquestre de financement participatif qui ne se libère qu'une fois l'objectif atteint, et des systèmes d'abonnement qui rattrapent les renouvellements échoués sans double débit.",
+      "bulletsIntro": "Missions fintech en production :"
+    }
+  },
+  "DomainPage": {
+    "breadcrumbAria": "Fil d'Ariane",
+    "breadcrumb": "Domaine de conseil",
+    "badge": "Domaine de conseil",
+    "ctaPrimary": "Réserver un appel de cadrage",
+    "whatsapp": "WhatsApp",
+    "track": {
+      "label": "Antécédents",
+      "title": "Déjà livré, déjà en production."
+    },
+    "cta": {
+      "title": "Vous construisez quelque chose dans ce domaine ?",
+      "body": "Divine ne prend qu'un petit nombre de missions à la fois. Envoyez le brief et attendez-vous à une réponse sous un jour ouvré.",
+      "primary": "Entamer la discussion",
+      "email": "Écrire à ce sujet",
+      "caseStudiesPrefix": "Les études de cas clients complètes sont sur"
+    }
+  },
+  "DomainTopics": {
+    "payment-reconciliation": {
+      "title": "Conseil en rapprochement des paiements",
+      "role": "Spécialiste du rapprochement des paiements",
+      "metaDescription": "Conseil en rapprochement des paiements, webhooks sûrs au réessai et prévention des doublons. Expérience réelle en production sur Stripe, le mobile money et les stacks multidevises.",
+      "lead": "L'écart de rapprochement, c'est ce qui transforme un système de paiement sain en machine à tickets de support. Enow construit des couches de rapprochement qui survivent aux webhooks réessayés, aux notifications dupliquées des prestataires et aux désaccords entre prestataires — pour que le grand livre corresponde toujours à l'argent.",
+      "bulletsIntro": "Travaux de rapprochement déjà en ligne :"
+    },
+    "cross-border-remittance": {
+      "title": "Ingénierie du transfert d'argent transfrontalier",
+      "role": "Ingénieur transfert d'argent transfrontalier",
+      "metaDescription": "Ingénierie du transfert d'argent transfrontalier — verrouillage du taux, intégration mobile money, rapprochement multi-corridors. Une application de transfert diaspora-Afrique construite et mise en ligne.",
+      "lead": "Le transfert d'argent transfrontalier, c'est quand des gens vous confient leur salaire. Enow a mis en ligne un produit de transfert BHD/GBP → XAF sur 5 corridors, avec un taux verrouillé à l'envoi, des calculs décimaux sûrs pour l'argent et une protection contre les transferts en double.",
+      "bulletsIntro": "Travaux de transfert d'argent en production :"
+    },
+    "subscription-payments": {
+      "title": "Systèmes de paiement par abonnement",
+      "role": "Ingénieur paiements par abonnement",
+      "metaDescription": "Systèmes de paiement par abonnement — rattrapage des renouvellements, relances, vérification des reçus, prévention des fuites de revenus. Responsable de la couche de paiement de SaaS réellement en production.",
+      "lead": "Le revenu d'abonnement fuit de cent façons silencieuses : renouvellements perdus, reçus falsifiés, conditions de concurrence pendant un réessai de paiement. Enow ferme chacune de ces pannes et assume les chemins de reprise en production.",
+      "bulletsIntro": "Travaux sur les paiements par abonnement :"
+    },
+    "mobile-money-integration": {
+      "title": "Intégration mobile money",
+      "role": "Ingénieur intégration mobile money",
+      "metaDescription": "Intégration mobile money sur MTN, Orange et d'autres rails africains. Expérience en production : transfert d'argent, billetterie d'événements, admissions, transferts transfrontaliers.",
+      "lead": "Le mobile money, c'est la façon dont l'argent circule en Afrique. Enow a intégré MTN Mobile Money, Orange Money et Fapshi sur des plateformes de transfert, de billetterie et d'admissions — rapprochement, logique de réessai et protection contre la fraude comprises.",
+      "bulletsIntro": "Intégrations mobile money livrées :"
+    },
+    "multi-tenant-saas": {
+      "title": "Backend SaaS multi-locataires",
+      "role": "Ingénieur SaaS multi-locataires",
+      "metaDescription": "Ingénierie de backend SaaS multi-locataires — autorisation par rôle, ordre des événements entre services, isolation des données par locataire. Responsable du backend principal d'une plateforme multi-locataires en production.",
+      "lead": "Le SaaS multi-locataires, c'est là où un bug d'autorisation devient une fuite de données et une course aux événements un état client incohérent. Enow est l'ingénieur backend principal d'une plateforme multi-locataires en production destinée aux communautés religieuses, où il reconstruit l'autorisation par rôle et la propagation des événements sur plus de 15 services.",
+      "bulletsIntro": "Travaux multi-locataires en production :"
+    }
+  },
+  "NotFoundPage": {
+    "label": "404",
+    "title": "Cette page n'est pas ici.",
+    "lede": "Elle a peut-être été déplacée, ou n'a peut-être jamais existé. Le travail, lui, reste à un clic.",
+    "consulting": "Voir les prestations",
+    "home": "Retour à l'accueil"
+  },
+  "ChatWidget": {
+    "launcher": {
+      "open": "Poser une question",
+      "close": "Fermer",
+      "openAria": "Poser une question sur Divine",
+      "closeAria": "Fermer l'assistant"
+    },
+    "panel": {
+      "title": "Questions sur Divine",
+      "subtitle": "Les réponses ne viennent que de ce site",
+      "dialogLabel": "Poser une question sur {name}",
+      "conversation": "Conversation",
+      "clear": "Effacer la conversation",
+      "fullscreen": "Passer en plein écran",
+      "fullscreenAria": "Afficher l'assistant en plein écran",
+      "exitFullscreen": "Quitter le plein écran",
+      "close": "Fermer",
+      "closeAria": "Fermer l'assistant",
+      "thinking": "Réflexion…",
+      "inputPlaceholder": "Posez une question…",
+      "inputLabel": "Votre question",
+      "send": "Envoyer la question"
+    },
+    "empty": {
+      "body": "Posez n'importe quelle question sur {name} — son parcours, ses spécialités, ou comment travailler avec lui.",
+      "footer": "Réponses générées par IA · vérifiez ce qui compte"
+    },
+    "starters": {
+      "who": {
+        "label": "Qui est Divine ?",
+        "hint": "La version courte",
+        "question": "Qui est Enow Divine ?"
+      },
+      "what": {
+        "label": "Que fait-il ?",
+        "hint": "Spécialités et stack",
+        "question": "Que fait Enow Divine ?"
+      },
+      "work": {
+        "label": "Sur quoi a-t-il travaillé ?",
+        "hint": "Postes et projets livrés",
+        "question": "Sur quoi Enow Divine a-t-il travaillé ?"
+      },
+      "hire": {
+        "label": "Est-il disponible ?",
+        "hint": "Recrutement et conseil",
+        "question": "Enow Divine est-il disponible, et comment le recruter ?"
+      }
+    },
+    "errors": {
+      "notConfigured": "L'assistant n'est pas disponible pour le moment. Vous pouvez toujours joindre Divine directement à {email}.",
+      "rateLimited": "Cela fait beaucoup de questions d'un coup — patientez une minute et réessayez.",
+      "unavailable": "L'assistant est momentanément indisponible. Réessayez dans un instant.",
+      "invalidRequest": "Ce message n'a pas pu être envoyé. Essayez de le reformuler.",
+      "generic": "L'envoi a échoué. Veuillez réessayer.",
+      "network": "Le message n'a pas atteint le serveur. Vérifiez votre connexion et réessayez."
+    }
+  }
+}

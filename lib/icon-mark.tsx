@@ -2,16 +2,18 @@ import type { ReactElement } from "react";
 
 /**
  * The site mark: the initial "D" knocked out of a solid, square field of the
- * brand teal. Colours are the exact `--color-primary` / `--color-primary-
- * foreground` tokens from globals.css, resolved to hex because Satori (the
- * renderer behind `next/og`) is happiest with literal colours.
+ * brand amber. Colours are the `--color-amber` / `--color-ink` tokens from
+ * globals.css, resolved to hex because Satori (the renderer behind `next/og`)
+ * is happiest with literal colours.
  *
- * The teal field is deliberate rather than decorative: it gives the icon a
+ * The amber field is deliberate rather than decorative: it gives the icon a
  * background of its own so the mark keeps its presence against both light and
- * dark browser chrome, instead of dissolving into a dark tab strip.
+ * dark browser chrome, instead of dissolving into a dark tab strip. Amber on
+ * ink is also the one pairing that colour is allowed (8.01:1) — see the token
+ * note in globals.css.
  */
-const FIELD = "#2fdad5"; // hsl(178 70% 52%) — --color-primary
-const INK = "#082121"; // hsl(180 60% 8%)  — --color-primary-foreground
+const FIELD = "#FBA441"; // hsl(32 96% 62%) — --color-amber
+const INK = "#152330"; // hsl(205 40% 13%) — --color-ink
 
 /**
  * Ratios are expressed against the icon's edge length so every size renders
