@@ -62,7 +62,7 @@ const SERVICES = [
 const RECENT = [
   { key: "tyketz", name: "Tyketz", href: "https://tyketz.com" },
   { key: "esqs", name: "ES QS", href: "https://es-qs.com" },
-  { key: "uniassist", name: "UniAssist Africa", href: "https://uniassist.africa" },
+  { key: "dira", name: "Dira Education", href: "https://www.dira.education" },
   { key: "agency", name: "SaaS Simplified", href: AGENCY_URL },
 ] as const;
 
